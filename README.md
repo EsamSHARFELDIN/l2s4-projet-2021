@@ -6,9 +6,9 @@ Une fois cela réalisé supprimer ces premières lignes et remplissez les noms d
 
 # Equipe
 
-- Simon Legros
-- Kilian Moncheaux
-- Zo_Tahina Ratefiarivony
+- Simon LEGROS
+- Kilian MONCHEAUX
+- Zo_Tahina RATEFIARIVONY
 - Esam SHARFELDIN
 
 # Sujet
