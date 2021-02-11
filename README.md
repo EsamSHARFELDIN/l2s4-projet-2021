@@ -1,9 +1,5 @@
 # l2s4-projet-2021
 
-Vous devez *forker* ce projet dans votre espace de travail Gitlab (bouton `Fork`) et vidéo sur le [portail](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents)
-
-Une fois cela réalisé supprimer ces premières lignes et remplissez les noms des membres de votre équipe.
-
 # Equipe
 
 - Simon LEGROS
