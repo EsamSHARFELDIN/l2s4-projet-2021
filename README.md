@@ -43,6 +43,38 @@ Les classes `Army` et `Worker` qui héritent de `Unit` implémentent la méthode
 `cost` et définissent des comportements supplémentaires qui correspondent à
 leur rôle dans les deux jeux proposés.
 
+Pour modéliser les joueurs et les actions qu'ils peuvent entreprendre dans
+différents jeux, nous avons supposé l'existence d'une interface permettant de
+représenter les actions des personnages. A ce stade de la modélisation, on
+suppose que `Action` est une interface comportant une méthode permettant à
+un joueur qui a choisi une action de l'exécuter `execute()`.
+
+La classe abstraite `Player` permet de représenter un joueur. Un joueur
+possède un nom, une liste de personnages qu'il contrôle, ainsi que des stocks
+de ressources. Des méthodes permettant d'interagir avec les stocks et les
+personnages possédés par un joueur sont définies. On définit également des
+comportements permettant de réaliser les actions qui sont communes aux
+joueurs de différents jeux :
+- `chooseAction(): Action` renvoie une instance d'une classe implémentant
+  l'interface `Action` et représentant l'action choisie par le joueur parmi
+  celles qui sont disponibles dans un jeu particulier
+- `collectResources()` permet d'effectuer la collecte des ressources
+  qui sont fournies par les unités possédées par le joueur
+- `remunerate(Unit)` permet de payer le coût lié à l'entretien d'une unité
+- `canRemunerate(Unit): boolean` permet de savoir si les ressources du
+  joueur lui permettent d'entretenir une de ses unités à un moment donné
+- `convertResource()` est une méthode abstraite permettant de convertir
+  les ressources (naturelles) d'un joueur en d'autres ressources (par exemple
+  de la nourriture, ou de l'or). Cette méthode est abstraite car il n'existe
+  pas de comportement valable par défaut
+
+Il doit être possible d'utiliser des classes héritant de `Player` dans
+différents jeux, à conditions de définir des classes implémentant `Action`,
+représentant les actions qui sont disponibles à un joueur dans un jeu quelconque.
+Les classes `WarPlayer` et `AgricolPlayer` sont proposées et correspondent
+aux deux jeux demandés. Ces classes définissent des comportements spécifiques
+à ces jeux.
+
 ### Difficultés restant à résoudre
 
 - Nous avons prévu des méthodes, dans les classes `Unit`, `Player` et les
