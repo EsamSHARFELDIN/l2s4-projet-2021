@@ -1,4 +1,7 @@
-// package TODO
+package game;
+
+import java.awt.image.TileObserver;
+
 
 /**
  * A class to represent units in different board games
@@ -6,54 +9,77 @@
  * who owns them, and an amount of gold they possess
  * @version 22/02/2021
  */
+
 public abstract class Unit {
-    /**
+	protected Tile place;
+	protected Player player;
+	protected int goldQuantily;
+	
+	/**
      * Construct a unit defined by a tile and a player
      * @param tile The tile occupied by the unit
      * @param player The player the unit belongs to
      */
-    public Unit(Tile tile, Player player);
 
-    /**
+	public Unit(Tile place, Player player) {
+		super();
+		this.place = place;
+		this.player = player;
+	}
+	/**
      * Set the tile occupied by the unit
      * @param tile New tile occupied by the unit
      */
-    public void setTile(Tile tile);
+    public void setTile(Tile tile) {
+    	
+    }
+    
 
     /**
      * Get the tile occupied by the unit
      * @return The tile occupied
      */
-    public Tile getTile();
+    public Tile getTile() {
+    }
+    
 
     /**
      * Set the player the unit belongs to
      * @param player The player the unit belongs to
      */
-    public void setPlayer(Player player);
+    public void setPlayer(Player player) {
+    }
+    
 
     /**
      * Get the player the unit belongs to
      * @return The player the unit belongs to
      */
-    public Player getPlayer();
-
+    public Player getPlayer() {
+    	
+    }
     /**
      * Increment the amount of gold owned by the unit
      * @param gold Amount to increment the quantity of gold owned
      */
-    public void receiveGold(int gold);
+    public void receiveGold(int gold) {
+    	
+    }
 
     /**
      * Get the amount of gold owned by the unit
      * @return Amount of gold
      */
-    public int getGold();
+    public int getGold() {
+    	
+    }
 
     /**
      * Destroy a unit and perform clean-up actions
      */
-    public void destroy();
+    public void destroy() {
+    	
+    }
 
     /**
      * Return a reference to a resource corresponding to the
@@ -61,7 +87,9 @@ public abstract class Unit {
      * @return A reference to a resource object corresponding
      * to the occupied tile
      */
-    public Resource provideResource();
+    public Resource provideResource() {
+    	
+    }
 
     /**
      * Return the maintenance associated with the unit
@@ -73,7 +101,9 @@ public abstract class Unit {
      * Return the number of points the unit is worth
      * @return Number of points corresponding to the unit
      */
-    public int points();
+    public int points() {
+    	
+    }
 
     /** Tile occupied by the unit */
     protected Tile tile;
@@ -83,4 +113,8 @@ public abstract class Unit {
 
     /** Amount of gold possessed by the unit */
     protected int goldQuantity;
+
+	
+	
+    
 }
