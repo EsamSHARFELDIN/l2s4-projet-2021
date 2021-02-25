@@ -6,11 +6,11 @@ package game;
  */
 
 public class AgricolPlayer extends Player{
+	
 	/**
     * create a Player with given name.
     * @param name the name of the Player.
     */
-
 	public AgricolPlayer(String name, int rockStock, int sandStock, int wheatStock, int woodStock, int goldStock) {
 		super(name, rockStock, sandStock, wheatStock, woodStock, goldStock);
 		
@@ -18,9 +18,8 @@ public class AgricolPlayer extends Player{
 	
 
 	/**
-    * convert the player's ressource in gold.
+    * convert the player's resource in gold.
     */
-
 	@Override
 	public void convertResource() {
 		

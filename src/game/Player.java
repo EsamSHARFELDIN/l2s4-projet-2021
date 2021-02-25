@@ -44,7 +44,7 @@ public abstract class Player {
 	 * @return an instance of a class implementing the Action.
 	 */
 	public Action chooseAction() {
-		
+		return null;
 	}
 	
 	
@@ -99,7 +99,7 @@ public abstract class Player {
 	/**
 	 * is an abstract method, to converting a player's resources into other resources.
 	 */
-	public abstract convertResource();
+	public abstract void convertResource();
 	
 	
 	
@@ -108,7 +108,7 @@ public abstract class Player {
 	 * @param resource
 	 * @return
 	 */
-	public int getResourcet(Resource resource){
+	public int getResource(Resource resource){
 		return 0;
 
 	}
@@ -129,7 +129,7 @@ public abstract class Player {
 	 * @param i
 	 * @param resource the resource of the player
 	 */
-	public void decrementResource(int i,Resource resource) {
+	public void decrementResource(int i, Resource resource) {
 		
 	}
 

@@ -1,8 +1,5 @@
 package game;
 
-import java.awt.image.TileObserver;
-
-
 /**
  * A class to represent units in different board games
  * Units are defined by the tile they occupy, the player
@@ -11,9 +8,9 @@ import java.awt.image.TileObserver;
  */
 
 public abstract class Unit {
-	protected Tile place;
-	protected Player player;
-	protected int goldQuantily;
+//	protected Tile place;
+//	protected Player player;
+//	protected int goldQuantily;
 	
 	/**
      * Construct a unit defined by a tile and a player
@@ -40,6 +37,7 @@ public abstract class Unit {
      * @return The tile occupied
      */
     public Tile getTile() {
+    	return null;
     }
     
 
@@ -56,7 +54,7 @@ public abstract class Unit {
      * @return The player the unit belongs to
      */
     public Player getPlayer() {
-    	
+    	return null;
     }
     /**
      * Increment the amount of gold owned by the unit
@@ -71,7 +69,7 @@ public abstract class Unit {
      * @return Amount of gold
      */
     public int getGold() {
-    	
+    	return 0;
     }
 
     /**
@@ -88,7 +86,7 @@ public abstract class Unit {
      * to the occupied tile
      */
     public Resource provideResource() {
-    	
+    	return null;
     }
 
     /**
@@ -102,11 +100,11 @@ public abstract class Unit {
      * @return Number of points corresponding to the unit
      */
     public int points() {
-    	
+    	return 0;
     }
 
     /** Tile occupied by the unit */
-    protected Tile tile;
+    protected Tile place;
 
     /** Player to which the unit belongs */
     protected Player player;

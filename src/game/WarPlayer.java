@@ -32,7 +32,7 @@ public class WarPlayer extends Player {
 		this.foodStock = foodStock;
 	}
 	/**
-	 * convert the player's ressource in food.
+	 * convert the player's resource in food.
 	 */
 	@Override
 	public void convertResource() {
@@ -78,7 +78,7 @@ public class WarPlayer extends Player {
 	}
 	/**
 	 * decrease the player's stock of food.
-     * @param decr tthe value of the decrement of the Player's food stock.
+     * @param decr the value of the decrement of the Player's food stock.
 
 	 */
 	public void decrementFoodStock(int decr) {

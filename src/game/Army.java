@@ -72,7 +72,7 @@ public class Army extends Unit {
 	@Override
 	public int cost() {
 		// TODO Auto-generated method stub
-		return super.cost();
+		return 0;
 	}
 	 /**
      * gives the value of quantity of food this army needs to be kept after one turn.

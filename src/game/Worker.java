@@ -21,7 +21,7 @@ public class Worker extends Unit{
 	}
 	/**
 	 * gives the gold coin given by this worker when the player choose to do nothing (in the 1st step on the turn).
-	 * It depands on this worker's place.
+	 * It depends on this worker's place.
 	 * @see "Original subjects section 3.2, régles complémentaires en fonction des territoires."
 	 * @return the gold coin given by this worker depending on this worker's place, when the player choose to do nothng.
 	 */
@@ -34,12 +34,12 @@ public class Worker extends Unit{
 	/**
 	 * gives the value of the remuneration (salary) this worker need to be kept after one turn.
 	 * @return the remuneration (salary) this worker need to be kept after one turn, it depends on the type of place it is 
-	 * set on (mounain, plain, forest, ...)
+	 * set on (mountain, plain, forest, ...)
 	 */
 	@Override
 	public int cost() {
 		// TODO Auto-generated method stub
-		return super.cost();
+		return 0;
 	}
 	
 	
