@@ -6,62 +6,56 @@ package game;
  * who owns them, and an amount of gold they possess
  * @version 22/02/2021
  */
-
 public abstract class Unit {
-//	protected Tile place;
-//	protected Player player;
-//	protected int goldQuantily;
-	
-	/**
+    /**
      * Construct a unit defined by a tile and a player
      * @param tile The tile occupied by the unit
      * @param player The player the unit belongs to
      */
+    public Unit(Tile tile, Player player) {
+        this.tile = tile;
+        this.player = player;
+        this.goldQuantity = 0;
+    }
 
-	public Unit(Tile place, Player player) {
-		super();
-		this.place = place;
-		this.player = player;
-	}
-	/**
+    /**
      * Set the tile occupied by the unit
      * @param tile New tile occupied by the unit
      */
     public void setTile(Tile tile) {
-    	
+        this.tile = tile;
     }
-    
 
     /**
      * Get the tile occupied by the unit
      * @return The tile occupied
      */
     public Tile getTile() {
-    	return null;
+        return this.tile;
     }
-    
 
     /**
      * Set the player the unit belongs to
      * @param player The player the unit belongs to
      */
     public void setPlayer(Player player) {
+        this.player = player;
     }
-    
 
     /**
      * Get the player the unit belongs to
      * @return The player the unit belongs to
      */
     public Player getPlayer() {
-    	return null;
+        return this.player;
     }
+
     /**
      * Increment the amount of gold owned by the unit
      * @param gold Amount to increment the quantity of gold owned
      */
     public void receiveGold(int gold) {
-    	
+        this.goldQuantity += gold;
     }
 
     /**
@@ -69,14 +63,14 @@ public abstract class Unit {
      * @return Amount of gold
      */
     public int getGold() {
-    	return 0;
+        return this.goldQuantity;
     }
 
     /**
      * Destroy a unit and perform clean-up actions
      */
     public void destroy() {
-    	
+        this.tile.setPlayer(null); // TODO check
     }
 
     /**
@@ -86,7 +80,7 @@ public abstract class Unit {
      * to the occupied tile
      */
     public Resource provideResource() {
-    	return null;
+        return this.tile.getResource(); // TDOD check
     }
 
     /**
@@ -100,7 +94,7 @@ public abstract class Unit {
      * @return Number of points corresponding to the unit
      */
     public int points() {
-    	return 0;
+        return this.goldQuantity;
     }
 
     /** Tile occupied by the unit */
@@ -111,8 +105,4 @@ public abstract class Unit {
 
     /** Amount of gold possessed by the unit */
     protected int goldQuantity;
-
-	
-	
-    
 }
