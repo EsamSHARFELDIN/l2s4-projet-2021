@@ -32,6 +32,16 @@ public class WarPlayer extends Player {
 		this.foodStock = foodStock;
 	}
 	/**
+	 * Create a player for the war game with given name.
+	 * 
+	 * Initially the player has 35 warriors, 10 food unit and 0 gold coin.
+	 * @param name name of this player.
+	 */
+	public WarPlayer(String name) {
+		super("Foo", 0, 0, 0, 0, 0);
+	}
+	
+	/**
 	 * convert the player's resource in food.
 	 */
 	@Override

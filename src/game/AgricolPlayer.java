@@ -15,6 +15,15 @@ public class AgricolPlayer extends Player{
 		super(name, rockStock, sandStock, wheatStock, woodStock, goldStock);
 		
 	}
+	/**
+	 * create a player for the agricol game with the given name.
+	 * 
+	 * Initially, this player has 15 gold coin.
+	 * @param name name of this player
+	 */
+	public AgricolPlayer(String name) {
+		super("Bar", 0, 0, 0, 0, 0);
+	}
 	
 
 	/**
