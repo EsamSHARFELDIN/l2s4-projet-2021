@@ -103,7 +103,7 @@ public abstract class Player {
 	
 	
 	
-	/**
+	/** 
 	 * to get the player resource.
 	 * @param resource
 	 * @return 
