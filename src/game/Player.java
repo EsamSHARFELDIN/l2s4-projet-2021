@@ -50,7 +50,6 @@ public abstract class Player {
 	
 	/**
 	 * to collect the resources owned by the player.
-	 * 
 	 */
 	public void collectResources(){
 		
@@ -59,8 +58,8 @@ public abstract class Player {
 	
 	
 	/**
-	 * 
-	 * @param unit
+	 * to add a unit in the player stock.
+	 * @param unit a unit
 	 */
 	public void addUnit(Unit unit){
 
@@ -69,7 +68,7 @@ public abstract class Player {
 	
 	
 	/**
-	 * 
+	 * to remove a unit in the player stock.
 	 * @param unit
 	 */
 	public void removeUnit(Unit unit){
@@ -79,6 +78,7 @@ public abstract class Player {
 	
 	/**
 	 *  allows the player to pay the cost of maintaining a unit.
+	 * @param unit
 	 */
 	public void remunerate(Unit unit){
 
@@ -88,9 +88,9 @@ public abstract class Player {
 	
 	/**
 	 * to know if the resources of the player allow him to maintain one of his units.
-	 * @return
+	 * @return 
 	 */
-	public boolean canResourcet(){
+	public boolean canRemunerate(){
 		return true;
 
 	}
@@ -106,7 +106,7 @@ public abstract class Player {
 	/**
 	 * to get the player resource.
 	 * @param resource
-	 * @return
+	 * @return 
 	 */
 	public int getResource(Resource resource){
 		return 0;
@@ -133,6 +133,25 @@ public abstract class Player {
 		
 	}
 
+	/** to give the Player's quantity
+	 * @return the Player's quantity of gold
+	 */
+	public int getGold() {
+		return 0;
+	}
 
+	/** to give a quantity of gold to the player
+	 * @param i a quantity of gold which will be added
+	 */
+	public void incrementGold(int i){
+
+	}
+
+	/** to remove a quantity of gold to the player
+	 * @param i a quantity of gold which will be withdrawn
+	 */
+	public void decrementGold(int i){
+
+	}
     
 }

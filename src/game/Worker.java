@@ -25,7 +25,7 @@ public class Worker extends Unit{
 	 * @see "Original subjects section 3.2, régles complémentaires en fonction des territoires."
 	 * @return the gold coin given by this worker depending on this worker's place, when the player choose to do nothng.
 	 */
-	public int goldcoinWhenplayerDoesNithing() {
+	public int goldcoinWhenplayerDoesNothing() {
 		
 		return 0;
 		
