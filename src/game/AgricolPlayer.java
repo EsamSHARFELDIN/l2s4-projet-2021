@@ -18,7 +18,7 @@ public class AgricolPlayer extends Player{
 	/**
 	 * create a player for the agricol game with the given name.
 	 * 
-	 * Initially, this player has 15 gold coin.
+	 * Initially, this player has 15 gold coin and no ressources.
 	 * @param name name of this player
 	 */
 	public AgricolPlayer(String name) {
