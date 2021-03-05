@@ -119,18 +119,18 @@ de se comporter de manière conforme aux spécifications du jeu.
 #### On a examiné une autre possibilité pour représenter les tuiles :
 
 class abstraite Tile:
-  Unit unit;
+  + Unit unit;
 
-  // méthodes concrétes de gestion des unités
-  abstract getResource(): Resource
+  + // méthodes concrétes de gestion des unités
+  + abstract getResource(): Resource
 
 class MountainTile extends Tile:
-  static int cost;
-  static int maxArmySize;
-  static int additionalPower;
-  static int additionalPoints;
-  // méthodes correspondantes (getters)
-  getResource(): Resource { return Resource.Stone; }
+  + static int cost;
+  + static int maxArmySize;
+  + static int additionalPower;
+  + static int additionalPoints;
+  + // méthodes correspondantes (getters)
+  + getResource(): Resource { return Resource.Stone; }
 
 // autres classes pour chaque type...
 
@@ -155,6 +155,7 @@ WarGame
   + maximumArmySize(Tile): int -> renvoie la taille maximale...
   + additionalMilitaryStrength(Tile): int -> renvoie le surplus de puissance...
   + additionalPoints(Tile): int -> renvoie le surplus de points...
+
 ... en fonction du type de la tuile
 
 Les méthodes des classes unités peuvent appeler ces méthodes statiques pour
@@ -192,8 +193,8 @@ seulement pour le plateau du jeu militaire).
 
 ### Difficultés restant à résoudre
 
-Implémentation du constructeur de Board (algorithme pour placer les tuiles
-en suivant les règles définies).
+L'implémentation du constructeur de Board (algorithme pour placer les tuiles
+en suivant les règles définies) nous paraît un peu problématique.
 
 La difficulté indiquée dans la description du livrable reste non résolue
 à ce stade.
