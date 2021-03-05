@@ -87,7 +87,116 @@ aux deux jeux demandés. Ces classes définissent des comportements spécifiques
 
 ### Atteinte des objectifs
 
+#### Choix de modélisation des Tuiles :
+
+- Classe abstraite Tuile, qui possède une unité, et des comportements
+  concernant cette unité. Définit une méthode abstraite renvoyant une
+  instance de Resource correspondant à la ressource produite par le
+  terrain de la tuile (roche, sable...)
+
+- Classes concrètes MoutainTile, DesertTile... correspondant aux cinq
+  natures de terrain. Ces classes implémentent la méthode abstraite
+  de signature getResource(): Resource.
+
+- Interfaces WarTile et AgricolTile qui correspondent chacune au contrat
+  que doivent respecter les tuiles d'un même jeu. Par exemple, toutes les
+  tuiles dans le jeu militaire jouent un rôle dans le coût d'entretien
+  des unités qui les occupent, elles jouent également un rôle concernant
+  la taille maximale des armées, et peuvent causer un surplus de
+  puissance militaire ou de points pour les armées occupantes. Ces
+  interfaces jouent le rôle de contrat : elles contiennent les comportements
+  que doivent implémenter les tuiles d'un jeu.
+
+- Les méthodes définies dans ces interfaces sont implémentées dans des
+  classes qui correspondent à la fois à un type "naturel" de tuile et
+  à un jeu spécifique. Noter que sur le diagramme de classes, les méthodes
+  ne sont pas figurées pour que le schéma reste lisible.
+
+Synopsis : les unités qui occupent les tuiles possèdent une référence
+à la tuile occupée, et peuvent appeler les méthodes de ces tuiles afin
+de se comporter de manière conforme aux spécifications du jeu.
+
+#### On a examiné une autre possibilité pour représenter les tuiles :
+
+class abstraite Tile:
+  Unit unit;
+
+  // méthodes concrétes de gestion des unités
+  abstract getResource(): Resource
+
+class MountainTile extends Tile:
+  static int cost;
+  static int maxArmySize;
+  static int additionalPower;
+  static int additionalPoints;
+  // méthodes correspondantes (getters)
+  getResource(): Resource { return Resource.Stone; }
+
+// autres classes pour chaque type...
+
+Dans cette solution, les comportements spécifiques sont accessibles
+dans les deux jeux. On a jugé qu'il pouvait y avoir un problème
+concernant le principe ouvert-fermé. En effet, ajouter des comportements
+aux tuiles afin de créer un nouveau jeu implique de modifier les tuiles
+existantes. Une autre difficulté était la nécessité de "setter" tous les
+attributs statiques des tuiles au moment de l'initialisation d'un jeu.
+
+#### Autre proposition non retenue pour les tuiles et leurs comportements spécifiques :
+
+Les comportements spécifiques des tuiles selon les jeux sont considérés comme
+des règles du jeu : on les implémente par des méthodes publiques statiques
+d'une classe Game. On imagine que ces méthodes prennent en paramètres les
+informations utiles (tuile...) et renvoie une valeur en fonction du type de
+la tuile (structures if (Tile est de type...) else if (Tile de type...)).
+
+Exemple :
+WarGame
+  + cost(Tile): int -> renvoie le coût d'entretien...
+  + maximumArmySize(Tile): int -> renvoie la taille maximale...
+  + additionalMilitaryStrength(Tile): int -> renvoie le surplus de puissance...
+  + additionalPoints(Tile): int -> renvoie le surplus de points...
+... en fonction du type de la tuile
+
+Les méthodes des classes unités peuvent appeler ces méthodes statiques pour
+renvoyer des valeurs correctes en fonction du type de la tuile occupée.
+
+#### Implications de la modélisation pour la création d'un jeu :
+
+Pour créer un jeu, il faut créer l'interface correspondant aux
+comportements des tuiles dans ce jeu. Il faut ensuite définir des classes
+étendant les classes MountainTile, DesertTile, ..., et implémentant
+l'interface définie. Il pourra être nécessaire de dériver Board pour
+chaque jeu, afin que les tuiles d'un plateau soient du type de l'interface
+correspondant au jeu (besoin d'y réfléchir encore).
+
+#### Choix de la modélisation pour les Ressources (et conversion) :
+
+Pour représenter les différentes ressources (Roche, Sable, ...)
+nous avons choisi d'utiliser une énumération.
+Les informations sur les valeurs de conversion sont aussi gérées
+par cette énumération via des variables statiques. Ces variables
+statiques doivent être définies quelques part avant utilisation.
+Pour'une ressource `r`, il suffit de faire:
+  * `Resource.setConversionValue(r, <n>)` pour fixer la valeur de conversion de `r` à n.
+  * `r.getConversionValue()` pour avoir la valeur de conversion de r.
+
+#### Choix de modélisation pour le Plateau de jeu :
+
+Pour représenter un plateau (Board), on choisit d'utiliser un tableau à 2 dimensions de tuiles (Tile).
+
+On a choisi d'implémenter quelques méthodes permettant de gêrer les unités
+présentes sur les tuiles du plateau : on peut obtenir une unité, la remplacer,
+savoir si les tuiles occupables sont toutes occupées. Il y a également une
+méthode permettant d'obtenir les tuiles voisines d'une tuile (a priori utile
+seulement pour le plateau du jeu militaire).
+
 ### Difficultés restant à résoudre
+
+Implémentation du constructeur de Board (algorithme pour placer les tuiles
+en suivant les règles définies).
+
+La difficulté indiquée dans la description du livrable reste non résolue
+à ce stade.
 
 ## Livrable 3
 
