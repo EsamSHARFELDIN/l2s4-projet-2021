@@ -220,7 +220,10 @@ La difficulté indiquée dans la description du livrable reste non résolue
 ## Semaine 3
 
 ## Semaine 4
-
+Nous avons commencé à écrire les javadocs, implémenter les différentes entités (classes, interfaces, ...) et écrire les tests unitaires depuis la semaine 3. Nous n'avions pas pu achever complètement le codage et les tests car elles dépendent encore d'autres entités qui ne sont pas défini à ce stade d'avancement.  
+Pour le livrable 2, nous avons débatu longuement sur une meilleure modélisation des tuiles. Nous avons décidé d'adopter une solution qui est assez "complexe" car elle nécessite la définition de beaucoup de plusieurs entités. Cependant, nous n'avons pas reculé devant cette difficulté et nous nous sommes convenu de prendre cette solution qui nous semble mieux respecter le principe ouvert-fermé.
+Nous comptons continuer l'implémentation, les javadocs et les tests pour cette semaine.
+ 
 ## Semaine 5
 
 ## Semaine 6
