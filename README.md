@@ -225,6 +225,10 @@ Pour le livrable 2, nous avons débatu longuement sur une meilleure modélisatio
 Nous comptons continuer l'implémentation, les javadocs et les tests pour cette semaine.
  
 ## Semaine 5
+Nous avons discuté de la modélisation des actions. 
+Nous ne l'avons pas encore fini et nous avons encore quelques questions à propos de l'énoncé.  
+Nous avons décidé aussi de revenir sur notre modélisation des tuiles afin de le simplifier. 
+Nous en discuterons la semaine prochaine.
 
 ## Semaine 6
 
