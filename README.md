@@ -202,6 +202,78 @@ La difficulté indiquée dans la description du livrable reste non résolue
 ## Livrable 3
 
 ### Atteinte des objectifs
+#### Modélisation des actions :
+
+Nous avons choisi de modéliser les actions en utilisant une interface.
+Celle-ci déclare une méthode de signature `execute(Board, Player): void`.
+Les actions des différents jeux doivent définir cette méthode, qui
+correspond à l'éxecution d'une action (avec des effets potentiels sur
+les ressources des joueurs, sur les unités, sur les tuiles du plateau...).
+
+On a considéré les actions suivantes :
+- déployer une unité (disponible dans les deux jeux)
+- ne rien faire (disponible dans les deux jeux)
+- échanger des ressources (disponible comme action seulement dans
+  le jeu agricole ; en effet dans le jeu militaire, cette action est
+  automatique)
+
+Cinq classes concrètes permettent de représenter toutes ces actions :
+
+On définit la classe `DeployAction` qui représente l'action de placer une
+unité sur une tuile du plateau définie par ses coordonnées. Cette classe
+est étendue par la classe `WarDeployAction` qui ajoute au comportement par
+défaut les mécanismes spécifiques au jeu militaire.
+
+On définit également une classe `DoNothingAction` qui représente l'action
+de ne rien faire, et dont la méthode `execute` est sans effet. Cette classe
+est étendue par `AgricolDoNothingAction` qui correspond au comportement de
+rémunération des unités en cas "d'attente" qui est spécifique au jeu agricole.
+
+On définit finalement une classe AgricolExchangeAction qui correspond au
+à l'action de conversion des ressources en or dans le jeu agricol.
+
+#### Synopsis pour l'utilisation des actions :
+
+Dans la boucle de jeu, les joueurs sont amenés chacun leur tour à choisir
+une action (le constructeur d'une action spécifique est appelé dans le
+corps de la méthode `chooseAction` des classes dérivant `Player` avec les
+paramètres qui sont utilisés par l'implémentation de `Action`). La méthode
+`execute` peut ensuite être appelé au niveau de la boucle de jeu. Les
+références au plateau et au joueur qui éxecute l'action sont passées
+en paramètre en la méthode `execute`.
+
+On a discuté de la manière la plus convenable de rendre accessibles les
+informations nécessaires à l'éxecution d'une action, et il nous a semblé
+qu'il était correct de passer le plateau et le joueur en paramètre au
+moment de l'appel à `execute` et non à la construction, car il ne semble
+pas souhaitable que le joueur dispose d'une référence vers le plateau et
+vers lui-même.
+
+#### Modélisation du jeu :
+
+Afin de modéliser le jeu, une classe abstraite `Game` est mise en place.
+Il est possible d'instancier un jeu avec un plateau de taille variable;
+puis, on peut y ajouter des joueurs, en enlever et lancer 
+la partie (respectivement `addPlayer()`, `removePlayer()` et `play()`).
+Concrètement, un mode de jeu (exemple: jeu de guerre) est une sous-classe
+de `Game`. Un tel jeu devra redéfinir `play()`. Cette dernière représente
+le déroulement du jeu en question (début, étapes, fin, ...).  
+Il est important de noter que dans `play()` doit être initialisé les
+variables statiques publiques des filles de `Tile`. Ces variables
+définissent des caractéristiques du jeu tel que la taille maximale
+d'unité autorisée sur une tuile, le coût de maintenance d'une unité sur une
+tuile .... Sans cette initialisation, la partie se comportera indéfiniment: 
+erreur lors de l'execution ou valeurs inattendues
+(car il n'y a pas de valeur par défaut).  
+
+Le jeu de guerre et le jeu agricole sont modélisées respectivement par les
+classes `WarGame` et `AgricolGame`.
+
+Afin de créer un nouveau mode de jeu, il suffit de définir une nouvelle classe
+qui hérite de `Game` (et bien évidemment, définir les méthodes nécessaires). La 
+partie "essentielle" qui caractérise un nouveau jeu sera représentée par la 
+redéfinition de `play()` et par la même occasion la définition des valeurs des
+variables statiques publiques évoquées précedemment.
 
 ### Difficultés restant à résoudre
 
@@ -231,7 +303,99 @@ Nous avons décidé aussi de revenir sur notre modélisation des tuiles afin de 
 Nous en discuterons la semaine prochaine.
 
 ## Semaine 6
+Tuiles :
 
+Sur les conseils de notre enseignante, nous avons transformé notre Modélisation
+des tuiles. La modélisation du livrable 2 avait pour objet de respecter le
+principe "ouvert-fermé", en utilisant des interfaces définissant les contrats
+que devaient respecter les tuiles de chaque jeu. Cependant, elle était plus
+compliquée que nécessaire.
+
+On définit une classe abstraite `Tile`, qui définit des comportements
+relatifs à la gestion des unités occupant une case, et une méthode abstraite
+permettant d'obtenir la ressource correspondant à une tuile (comme dans la
+première modélisation proposée).
+
+Cette classe abstraite est étendue par 5 classes concrètes qui correspondent
+aux 5 types de terrain que peuvent avoir les tuiles des jeux. Ces classes
+implémentent la méthode `getResource`. Pour gêrer les comportements différents
+des tuiles dans chacun des jeux (le coût d'entretien, la taille maximale
+d'armée, le surplus de puissance militaire, le surplus de points, la quantité
+d'or en cas d'attente sont tous des comportements qui dépendent du type de
+terrain), on a décidé d'utiliser des attributs statiques. On a pris la
+décision de déclarer ces attributs publics (pour éviter la multiplication
+des accesseurs dans ces classes).
+
+Lors de son initialisation, le jeu sera responsable de l'initialisation
+des valeurs de ces attributs statiques publics (les attributs non utilisés
+par un jeu, comme maxArmySize dans le jeu agricole, seront mis à des valeurs
+par défaut).
+
+Ces attriburs ne pouvaient pas être factorisés dans la classe mère, car ils
+sont statiques et différents pour chaque type de terrain.
+
+Actions :
+
+Nous avons terminé le travail sur les classes représentant les actions. Nous
+avons choisi d'utiliser l'héritage pour définir les classes implémentant
+l'interface `Action` (il était possible de s'en passer, et de se contenter
+de 5 classes implémentant directement Action) pour factoriser quelques
+comportements.
+
+Game :Tuiles :
+
+Sur les conseils de notre enseignante, nous avons transformé notre Modélisation
+des tuiles. La modélisation du livrable 2 avait pour objet de respecter le
+principe "ouvert-fermé", en utilisant des interfaces définissant les contrats
+que devaient respecter les tuiles de chaque jeu. Cependant, elle était plus
+compliquée que nécessaire.
+
+On définit une classe abstraite `Tile`, qui définit des comportements
+relatifs à la gestion des unités occupant une case, et une méthode abstraite
+permettant d'obtenir la ressource correspondant à une tuile (comme dans la
+première modélisation proposée).
+
+Cette classe abstraite est étendue par 5 classes concrètes qui correspondent
+aux 5 types de terrain que peuvent avoir les tuiles des jeux. Ces classes
+implémentent la méthode `getResource`. Pour gêrer les comportements différents
+des tuiles dans chacun des jeux (le coût d'entretien, la taille maximale
+d'armée, le surplus de puissance militaire, le surplus de points, la quantité
+d'or en cas d'attente sont tous des comportements qui dépendent du type de
+terrain), on a décidé d'utiliser des attributs statiques. On a pris la
+décision de déclarer ces attributs publics (pour éviter la multiplication
+des accesseurs dans ces classes).
+
+Lors de son initialisation, le jeu sera responsable de l'initialisation
+des valeurs de ces attributs statiques publics (les attributs non utilisés
+par un jeu, comme maxArmySize dans le jeu agricole, seront mis à des valeurs
+par défaut).
+
+Ces attriburs ne pouvaient pas être factorisés dans la classe mère, car ils
+sont statiques et différents pour chaque type de terrain.
+
+Actions :
+
+Nous avons terminé le travail sur les classes représentant les actions. Nous
+avons choisi d'utiliser l'héritage pour définir les classes implémentant
+l'interface `Action` (il était possible de s'en passer, et de se contenter
+de 5 classes implémentant directement Action) pour factoriser quelques
+comportements.
+
+Game :
+
+Nous avons terminé le travail sur les classes Game, en réfléchissant sur
+l'initialisation des variables spécifiques à chaque jeu (à l'intérieur des
+tuiles, mais aussi les valeurs de conversion des différentes ressources),
+ainsi que sur le status de la méthode `play` (finalement abstraite car
+la boucle de jeu n'est pas exactement la même dans les deux jeux à réaliser,
+malgré de fortes similitudes).
+
+Nous avons terminé le travail sur les classes Game, en réfléchissant sur
+l'initialisation des variables spécifiques à chaque jeu (à l'intérieur des
+tuiles, mais aussi les valeurs de conversion des différentes ressources),
+ainsi que sur le status de la méthode `play` (finalement abstraite car
+la boucle de jeu n'est pas exactement la même dans les deux jeux à réaliser,
+malgré de fortes similitudes).
 ## Semaine 7
 
 ## Semaine 8
