@@ -16,14 +16,23 @@ public class Board {
      * @throws IllegalArgumentException iff either <code>width</code> or
      * <code>height</code> is negative
      */
-    public Board(int width, int height) throws IllegalArgumentException;
+    public Board(int width, int height) throws IllegalArgumentException; // TODO
 
     /**
      * Check whether the board is full, ie whether all of the occupable tiles
      * are currently occupied by units
      * @return <code>true</code> if all tiles are occupied, else
      * <code>false</code>*/
-    public boolean isFull();
+    public boolean isFull() {
+        for (int i = 0; i < this.height; i++) {
+            for (int j = 0; j < this.width; j++) {
+                if (!this.tiles[i][j].isBusy()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     /**
      * Return the tile located at the position of the board defined by the
@@ -33,10 +42,16 @@ public class Board {
      * @param y Vertical coordinate, should be an integer between
      * <code>0</code> and <code>height - 1</code>
      * @return The tile at the specified location
-     * @throws UnknowTileException iff either <code>x</code> or <code>y</code>
+     * @throws UnknownTileException iff either <code>x</code> or <code>y</code>
      * is out of the specified bounds
      */
-    public Tile tileAt(int x, int y) throws UnknownTileException; // TODO
+    public Tile tileAt(int x, int y) throws UnknownTileException {
+        try {
+            return this.tiles[y][x];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new UnknownTileException("Tile is out of bounds");
+        }
+    }
 
     /**
      * Set the unit located at the position of the board defined by the
@@ -53,7 +68,13 @@ public class Board {
      */
     public void setUnitAt(int x, int y, Unit unit)
         throws UnknownTileException,
-        throws IllegalGameActionException; // TODO
+        throws IllegalGameActionException {
+        try {
+            this.tiles[y][x].setUnit(unit);
+        } catch(ArrayIndexOutOfBoundsException e) {
+            throw new UnknownTileException("Tile is out of bounds");
+        }
+    }
 
     /**
      * Return the neighbouring tiles of the tile which occupies the specified
