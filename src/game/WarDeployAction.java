@@ -3,7 +3,8 @@ package game;
 /**
  * A class which represents the specific consequences of deploying a unit on
  * a game tile in the war game. The deployment has military consequences on the
- * surrounding tiles and on the occupying units
+ * surrounding tiles and on the occupying units, such as tile conquest and army
+ * capture
  */
 public class WarDeployAction extends DeployAction {
     /**
