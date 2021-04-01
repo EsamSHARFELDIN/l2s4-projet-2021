@@ -5,6 +5,7 @@ package game;
  * agricultural simulation game. When this action is executed, the resources
  * stored by the player are converted into gold, depending on rates defined
  * outside of this class
+ * @version 01/04/21
  */
 public class AgricolExchangeAction implements Action {
     /**

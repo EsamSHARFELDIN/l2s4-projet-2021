@@ -33,10 +33,10 @@ public class Board {
      * @param y Vertical coordinate, should be an integer between
      * <code>0</code> and <code>height - 1</code>
      * @return The tile at the specified location
-     * @throws Exception iff either <code>x</code> or <code>y</code> is out
-     * of the specified bounds
+     * @throws UnknowTileException iff either <code>x</code> or <code>y</code>
+     * is out of the specified bounds
      */
-    public Tile tileAt(int x, int y) throws Exception;
+    public Tile tileAt(int x, int y) throws UnknownTileException; // TODO
 
     /**
      * Set the unit located at the position of the board defined by the
@@ -46,10 +46,14 @@ public class Board {
      * @param y Vertical coordinate, should be an integer between
      * <code>0</code> and <code>height - 1</code>
      * @param unit Unit to position on the tile specified by the coordinates
-     * @throws Exception iff either <code>x</code> or <code>y</code> is out
-     * of the specified bounds
+     * @throws UnknownTileException iff either <code>x</code> or <code>y</code>
+     * is out of the specified bounds
+     * @throws IllegalGameActionException iff the unit could not be deployed
+     * on the specified tile
      */
-    public void setUnitAt(int x, int y, Unit unit) throws Exception;
+    public void setUnitAt(int x, int y, Unit unit)
+        throws UnknownTileException,
+        throws IllegalGameActionException; // TODO
 
     /**
      * Return the neighbouring tiles of the tile which occupies the specified
@@ -63,10 +67,10 @@ public class Board {
      * @return An array of tiles representing the neighbouring tiles. The array
      * may contain 2, 3 or 4 elements depending on the position of the initial
      * tile
-     * @throws Exception iff either <code>x</code> or <code>y</code> is out
-     * of the specified bounds
+     * @throws UnknownTileException iff either <code>x</code> or <code>y</code>
+     * is out of the specified bounds
      */
-    public Tile[] adjacentTiles(int x, int y) throws Exception;
+    public Tile[] adjacentTiles(int x, int y) throws UnknowTileException; // TODO
 
     /** Two-dimensional array of tiles, used to represent the game world */
     protected Tile[][] tiles;

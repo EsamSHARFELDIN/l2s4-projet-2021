@@ -5,6 +5,7 @@ package game;
  * the agricultural simulation game. In this game, a players who decides to take
  * a waiting turn receives gold for each controlled tile, depending on the type
  * of terrain
+ * @version 01/04/21
  */
 public class AgricolDoNothingAction extends DoNothingAction {
     /**

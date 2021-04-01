@@ -4,6 +4,7 @@ package game;
  * A class which represents the action of not doing anything for a turn in a
  * board game. This class corresponds to a waiting turn, an can be extended in
  * cases where a wait has specific consequences.
+ * @version 01/04/21
  */
 public class DoNothingAction implements Action {
     /**

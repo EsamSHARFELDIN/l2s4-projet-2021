@@ -5,6 +5,7 @@ package game;
  * a game tile in the war game. The deployment has military consequences on the
  * surrounding tiles and on the occupying units, such as tile conquest and army
  * capture
+ * @version 01/04/21
  */
 public class WarDeployAction extends DeployAction {
     /**
