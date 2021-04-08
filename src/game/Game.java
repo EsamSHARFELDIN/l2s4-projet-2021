@@ -31,8 +31,9 @@ public abstract class Game {
     /**
      * removes a player
      * @param p The player to remove.
+     * @throws IllegalGameActionException iff the player is not playing
      */
-    public void removePlayer(Player p) {
+    public void removePlayer(Player p) throws IllegalGameActionException {
 
     }
 
@@ -48,7 +49,7 @@ public abstract class Game {
      * Makes sure the game is over.
      * @return True if the game is over, False otherwise.
      */
-    private Boolean isGameOver() {
+    private boolean isGameOver() {
 
     }
 }
