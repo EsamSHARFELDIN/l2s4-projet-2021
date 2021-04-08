@@ -396,7 +396,25 @@ tuiles, mais aussi les valeurs de conversion des différentes ressources),
 ainsi que sur le status de la méthode `play` (finalement abstraite car
 la boucle de jeu n'est pas exactement la même dans les deux jeux à réaliser,
 malgré de fortes similitudes).
+
 ## Semaine 7
+
+- Modifications concernant la classe `OceanTile` (redéfinition de méthodes et
+  levées d'exceptions). La classe redéfinit `isBusy` (renvoie `false`),
+  `getUnit` (renvoie `null`) et `setUnit` (lève une exception).
+
+- Documentation des classes implémentant l'interface `Action`.
+
+- Documentation des classes `Tile` et des classes qui l'étendent.
+
+- Documentation des classes `Game`, `WarGame` et `AgricolGame`.
+
+- Documentation du type énuméré `Resource`.
+
+- Implementation de classes étendant `Exception`, qui servent à indiquer
+  l'occurence d'une situation impossible ou illégale.
+
+- Implémentation de la classe `Board` (en cours).
 
 ## Semaine 8
 
