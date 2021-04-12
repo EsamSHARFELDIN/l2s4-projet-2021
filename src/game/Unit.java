@@ -98,7 +98,7 @@ public abstract class Unit {
     }
 
     /** Tile occupied by the unit */
-    protected Tile place;
+    protected Tile tile;
 
     /** Player to which the unit belongs */
     protected Player player;

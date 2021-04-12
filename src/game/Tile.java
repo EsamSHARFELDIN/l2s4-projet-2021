@@ -1,5 +1,5 @@
 package game;
-import game.Resouce;
+import game.Resource;
 import game.Unit;
 
 /**
@@ -26,9 +26,7 @@ public abstract class Tile {
     /**
      * Gives the ressource given by the tile.
      */
-    public abstract Resource getResource(){
-
-    }
+    public abstract Resource getResource();
 
     /**
      * Gives the unit posted on the tile.

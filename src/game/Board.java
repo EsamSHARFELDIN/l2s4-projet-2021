@@ -42,7 +42,7 @@ public class Board {
         initializePrimary(primaryCodes);
         initializeSecondary(primaryCodes);
         for (int i = 0; i < this.height; i++) {
-            for (int i = 0; j < this.width; j++) {
+            for (int j = 0; j < this.width; j++) {
                 if (this.tiles[i][j] == null) {
                     this.tiles[i][j] = new OceanTile();
                 }
@@ -65,7 +65,7 @@ public class Board {
 
     /* Initialize each tile in the set passed as argument */
     private void initializePrimary(Set<Integer> primaryCodes) {
-        for (int code : tileCodes) {
+        for (int code : primaryCodes) {
             initializeTile(code % this.width, code / this.width);
         }
     }
@@ -75,7 +75,7 @@ public class Board {
      * is not the first of its row, initialize its left neighbour if not
      * already initialized */
     private void initializeSecondary(Set<Integer> primaryCodes) {
-        for (int code : tileCodes) {
+        for (int code : primaryCodes) {
             if (code % this.width == 0) {
                 if (this.tiles[code / this.width][1] == null) {
                     initializeTile(1, code / this.width);
@@ -180,7 +180,7 @@ public class Board {
      * @throws UnknownTileException iff either <code>x</code> or <code>y</code>
      * is out of the specified bounds
      */
-    public List<Tile> adjacentTiles(int x, int y) throws UnknowTileException {
+    public List<Tile> adjacentTiles(int x, int y) throws UnknownTileException {
         List<Tile> tiles = new ArrayList<Tile>();
         if (y > 0) {
             tiles.add(this.tiles[y - 1][x]);
