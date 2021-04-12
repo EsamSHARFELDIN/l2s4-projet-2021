@@ -42,6 +42,8 @@ public abstract class Tile {
      * @param u the unit that we want to post on the tile
      */
     public void setUnit(Unit u){
-    
+
     }
+
+    public abstract void print();
 }
