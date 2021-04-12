@@ -1,5 +1,11 @@
 package game;
 
+import java.util.Random;
+import java.util.Set;
+import java.util.HashSet;
+
+import game.*;
+
 /**
  * A class to model the board in different games. A board is composed of tiles
  * of different types and is defined by a width and a height. A board is created
@@ -16,7 +22,86 @@ public class Board {
      * @throws IllegalArgumentException iff either <code>width</code> or
      * <code>height</code> is negative
      */
-    public Board(int width, int height) throws IllegalArgumentException; // TODO
+    public Board(int width, int height) throws IllegalArgumentException {
+        if (width < 2) {
+            throw new IllegalArgumentException("Board: invalid width in constructor");
+        }
+        if (height < 1) {
+            throw new IllegalArgumentException("Board: invalid height in constructor");
+        }
+
+        this.tiles = new Tile[height][width];
+        this.width = width;
+        this.height = height;
+        this.populate();
+    }
+
+    /* Initialize the tile of the board (following the constraints) */
+    private void populate() {
+        int numTiles = this.width * this.height;
+        int numPrimary = numTiles / 6;
+        Set<Integer> primaryCodes = choosePrimary(numPrimary, numTiles);
+        initializePrimary(primaryCodes);
+        initializeSecondary(primaryCodes);
+    }
+
+    /* Return a set of integers between 0 and width * height */
+    private Set<Integer> choosePrimary(int numPrimary, int numTiles) {
+        int count = 0;
+        Set<Integer> tileCodes = new HashSet<Integer>();
+        while (count < numPrimary) {
+            int code = this.source.nextInt(numTiles);
+            if (tileCodes.add(code)) {
+                count++;
+            }
+        }
+        return tileCodes;
+    }
+
+    /* Initialize each tile in the set passed as argument */
+    private void initializePrimary(Set<Integer> primaryCodes) {
+        for (int code : tileCodes) {
+            initializeTile(code % this.width, code / this.width);
+        }
+    }
+
+    /* For each tile from the set, if the tile is the first of its row,
+     * initialize its right neighbour if not already initialized. If the tile
+     * is not the first of its row, initialize its left neighbour if not
+     * already initialized */
+    private void initializeSecondary(Set<Integer> primaryCodes) {
+        for (int code : tileCodes) {
+            if (code % this.width == 0) {
+                if (this.tiles[code / this.width][1] == null) {
+                    initializeTile(1, code this.width);
+                }
+            }
+            else {
+                if (this.tiles[code / this.width][(code % this.width) + 1] == null) {
+                    initializeTile((code % this.width) + 1, code / this.width);
+                }
+            }
+        }
+    }
+
+    /* Initialize this.tiles[y][x] with a random terrain type (except Ocean) */
+    private void initializeTile(int x, int y)  {
+        int roll = this.source.nextInt(4);
+        switch (roll) {
+        case 0:
+            this.tiles[y][x] = new DesertTile();
+            break;
+        case 1:
+            this.tiles[y][x] = new MountainTile();
+            break;
+        case 2:
+            this.tiles[y][x] = new ForestTile();
+            break;
+        case 3:
+            this.tiles[y][x] = new PlainTile();
+            break;
+        }
+    }
 
     /**
      * Check whether the board is full, ie whether all of the occupable tiles
@@ -67,8 +152,7 @@ public class Board {
      * on the specified tile
      */
     public void setUnitAt(int x, int y, Unit unit)
-        throws UnknownTileException,
-        throws IllegalGameActionException {
+        throws UnknownTileException, IllegalGameActionException {
         try {
             this.tiles[y][x].setUnit(unit);
         } catch(ArrayIndexOutOfBoundsException e) {
@@ -91,7 +175,13 @@ public class Board {
      * @throws UnknownTileException iff either <code>x</code> or <code>y</code>
      * is out of the specified bounds
      */
-    public Tile[] adjacentTiles(int x, int y) throws UnknowTileException; // TODO
+    public Tile[] adjacentTiles(int x, int y) throws UnknowTileException{
+        // TODO
+    }
+
+    public String toString() {
+        // TODO
+    }
 
     /** Two-dimensional array of tiles, used to represent the game world */
     protected Tile[][] tiles;
@@ -101,4 +191,7 @@ public class Board {
 
     /** Height of the board, as a number of tile */
     protected int height;
+
+    /** Random source used to generate the board */
+    private static Random source = new Random();
 }
