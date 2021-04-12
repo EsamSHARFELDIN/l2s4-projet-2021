@@ -43,6 +43,13 @@ public class Board {
         Set<Integer> primaryCodes = choosePrimary(numPrimary, numTiles);
         initializePrimary(primaryCodes);
         initializeSecondary(primaryCodes);
+        for (int i = 0; i < this.height; i++) {
+            for (int i = 0; j < this.width; j++) {
+                if (this.tiles[i][j] == null) {
+                    this.tiles[i][j] = new OceanTile();
+                }
+            }
+        }
     }
 
     /* Return a set of integers between 0 and width * height */
@@ -73,12 +80,12 @@ public class Board {
         for (int code : tileCodes) {
             if (code % this.width == 0) {
                 if (this.tiles[code / this.width][1] == null) {
-                    initializeTile(1, code this.width);
+                    initializeTile(1, code / this.width);
                 }
             }
             else {
-                if (this.tiles[code / this.width][(code % this.width) + 1] == null) {
-                    initializeTile((code % this.width) + 1, code / this.width);
+                if (this.tiles[code / this.width][(code % this.width) - 1] == null) {
+                    initializeTile((code % this.width) - 1, code / this.width);
                 }
             }
         }
