@@ -1,8 +1,6 @@
 package game;
 
-import java.util.Random;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 
 import game.*;
 
@@ -176,18 +174,36 @@ public class Board {
      * <code>0</code> and <code>width - 1</code>
      * @param y Vertical coordinate, should be an integer between
      * <code>0</code> and <code>height - 1</code>
-     * @return An array of tiles representing the neighbouring tiles. The array
+     * @return A list of tiles representing the neighbouring tiles. The list
      * may contain 2, 3 or 4 elements depending on the position of the initial
      * tile
      * @throws UnknownTileException iff either <code>x</code> or <code>y</code>
      * is out of the specified bounds
      */
-    public Tile[] adjacentTiles(int x, int y) throws UnknowTileException{
-        // TODO
+    public List<Tile> adjacentTiles(int x, int y) throws UnknowTileException {
+        List<Tile> tiles = new ArrayList<Tile>();
+        if (y > 0) {
+            tiles.add(this.tiles[y - 1][x]);
+        }
+        if (y < this.height - 1) {
+            tiles.add(this.tiles[y + 1][x]);
+        }
+        if (x > 0) {
+            tiles.add(this.tiles[y][x - 1]);
+        }
+        if (x < this.width - 1) {
+            tiles.add(this.tiles[y][x + 1]);
+        }
+        return tiles;
     }
 
-    public String toString() {
-        // TODO
+    public void print() {
+        for (int i = 0; i < this.height; i++) {
+            for (int j = 0; j < this.width; j++) {
+                this.tiles[i][j].print();
+            }
+            System.out.println();
+        }
     }
 
     /** Two-dimensional array of tiles, used to represent the game world */
