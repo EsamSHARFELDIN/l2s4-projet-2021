@@ -1,22 +1,22 @@
 package game;
 import game.*;
 
-  /**
-    * A class which allows to model the war game.
-    */
+/**
+ * A class which allows to model the war game.
+ */
 public class WarGame extends Game {
     /**
-      * Creates a war game with a given board and given players.
-      * @param board a given board.
-      * @param players given players.
-      */
-    public WarGame(int board, int players){
+     * Creates a war game with a board of given dimensions
+     * @param width Width of the board to use
+     * @param height Height of the board to use
+     */
+    public WarGame(int width, int height){
 
     }
 
     /**
-      * initializes a new war game.
-      */
+     * initializes a new war game.
+     */
     private void initialize(){
 
     }
@@ -27,6 +27,6 @@ public class WarGame extends Game {
      */
     @Override
     public Player play() {
-        
+
     }
 }

@@ -2,24 +2,24 @@ package game;
 import game.*;
 
 /**
-  * A class which allows to model the war game.
-  */
+ * A class which allows to model the war game.
+ */
 
 public class AgricolGame extends Game {
 
     /**
-      * Creates an agricol game with a given board and given players.
-      * @param board a given board.
-      * @param players given players.
-      */
-    public AgricolGame(int board, int players){
+     * Creates an agricol game with a board of given dimensions
+     * @param width Width of the board to use
+     * @param height Height of the board to use
+     */
+    public AgricolGame(int width, int height) {
 
     }
 
     /**
-      * initializes a new agricol game.
-      */
-    private void initialize(){
+     * initializes a new agricol game.
+     */
+    private void initialize() {
 
     }
 
@@ -29,6 +29,6 @@ public class AgricolGame extends Game {
      */
     @Override
     public Player play() {
-        
+
     }
 }
