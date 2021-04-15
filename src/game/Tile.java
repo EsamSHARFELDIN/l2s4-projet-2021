@@ -38,10 +38,18 @@ public abstract class Tile {
     /**
      * This allows to change the unit post on the tile.
      * @param u the unit that we want to post on the tile
+     * @throws IllegalArgumentException when null is given as 
+     * an argument.
      */
-    public void setUnit(Unit u) throws IllegalGameActionException {
+    public void setUnit(Unit u) throws IllegalArgumentException {
 
     }
-
+    /**
+     * Make sure that there is no unit placed in this tile 
+     * after the call of this method. 
+     */
+    public void unsetUnit() {
+    	//TODO
+    }
     public abstract void print();
 }
