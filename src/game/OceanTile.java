@@ -48,7 +48,7 @@ public class OceanTile extends Tile {
      * can't be placed on ocean tile, this method always
      * throws an exception.
      */
-    public void setUnit(Unit u) throws IllegalGameActionException{
+    public void setUnit(Unit u) throws IllegalGameActionException {
         //TODO
     }
 

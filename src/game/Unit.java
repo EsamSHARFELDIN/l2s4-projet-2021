@@ -70,7 +70,7 @@ public abstract class Unit {
      * Destroy a unit and perform clean-up actions
      */
     public void destroy() {
-        this.tile.setPlayer(null); // TODO check
+        this.tile.unsetUnit();
     }
 
     /**
@@ -80,7 +80,7 @@ public abstract class Unit {
      * to the occupied tile
      */
     public Resource provideResource() {
-        return this.tile.getResource(); // TDOD check
+        return this.tile.getResource();
     }
 
     /**
