@@ -292,6 +292,10 @@ Modifications de la modélisation depuis les livrables précédents :
   levée par exemple si l'on essaye d'obtenir les ressources d'une tuile de type
   océan, ou encore si on essaye de supprimer un joueur qui n'est pas en train de
   jouer, ou si on essaye de placer une unité sur une tuile de type océan.
+ 
+- Ajout de la méthode `unsetUnit()` pour la classe `Tile`.
+Pour enlever un unité d'un tuile `t`, au lieu de faire `t.setUnit(null)`, on préfèrera faire
+`t.unsetTile()`. Desormais, t.setUnit(null) déclenchera un `IllegalArgumentException`.
 
 ### Atteinte des objectifs
 
