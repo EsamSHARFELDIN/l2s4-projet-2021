@@ -279,6 +279,20 @@ variables statiques publiques évoquées précedemment.
 
 ## Livrable 4
 
+Modifications de la modélisation depuis les livrables précédents :
+
+- Simplification de la modélisation des tuiles de jeu, par rapport à la
+  proposition du livrable 2. Cette Simplification est détaillée dans l'entrée
+  du journal de bord correspondant à la semaine 6.
+
+- Ajout de classes d'exceptions, `UnknownTileException` et
+  `IllegalGameActionException`. La première est censée indiquer qu'on a tenté
+  d'accéder à une tuile n'existant pas dans le plateau de jeu. La deuxième est
+  utilisée pour indiquer l'occurrence d'une situation illégale. Elle pourra être
+  levée par exemple si l'on essaye d'obtenir les ressources d'une tuile de type
+  océan, ou encore si on essaye de supprimer un joueur qui n'est pas en train de
+  jouer, ou si on essaye de placer une unité sur une tuile de type océan.
+
 ### Atteinte des objectifs
 
 ### Difficultés restant à résoudre
@@ -303,6 +317,7 @@ Nous avons décidé aussi de revenir sur notre modélisation des tuiles afin de 
 Nous en discuterons la semaine prochaine.
 
 ## Semaine 6
+
 Tuiles :
 
 Sur les conseils de notre enseignante, nous avons transformé notre Modélisation
@@ -342,53 +357,7 @@ l'interface `Action` (il était possible de s'en passer, et de se contenter
 de 5 classes implémentant directement Action) pour factoriser quelques
 comportements.
 
-Game :Tuiles :
-
-Sur les conseils de notre enseignante, nous avons transformé notre Modélisation
-des tuiles. La modélisation du livrable 2 avait pour objet de respecter le
-principe "ouvert-fermé", en utilisant des interfaces définissant les contrats
-que devaient respecter les tuiles de chaque jeu. Cependant, elle était plus
-compliquée que nécessaire.
-
-On définit une classe abstraite `Tile`, qui définit des comportements
-relatifs à la gestion des unités occupant une case, et une méthode abstraite
-permettant d'obtenir la ressource correspondant à une tuile (comme dans la
-première modélisation proposée).
-
-Cette classe abstraite est étendue par 5 classes concrètes qui correspondent
-aux 5 types de terrain que peuvent avoir les tuiles des jeux. Ces classes
-implémentent la méthode `getResource`. Pour gêrer les comportements différents
-des tuiles dans chacun des jeux (le coût d'entretien, la taille maximale
-d'armée, le surplus de puissance militaire, le surplus de points, la quantité
-d'or en cas d'attente sont tous des comportements qui dépendent du type de
-terrain), on a décidé d'utiliser des attributs statiques. On a pris la
-décision de déclarer ces attributs publics (pour éviter la multiplication
-des accesseurs dans ces classes).
-
-Lors de son initialisation, le jeu sera responsable de l'initialisation
-des valeurs de ces attributs statiques publics (les attributs non utilisés
-par un jeu, comme maxArmySize dans le jeu agricole, seront mis à des valeurs
-par défaut).
-
-Ces attriburs ne pouvaient pas être factorisés dans la classe mère, car ils
-sont statiques et différents pour chaque type de terrain.
-
-Actions :
-
-Nous avons terminé le travail sur les classes représentant les actions. Nous
-avons choisi d'utiliser l'héritage pour définir les classes implémentant
-l'interface `Action` (il était possible de s'en passer, et de se contenter
-de 5 classes implémentant directement Action) pour factoriser quelques
-comportements.
-
 Game :
-
-Nous avons terminé le travail sur les classes Game, en réfléchissant sur
-l'initialisation des variables spécifiques à chaque jeu (à l'intérieur des
-tuiles, mais aussi les valeurs de conversion des différentes ressources),
-ainsi que sur le status de la méthode `play` (finalement abstraite car
-la boucle de jeu n'est pas exactement la même dans les deux jeux à réaliser,
-malgré de fortes similitudes).
 
 Nous avons terminé le travail sur les classes Game, en réfléchissant sur
 l'initialisation des variables spécifiques à chaque jeu (à l'intérieur des
