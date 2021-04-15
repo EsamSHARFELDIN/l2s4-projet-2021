@@ -2,8 +2,6 @@ package game;
 
 import java.util.*;
 
-import game.*;
-
 /**
  * A class to model the board in different games. A board is composed of tiles
  * of different types and is defined by a width and a height. A board is created
