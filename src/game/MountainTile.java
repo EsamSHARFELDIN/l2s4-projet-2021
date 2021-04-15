@@ -61,7 +61,7 @@ public class MountainTile extends Tile {
      * @return the resource given by this tile which is
      * rock.
      */
-    public Resource getResource() {
+    public Resource getResource() throws IllegalGameActionException {
         //TODO
         return null;
     }

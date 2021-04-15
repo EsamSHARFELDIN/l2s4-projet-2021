@@ -58,7 +58,7 @@ public class ForestTile extends Tile {
      * @return the resource given by this tile which is
      * wood.
      */
-    public Resource getResource() {
+    public Resource getResource() throws IllegalGameActionException {
         // TODO
         return null;
     }

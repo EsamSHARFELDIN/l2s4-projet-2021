@@ -57,7 +57,7 @@ public class DesertTile extends Tile {
      * @return the resource given by this tile which is
      * sand.
      */
-    public Resource getResource() {
+    public Resource getResource() throws IllegalGameActionException {
         // TODO
         return null;
     }
