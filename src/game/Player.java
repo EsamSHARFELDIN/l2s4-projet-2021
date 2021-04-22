@@ -8,11 +8,11 @@ import java.util.List;
  *
  */
 public abstract class Player {
+    protected String name;
     /**
      * @param theUnits the list of characters he controls.
      */
-    protected String name;
-    protected List<Unit> theUnits;
+    protected List<Unit> units;
     protected int rockStock;
     protected int sandStock;
     protected int wheatStock;
@@ -43,9 +43,7 @@ public abstract class Player {
      * represent the action chosen by the player.
      * @return an instance of a class implementing the Action.
      */
-    public Action chooseAction() {
-        return null;
-    }
+    public abstract Action chooseAction();
 
     /**
      * to collect the resources owned by the player.
@@ -74,18 +72,13 @@ public abstract class Player {
      *  allows the player to pay the cost of maintaining a unit.
      * @param unit
      */
-    public void remunerate(Unit unit) {
-
-    }
+    public abstract void remunerate(Unit unit);
 
     /**
      * to know if the resources of the player allow him to maintain one of his units.
      * @return
      */
-    public boolean canRemunerate() {
-        return true;
-
-    }
+    public abstract boolean canRemunerate();
 
     /**
      * is an abstract method, to converting a player's resources into other resources.
