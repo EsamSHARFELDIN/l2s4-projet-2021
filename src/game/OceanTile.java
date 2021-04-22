@@ -11,7 +11,7 @@ public class OceanTile extends Tile {
      * Create an ocean type tile.
      */
     public OceanTile() {
-        // TODO Auto-generated constructor stub
+        // nothing here ...
     }
 
     /**
@@ -24,8 +24,8 @@ public class OceanTile extends Tile {
      * any resources.
      */
     public Resource getResource() throws IllegalGameActionException {
-        // TODO
-        return null;
+    	throw new IllegalGameActionException("Trying to get resources from "
+    			+ "an ocean tile");
     }
 
     /**
@@ -34,7 +34,6 @@ public class OceanTile extends Tile {
      * @return always <code>true</code>.
      */
     public boolean isBusy() {
-        // TODO
         return true;
     }
 
@@ -49,7 +48,8 @@ public class OceanTile extends Tile {
      * throws an exception.
      */
     public void setUnit(Unit u) throws IllegalGameActionException {
-        //TODO
+        throw new IllegalGameActionException("Trying to set an unit on an"
+        		+ "ocean tile");
     }
 
     public void print() {
