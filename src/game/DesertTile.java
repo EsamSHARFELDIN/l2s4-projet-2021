@@ -46,7 +46,7 @@ public class DesertTile extends Tile {
      * Create a desert type tile.
      */
     public DesertTile() {
-        // TODO Auto-generated constructor stub
+    	// nothing here ...
     }
 
     /**
@@ -59,7 +59,7 @@ public class DesertTile extends Tile {
      */
     public Resource getResource() throws IllegalGameActionException {
         // TODO
-        return null;
+        return Resource.Sand;
     }
 
     public void print() {
