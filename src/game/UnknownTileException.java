@@ -3,7 +3,7 @@ package game;
 /**
  * An exception class to indicate that an invalid tile was accessed
  */
-public class UnknownTileException extends Exception {
+public class UnknownTileException extends GameException {
     public UnknownTileException() {
         super();
     }

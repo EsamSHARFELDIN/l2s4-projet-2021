@@ -16,5 +16,5 @@ public interface Action {
 	 * @param board the board with which the action will be realized.
 	 * @param player the player that is realizing this action.
 	 */
-    void execute(Board board, Player player);
+    void execute(Board board, Player player) throws GameException;
 }

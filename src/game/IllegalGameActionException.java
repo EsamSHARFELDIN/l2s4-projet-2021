@@ -3,7 +3,7 @@ package game;
 /**
  * An exception class to indicate that an unspecified behaviour was invoked
  */
-public class IllegalGameActionException extends Exception {
+public class IllegalGameActionException extends GameException {
     public IllegalGameActionException() {
         super();
     }
