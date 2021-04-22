@@ -41,7 +41,7 @@ public abstract class Tile {
      * @throws IllegalArgumentException when null is given as 
      * an argument.
      */
-    public void setUnit(Unit u) throws IllegalArgumentException {
+    public void setUnit(Unit u) throws IllegalArgumentException, IllegalGameActionException {
 
     }
     /**
