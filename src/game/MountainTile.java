@@ -50,20 +50,19 @@ public class MountainTile extends Tile {
      * create a mountain type tile.
      */
     public MountainTile() {
-        // TODO Auto-generated constructor stub
+        // nothing here ...
     }
 
     /**
      * @see Tile#getResource()
      * Return the type of resource this area gives.
-     * Mountain area gives rocks.
+     * Mountain area gives rocks (stone).
      *
      * @return the resource given by this tile which is
-     * rock.
+     * rock (stone).
      */
     public Resource getResource() throws IllegalGameActionException {
-        //TODO
-        return null;
+        return Resource.Stone;
     }
 
     public void print() {
