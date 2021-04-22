@@ -56,8 +56,7 @@ public class PlainTile extends Tile {
      * wheat.
      */
     public Resource getResource() throws IllegalGameActionException {
-        // TODO
-        return null;
+        return Resource.Wheat;
     }
 
     public void print() {
