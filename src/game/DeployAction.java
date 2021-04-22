@@ -13,6 +13,10 @@ package game;
  */
 public class DeployAction implements Action {
 	
+	private int x;
+	private int y;
+	private Unit u;
+	
 	/**
 	 * creating (preparing) an action of deploying
 	 * the given unit on the board on the given
@@ -23,7 +27,9 @@ public class DeployAction implements Action {
 	 * @param u the unit to deploy
 	 */
 	public DeployAction(int x, int y, Unit u) {
-		// TODO
+		this.x = x;
+		this.y = y;
+		this.u = u;
 	}
 	/**
 	 * @see Action#execute(Board, Player)
@@ -33,11 +39,24 @@ public class DeployAction implements Action {
 	 * deployed.
 	 * @param player the player who is deploying the
 	 * unit.
+	 * @throws GameException when something abnormal about the game happens.
 	 */
 	@Override
-	public void execute(Board board, Player player) {
-		// TODO Auto-generated method stub
-
+	public void execute(Board board, Player player) throws GameException {
+		Tile tile;
+		try {
+			tile = board.tileAt(this.x, this.y);
+		} catch(UnknownTileException e) {
+			throw new UnknownTileException ("Trying to set an unit on a "
+					+ "non-existing tile: (" + this.x + ", "+ this.y + ")");
+		}
+		if (!tile.isBusy()) {
+			tile.setUnit(u);
+		}
+		else {
+			throw new IllegalGameActionException("Trying to set an unit on "
+					+ "a busy tile: (" + this.x + ", "+ this.y + ")");
+		}
 	}
 
 }
