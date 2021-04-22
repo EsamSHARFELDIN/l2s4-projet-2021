@@ -47,7 +47,7 @@ public class ForestTile extends Tile {
      * create a forest type tile.
      */
     public ForestTile() {
-        // TODO Auto-generated constructor stub
+        // nothing here ...
     }
 
     /**
@@ -59,8 +59,7 @@ public class ForestTile extends Tile {
      * wood.
      */
     public Resource getResource() throws IllegalGameActionException {
-        // TODO
-        return null;
+        return Resource.Wood;
     }
 
     public void print() {
