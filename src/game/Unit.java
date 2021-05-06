@@ -17,7 +17,24 @@ public abstract class Unit {
         this.player = player;
         this.goldQuantity = 0;
     }
-
+    
+    /**
+     * Construct a unit which does not belong to any tile 
+     * nor any player
+     */
+    public Unit() {
+    	this(null, null);
+    }
+    
+    /**
+     * Construct a unit defined by a tile but does not 
+     * belong (yet) to any player.
+     * @param tile The tile occupied by the unit
+     */
+    public Unit(Tile tile) {
+    	this(tile, null);
+    }
+    
     /**
      * Set the tile occupied by the unit
      * @param tile New tile occupied by the unit
@@ -78,8 +95,10 @@ public abstract class Unit {
      * tile occupied by the unit
      * @return A reference to a resource object corresponding
      * to the occupied tile
+     * @throws IllegalGameActionException when the tile where
+     * this unit is placed can not provide any resource.
      */
-    public Resource provideResource() {
+    public Resource provideResource() throws IllegalGameActionException {
         return this.tile.getResource();
     }
 
