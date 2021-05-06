@@ -40,6 +40,28 @@ public class Army extends Unit {
 	}
 	
 	/**
+	 * create an army with the given size. This army is not placed
+	 * (yet) on any tile and does not belong (yet) to any player.
+	 * @param size the size of this army (from 1 to 5, included).
+	 * @throws IllegalArgumentException when the given size is invalid.
+	 */
+	public Army(int size) throws IllegalArgumentException { 
+		this(null,  null, size);
+	}
+	
+	/**
+	 * create an army unit with given size and place. This army
+	 * does not belong (yet) to any player.
+	 * @param place the place where to put this army. Can be 
+	 * null iff this army unit is placed nowhere.
+	 * @param size the size of this army (from 1 to 5, included).
+	 * @throws IllegalArgumentException when the given size is invalid.
+	 */
+	public Army(Tile place, int size) throws IllegalArgumentException {
+		this(place, null, size);
+	}
+	
+	/**
 	 * gives the size of this army
 	 * @return the size of this army
 	 */
