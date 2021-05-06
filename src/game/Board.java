@@ -195,6 +195,22 @@ public class Board {
         return tiles;
     }
 
+    /**
+     * Return a list of the tiles that are not occupied by any unit
+     * @return List of unoccupied tiles
+     */
+    public List<Tile> freeTiles() {
+        List<Tile> tiles = new ArrayList<Tile>();
+        for (int i = 0; i < this.height; i++) {
+            for (int j = 0; j < this.width; j++) {
+                if (!this.tiles[i][j].isBusy()) {
+                    tiles.add(this.tiles[i][j]);
+                }
+            }
+        }
+        return tiles;
+    }
+
     public void print() {
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
