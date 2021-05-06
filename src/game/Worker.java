@@ -22,6 +22,24 @@ public class Worker extends Unit {
 		super(place, player);
 		this.goldQuantity = INITIAL_GOLD_QUANTITY;
 	}
+	
+	/**
+	 * create a worker which is not placed (yet) on any tile
+	 * and does not belong (yet) to any player.
+	 */
+	public Worker() {
+		this(null, null);
+	}
+	
+	/**
+	 * create a worker with the given place.
+	 * @param place place where this worker will be put on. 
+	 * Can be null iff this army is placed nowhere.
+	 */
+	public Worker(Tile place) {
+		this(place, null);
+	}
+	
 	/**
 	 * gives the gold coin given by this worker when the player choose to do nothing (in the 1st step on the turn).
 	 * It depends on this worker's place.
