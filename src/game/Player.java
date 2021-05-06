@@ -1,6 +1,6 @@
 package game;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * this is abstract class, it used to represent a player.
@@ -10,10 +10,10 @@ import java.util.List;
 public abstract class Player {
     protected String name;
     /**
-     * @param theUnits the list of characters he controls.
+     * @param units the list of characters he controls.
      */
     protected List<Unit> units;
-    protected int rockStock;
+    protected int stoneStock;
     protected int sandStock;
     protected int wheatStock;
     protected int woodStock;
@@ -28,11 +28,12 @@ public abstract class Player {
      * @param woodStock
      * @param goldStock
      */
-    public Player(String name, int rockStock, int sandStock, int wheatStock,
+    public Player(String name, int stoneStock, int sandStock, int wheatStock,
                   int woodStock, int goldStock) {
 
         this.name = name;
-        this.rockStock = rockStock;
+        this.units = new ArrayList<Unit>():
+        this.stoneStock = stoneStock;
         this.sandStock = sandStock;
         this.wheatStock = wheatStock;
         this.woodStock = woodStock;
@@ -40,97 +41,144 @@ public abstract class Player {
     }
 
     /**
-     * represent the action chosen by the player.
+     * Represent the action chosen by the player.
      * @return an instance of a class implementing the Action.
      */
     public abstract Action chooseAction();
 
     /**
-     * to collect the resources owned by the player.
-     */
-    public void collectResources() {
-
-    }
-
-    /**
-     * to add a unit in the player stock.
-     * @param unit a unit
-     */
-    public void addUnit(Unit unit) {
-
-    }
-
-    /**
-     * to remove a unit in the player stock.
-     * @param unit
-     */
-    public void removeUnit(Unit unit) {
-
-    }
-
-    /**
-     *  allows the player to pay the cost of maintaining a unit.
+     * Allows the player to pay the cost of maintaining a unit
      * @param unit
      */
     public abstract void remunerate(Unit unit);
 
     /**
-     * to know if the resources of the player allow him to maintain one of his units.
-     * @return
+     * Indicate whether the resources of the player allow him to maintain one of
+     * his units
+     * @return <code>true</code> if the player can remunerate the unit, else
+     * <code>false</code>
      */
-    public abstract boolean canRemunerate();
+    public abstract boolean canRemunerate(Unit unit);
 
     /**
-     * is an abstract method, to converting a player's resources into other resources.
+     * Convert a player's resources into other resources
      */
     public abstract void convertResource();
 
     /**
-     * to get the player resource.
+     * Collect the resources from the units controlled by the player
+     */
+    public void collectResources() {
+        for (Unit u : this.units) {
+            Resource r = u.provideResource();
+            switch (r) {
+            case Resource.Stone:
+                this.stoneStock++;
+                break;
+            case Resource.Sand:
+                this.sandStock++;
+                break;
+            case Resource.Wheat:
+                this.wheatStock++;
+                break;
+            case Resource.Wood:
+                this.woodStock++;
+                break;
+            }
+        }
+    }
+
+    /**
+     * Add a unit to the player stock
+     * @param unit a unit
+     */
+    public void addUnit(Unit unit) {
+        this.units.add(unit);
+    }
+
+    /**
+     * Remove a unit from the player stock
+     * @param unit
+     */
+    public void removeUnit(Unit unit) {
+        this.units.remove(unit);
+    }
+
+    /**
+     * Get the player resource
      * @param resource
-     * @return
+     * @return Amount of a particular resource type
      */
     public int getResource(Resource resource) {
-        return 0;
-
+        switch (r) {
+        case Resource.Stone:
+            return this.stoneStock;
+        case Resource.Sand:
+            return this.sandStock;
+        case Resource.Wheat:
+            return this.wheatStock;
+        case Resource.Wood:
+            return this.woodStock;
+        }
     }
 
     /**
-     * to increase the player resource
-     * @param i
-     * @param resource the resource of the player
+     * Increase the player resource
+     * @param i Amount
+     * @param resource Type of resource
      */
     public void incrementResource(int i, Resource resource) {
-
+        switch (r) {
+        case Resource.Stone:
+            this.stoneStock += i;
+        case Resource.Sand:
+            this.sandStock += i;
+        case Resource.Wheat:
+            this.wheatStock += i;
+        case Resource.Wood:
+            this.woodStock += i;
+        }
     }
 
     /**
-     * to decrease the player resource
-     * @param i
-     * @param resource the resource of the player
+     * Decrease the player resource
+     * @param i Amount
+     * @param resource Type of resource
      */
     public void decrementResource(int i, Resource resource) {
-
+        switch (r) {
+        case Resource.Stone:
+            this.stoneStock -= i;
+        case Resource.Sand:
+            this.sandStock -= i;
+        case Resource.Wheat:
+            this.wheatStock -= i;
+        case Resource.Wood:
+            this.woodStock -= i;
+        }
     }
 
-    /** to give the Player's quantity
-     * @return the Player's quantity of gold
+    /**
+     * Return the amount of gold the player has
+     * @return the player's quantity of gold
      */
     public int getGold() {
-        return 0;
+        return this.goldStock;
     }
 
-    /** to give a quantity of gold to the player
-     * @param i a quantity of gold which will be added
+    /**
+     * Give a quantity of gold to the player
+     * @param i A quantity of gold which will be added
      */
     public void incrementGold(int i) {
-
+        this.goldStock += i;
     }
 
-    /** to remove a quantity of gold to the player
+    /**
+     * Remove a quantity of gold to the player
      * @param i a quantity of gold which will be withdrawn
      */
     public void decrementGold(int i) {
-
+        this.goldStock -= i;
     }
 }
