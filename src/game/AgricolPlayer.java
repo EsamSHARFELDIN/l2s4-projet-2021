@@ -1,10 +1,13 @@
 package game;
 
+import java.lang.Math;
+
 /**
  * This class modelize a Player of an agricol game.
  * This class extends the Unit class (@see Player).
  */
 public class AgricolPlayer extends Player {
+    private static final int INITIAL_GOLD = 15;
 
     /**
      * create a player for the agricol game with the given name.
@@ -13,7 +16,7 @@ public class AgricolPlayer extends Player {
      * @param name name of this player
      */
     public AgricolPlayer(String name) {
-        super("Bar", 0, 0, 0, 0, 0);
+        super(name, 0, 0, 0, 0, INITIAL_GOLD);
     }
 
     /**
@@ -21,7 +24,16 @@ public class AgricolPlayer extends Player {
      * @return Action specific to the agricultural game
      */
     public Action chooseAction() {
-
+        double roll = Math.random();
+        if (roll <= 0.33) {
+            /* return DeployAction(); TODO */
+        }
+        else if (roll <= 0.66) {
+            return AgricolDoNothingAction();
+        }
+        else {
+            return AgricolExchangeAction();
+        }
     }
 
     /**
@@ -29,7 +41,7 @@ public class AgricolPlayer extends Player {
      * @param unit Unit to feed
      */
     public void remunerate(Unit unit) {
-
+        decrementGold(unit.cost());
     }
 
     /**
@@ -37,8 +49,8 @@ public class AgricolPlayer extends Player {
      * maintenance cost of the unit, else <code>false</code>
      * @return A boolean indicating if the player can feed the unit
      */
-    public boolean canRemunerate() {
-
+    public boolean canRemunerate(Unit unit) {
+        return (unit.cost() <= this.goldStock);
     }
 
     /**
@@ -46,6 +58,23 @@ public class AgricolPlayer extends Player {
      */
     @Override
     public void convertResource() {
+        incrementGold(this.stoneStock * Resource.getConversionValue(Resource.Stone));
+        this.stoneStock = 0;
+        incrementGold(this.sandStock * Resource.getConversionValue(Resource.Sand));
+        this.sandStock = 0;
+        incrementGold(this.wheatStock * Resource.getConversionValue(Resource.Wheat));
+        this.wheatStock = 0;
+        incrementGold(this.woodStock * Resource.getConversionValue(Resource.Wood));
+        this.woodStock = 0;
+    }
 
+    /**
+     * Collect gold from the units when the player chooses to do nothing for
+     * a turn
+     */
+    public void collectIdleGold() {
+        for (Worker worker : this.units) {
+            incrementGold(worker.goldcoinWhenPlayerDoesNothing());
+        }
     }
 }
