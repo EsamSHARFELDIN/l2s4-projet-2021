@@ -21,12 +21,16 @@ public class AgricolPlayer extends Player {
 
     /**
      * Return an action among those specific to the agricultural game
+     * @param board Playing board
      * @return Action specific to the agricultural game
      */
-    public Action chooseAction() {
+    public Action chooseAction(Board board) {
         double roll = Math.random();
         if (roll <= 0.33) {
-            /* return DeployAction(); TODO */
+            List<Tile> freeTiles = board.freeTiles();
+            Tile deploymentTile = freeTiles.get((int) Math.random() * freeTiles.size());
+            Unit worker = new Worker(deploymentTile);
+            return DeployAction(deploymentTile.getX(), deploymentTile.getY(), worker);
         }
         else if (roll <= 0.66) {
             return AgricolDoNothingAction();

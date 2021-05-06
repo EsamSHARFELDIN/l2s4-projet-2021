@@ -27,9 +27,10 @@ public class WarPlayer extends Player {
 
     /**
      * Return an action among those specific to the war game
+     * @param board Playing board
      * @return Action specific to the war game
      */
-    public Action chooseAction() {
+    public Action chooseAction(Board board) {
 
     }
 

@@ -41,10 +41,11 @@ public abstract class Player {
     }
 
     /**
-     * Represent the action chosen by the player.
+     * Represent the action chosen by the player
+     * @param board Playing board
      * @return an instance of a class implementing the Action.
      */
-    public abstract Action chooseAction();
+    public abstract Action chooseAction(Board board);
 
     /**
      * Allows the player to pay the cost of maintaining a unit
