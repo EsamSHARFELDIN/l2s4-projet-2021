@@ -52,6 +52,7 @@ public class DeployAction implements Action {
 		}
 		if (!tile.isBusy()) {
 			tile.setUnit(u);
+			player.addUnit(u);
 		}
 		else {
 			throw new IllegalGameActionException("Trying to set an unit on "
