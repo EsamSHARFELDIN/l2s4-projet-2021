@@ -49,8 +49,8 @@ public class MountainTile extends Tile {
     /**
      * create a mountain type tile.
      */
-    public MountainTile() {
-        // nothing here ...
+    public MountainTile(int x, int y) {
+        super(x, y);
     }
 
     /**

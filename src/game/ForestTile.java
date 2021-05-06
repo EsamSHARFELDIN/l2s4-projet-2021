@@ -46,8 +46,8 @@ public class ForestTile extends Tile {
     /**
      * create a forest type tile.
      */
-    public ForestTile() {
-        // nothing here ...
+    public ForestTile(int x, int y) {
+        super(x, y);
     }
 
     /**

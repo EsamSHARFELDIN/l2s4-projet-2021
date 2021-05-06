@@ -43,8 +43,8 @@ public class PlainTile extends Tile {
      */
     public static int GOLD_WHEN_DOING_NOTHING;
 
-    public PlainTile() {
-        // TODO Auto-generated constructor stub
+    public PlainTile(int x, int y) {
+        super(x, y);
     }
 
     /**

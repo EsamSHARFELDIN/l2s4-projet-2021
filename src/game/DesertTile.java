@@ -45,8 +45,8 @@ public class DesertTile extends Tile {
     /**
      * Create a desert type tile.
      */
-    public DesertTile() {
-    	// nothing here ...
+    public DesertTile(int x, int y) {
+        super(x, y);
     }
 
     /**
