@@ -15,8 +15,8 @@ public class Board {
      * (vertical size), representing numbers of tiles
      * @param width Horizontal size in number of tiles
      * @param height Vertical size in number of tiles
-     * @throws IllegalArgumentException iff either <code>width</code> or
-     * <code>height</code> is negative
+     * @throws IllegalArgumentException iff <code>width</code> is less than 2 or
+     * <code>height</code> is less than 1
      */
     public Board(int width, int height) throws IllegalArgumentException {
         if (width < 2) {
@@ -42,7 +42,7 @@ public class Board {
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
                 if (this.tiles[i][j] == null) {
-                    this.tiles[i][j] = new OceanTile();
+                    this.tiles[i][j] = new OceanTile(j, i);
                 }
             }
         }
@@ -92,16 +92,16 @@ public class Board {
         int roll = this.source.nextInt(4);
         switch (roll) {
         case 0:
-            this.tiles[y][x] = new DesertTile();
+            this.tiles[y][x] = new DesertTile(x, y);
             break;
         case 1:
-            this.tiles[y][x] = new MountainTile();
+            this.tiles[y][x] = new MountainTile(x, y);
             break;
         case 2:
-            this.tiles[y][x] = new ForestTile();
+            this.tiles[y][x] = new ForestTile(x, y);
             break;
         case 3:
-            this.tiles[y][x] = new PlainTile();
+            this.tiles[y][x] = new PlainTile(x, y);
             break;
         }
     }
