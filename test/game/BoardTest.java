@@ -13,6 +13,8 @@ public class BoardTest {
       Board b = new Board(1, 12);
     }
 
+
+    
     @Test
     public void canBuildBoardWithGoodArguments() {
       Board b = new Board(2, 1);
