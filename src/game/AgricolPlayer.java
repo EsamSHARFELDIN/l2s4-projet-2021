@@ -1,6 +1,7 @@
 package game;
 
 import java.lang.Math;
+import java.util.*;
 
 /**
  * This class modelize a Player of an agricol game.
@@ -30,13 +31,13 @@ public class AgricolPlayer extends Player {
             List<Tile> freeTiles = board.freeTiles();
             Tile deploymentTile = freeTiles.get((int) Math.random() * freeTiles.size());
             Unit worker = new Worker(deploymentTile);
-            return DeployAction(deploymentTile.getX(), deploymentTile.getY(), worker);
+            return new DeployAction(deploymentTile.getX(), deploymentTile.getY(), worker);
         }
         else if (roll <= 0.66) {
-            return AgricolDoNothingAction();
+            return new AgricolDoNothingAction();
         }
         else {
-            return AgricolExchangeAction();
+            return new AgricolExchangeAction();
         }
     }
 
@@ -78,7 +79,7 @@ public class AgricolPlayer extends Player {
      */
     public void collectIdleGold() {
         for (Worker worker : this.units) {
-            incrementGold(worker.goldcoinWhenPlayerDoesNothing());
+            incrementGold(worker.goldcoinWhenplayerDoesNothing());
         }
     }
 }

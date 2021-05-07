@@ -32,7 +32,7 @@ public abstract class Player {
                   int woodStock, int goldStock) {
 
         this.name = name;
-        this.units = new ArrayList<Unit>():
+        this.units = new ArrayList<>();
         this.stoneStock = stoneStock;
         this.sandStock = sandStock;
         this.wheatStock = wheatStock;
@@ -69,20 +69,20 @@ public abstract class Player {
     /**
      * Collect the resources from the units controlled by the player
      */
-    public void collectResources() {
+    public void collectResources() throws IllegalGameActionException {
         for (Unit u : this.units) {
             Resource r = u.provideResource();
             switch (r) {
-            case Resource.Stone:
+            case Stone:
                 this.stoneStock++;
                 break;
-            case Resource.Sand:
+            case Sand:
                 this.sandStock++;
                 break;
-            case Resource.Wheat:
+            case Wheat:
                 this.wheatStock++;
                 break;
-            case Resource.Wood:
+            case Wood:
                 this.woodStock++;
                 break;
             }
@@ -111,15 +111,17 @@ public abstract class Player {
      * @return Amount of a particular resource type
      */
     public int getResource(Resource resource) {
-        switch (r) {
-        case Resource.Stone:
+        switch (resource) {
+        case Stone:
             return this.stoneStock;
-        case Resource.Sand:
+        case Sand:
             return this.sandStock;
-        case Resource.Wheat:
+        case Wheat:
             return this.wheatStock;
-        case Resource.Wood:
+        case Wood:
             return this.woodStock;
+        default:
+            return -1;
         }
     }
 
@@ -129,14 +131,14 @@ public abstract class Player {
      * @param resource Type of resource
      */
     public void incrementResource(int i, Resource resource) {
-        switch (r) {
-        case Resource.Stone:
+        switch (resource) {
+        case Stone:
             this.stoneStock += i;
-        case Resource.Sand:
+        case Sand:
             this.sandStock += i;
-        case Resource.Wheat:
+        case Wheat:
             this.wheatStock += i;
-        case Resource.Wood:
+        case Wood:
             this.woodStock += i;
         }
     }
@@ -147,14 +149,14 @@ public abstract class Player {
      * @param resource Type of resource
      */
     public void decrementResource(int i, Resource resource) {
-        switch (r) {
-        case Resource.Stone:
+        switch (resource) {
+        case Stone:
             this.stoneStock -= i;
-        case Resource.Sand:
+        case Sand:
             this.sandStock -= i;
-        case Resource.Wheat:
+        case Wheat:
             this.wheatStock -= i;
-        case Resource.Wood:
+        case Wood:
             this.woodStock -= i;
         }
     }
