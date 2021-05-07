@@ -107,6 +107,30 @@ public abstract class Tile {
      * the selectable actions he chooses to do nothing.
      */
     public abstract int getGoldWhenDoingNothing();
+    
+    /**
+     * return The amounts of additional (bonus) power
+     * that an unit placed on this type of tile
+     * may receives.
+     * 
+     * @return The amounts of additional (bonus) power
+     * that an unit placed on this type of tile
+     * may receives.
+     */
+    public abstract int getAdditionnalPower();
+    
+    /** 
+     * return the bonus a player may receive from each of
+     * his unit placed on this type of tile when
+     * counting the total points at the end of the
+     * game.
+     * 
+     * @return The bonus a player may receive from each of
+     * his unit placed on this type of tile when
+     * counting the total points at the end of the
+     * game.
+     */
+    public abstract int getAdditionnalPoints();
 
     public abstract void print();
 }

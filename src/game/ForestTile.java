@@ -97,4 +97,18 @@ public class ForestTile extends Tile {
     public int getCost() {
     	return COST;
     }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getAdditionnalPower() {
+    	return ADDITIONAL_POWER;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getAdditionnalPoints() {
+    	return ADDITIONAL_POINTS;
+    }
 }
