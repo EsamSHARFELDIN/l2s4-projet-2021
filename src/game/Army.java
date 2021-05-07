@@ -90,9 +90,8 @@ public class Army extends Unit {
      * depending on this army's type of place (mountain, desert, forest, ...)
      * @return the military (relative) strength of this army.
      */
-	public int militaryStrength() { //TODO
-		//needs a method in Tile that gives the strength bonus
-		return -1; 
+	public int militaryStrength() {
+		return getSize() + this.tile.getAdditionnalPower(); 
 	}
 	/**
      * gives the value of quantity of food this army needs to be kept after one turn.
@@ -100,7 +99,6 @@ public class Army extends Unit {
      */
 	@Override
 	public int cost() {
-		// TODO Auto-generated method stub
 		return this.size;
 	}
 	/**
@@ -110,8 +108,7 @@ public class Army extends Unit {
 	 * @return the bonus point given by this army depending on the type of place it's set on (mountain, desert, plain, ...).
 	 */
 	@Override
-	public int points() { // TODO
-		//needs a method in Tile that gives the bonus point.
-		return -1;
+	public int points() {
+		return this.tile.getAdditionnalPoints();
 	}    
 }
