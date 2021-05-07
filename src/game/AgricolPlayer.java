@@ -20,6 +20,27 @@ public class AgricolPlayer extends Player {
         super(name, 0, 0, 0, 0, INITIAL_GOLD);
     }
 
+
+
+    public void addUnit(Unit unit) {
+        if (unit instanceof Worker) {
+            super.addUnit(unit);
+        }
+        else {
+            throw new RuntimeException("Tried to add a wrong unit");
+        }
+    }
+
+    public void removeUnit(Unit unit) {
+        if (unit instanceof Worker) {
+            super.removeUnit(unit);
+        }
+        else {
+            throw new RuntimeException("Tried to remove a wrong unit");
+        }
+
+    }
+
     /**
      * Return an action among those specific to the agricultural game
      * @param board Playing board
@@ -78,8 +99,9 @@ public class AgricolPlayer extends Player {
      * a turn
      */
     public void collectIdleGold() {
-        for (Worker worker : this.units) {
-            incrementGold(worker.goldcoinWhenplayerDoesNothing());
+        /* Downcasting should be safe here, because of the type check in addUnit */
+        for (Unit u : this.units) {
+            incrementGold(((Worker) u).goldcoinWhenplayerDoesNothing());
         }
     }
 }
