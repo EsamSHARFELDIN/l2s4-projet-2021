@@ -11,9 +11,7 @@ public class AgricolExchangeAction implements Action {
     /**
      * Construct a conversion action specific to the agricultural simulation game
      */
-    public AgricolExchangeAction() {
-        // TODO
-    }
+    public AgricolExchangeAction() {}
 
     /**
      * Execute the action: resources stored by the player are converted into
@@ -23,6 +21,6 @@ public class AgricolExchangeAction implements Action {
      * @param player Player who is deploying the unit
      */
     public void execute(Board board, Player player) {
-        // TODO
+        player.convertResource();
     }
 }

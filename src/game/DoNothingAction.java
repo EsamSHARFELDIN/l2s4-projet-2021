@@ -10,9 +10,7 @@ public class DoNothingAction implements Action {
     /**
      * Construct an action corresponding to a waiting turn, with no consequences
      */
-    public DoNothingAction() {
-        // TODO
-    }
+    public DoNothingAction() {}
 
     /**
      * @see Action#execute(Board, Player)
@@ -21,7 +19,5 @@ public class DoNothingAction implements Action {
      * @param board Playing board
      * @param player Player taking the action
      **/
-    public void execute(Board board, Player player) {
-        // TODO
-    }
+    public void execute(Board board, Player player) {}
 }

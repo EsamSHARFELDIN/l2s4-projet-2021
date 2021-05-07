@@ -11,18 +11,17 @@ public class AgricolDoNothingAction extends DoNothingAction {
     /**
      * Construct a waiting action specific to the agricultural simulation game
      */
-    public AgricolDoNothingAction() {
-        // TODO
-    }
+    public AgricolDoNothingAction() {}
 
     /**
      * @see DoNothingAction#execute(Board, Player)
      * Execute the action: the player receives a gold coin for each Plain or
      * Forest he controls, and two coins for each Desert
      * @param board Playing board
-     * @param player Player who is deploying the unit
+     * @param player Player taking the action
      */
     public void execute(Board board, Player player) {
-        // TODO
+        /* TODO talk about the downcast */
+        ((AgricolPlayer) player).collectIdleGold();
     }
 }
