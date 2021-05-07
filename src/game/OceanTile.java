@@ -55,4 +55,50 @@ public class OceanTile extends Tile {
     public void print() {
         System.out.print("O");
     }
+    
+    /**
+     * return the bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     * 
+     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return The bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     */
+    public int getGoldWhenDoingNothing() {
+    	return 0;
+    }
+    
+    /**
+     * return the cost of maintenance of an unit placed
+     * on this type of tile.
+     * 
+     * <code>COST</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return the cost of maintenance of an unit placed
+     * on this type of tile.
+     */
+    public int getCost() {
+    	return 0;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getAdditionnalPower() {
+    	return 0;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getAdditionnalPoints() {
+    	return 0;
+    }
 }

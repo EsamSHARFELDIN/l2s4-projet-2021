@@ -79,6 +79,58 @@ public abstract class Tile {
     public void unsetUnit() {
         //TODO
     }
+    
+    /**
+     * return the cost of maintenance of an unit placed
+     * on this type of tile.
+     * 
+     * <code>COST</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return the cost of maintenance of an unit placed
+     * on this type of tile.
+     */
+    public abstract int getCost();
+    
+    /**
+     * return the bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     * 
+     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return The bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     */
+    public abstract int getGoldWhenDoingNothing();
+    
+    /**
+     * return The amounts of additional (bonus) power
+     * that an unit placed on this type of tile
+     * may receives.
+     * 
+     * @return The amounts of additional (bonus) power
+     * that an unit placed on this type of tile
+     * may receives.
+     */
+    public abstract int getAdditionnalPower();
+    
+    /** 
+     * return the bonus a player may receive from each of
+     * his unit placed on this type of tile when
+     * counting the total points at the end of the
+     * game.
+     * 
+     * @return The bonus a player may receive from each of
+     * his unit placed on this type of tile when
+     * counting the total points at the end of the
+     * game.
+     */
+    public abstract int getAdditionnalPoints();
 
     public abstract void print();
 }

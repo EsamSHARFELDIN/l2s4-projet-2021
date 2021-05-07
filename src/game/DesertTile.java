@@ -65,4 +65,50 @@ public class DesertTile extends Tile {
     public void print() {
         System.out.print("D");
     }
+    
+    /**
+     * return the bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     * 
+     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return The bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     */
+    public int getGoldWhenDoingNothing() {
+    	return GOLD_WHEN_DOING_NOTHING;
+    }
+    
+    /**
+     * return the cost of maintenance of an unit placed
+     * on this type of tile.
+     * 
+     * <code>COST</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return the cost of maintenance of an unit placed
+     * on this type of tile.
+     */
+    public int getCost() {
+    	return COST;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getAdditionnalPower() {
+    	return ADDITIONAL_POWER;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public int getAdditionnalPoints() {
+    	return ADDITIONAL_POINTS;
+    }
 }
