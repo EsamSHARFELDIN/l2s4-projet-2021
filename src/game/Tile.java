@@ -79,6 +79,34 @@ public abstract class Tile {
     public void unsetUnit() {
         //TODO
     }
+    
+    /**
+     * return the cost of maintenance of an unit placed
+     * on this type of tile.
+     * 
+     * <code>COST</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return the cost of maintenance of an unit placed
+     * on this type of tile.
+     */
+    public abstract int getCost();
+    
+    /**
+     * return the bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     * 
+     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be 
+     * initialized before running the game (Game#play) 
+     * to avoid undefined behavior.
+     * 
+     * @return The bonus gold a player may receive from each of
+     * his unit placed on this type of tile when among
+     * the selectable actions he chooses to do nothing.
+     */
+    public abstract int getGoldWhenDoingNothing();
 
     public abstract void print();
 }
