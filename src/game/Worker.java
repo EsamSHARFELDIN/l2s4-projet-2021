@@ -46,10 +46,10 @@ public class Worker extends Unit {
 	 * @see "Original subjects section 3.2, régles complémentaires en fonction des territoires."
 	 * @return the gold coin given by this worker depending on this worker's place, when the player choose to do nothng.
 	 */
-	public int goldcoinWhenplayerDoesNothing() { //TODO
-		//needs a method in Tile that gives some point when the player do nothing
-		return -1;		
+	public int goldcoinWhenplayerDoesNothing() {
+		return this.tile.getGoldWhenDoingNothing();		
 	}
+	
 	/**
 	 * gives the value of the remuneration (salary) this worker need to be kept after one turn.
 	 * @return the remuneration (salary) this worker need to be kept after one turn, it depends on the type of place it is 
@@ -57,8 +57,7 @@ public class Worker extends Unit {
 	 * @see "Original subjects section 3.2, régles complémentaires en fonction des territoires."
 	 */
 	@Override
-	public int cost() { //TODO
-		//needs a method in Tile that gives the salary value
-		return -1;
+	public int cost() {
+		return this.tile.getCost();
 	}	
 }
