@@ -73,6 +73,12 @@ public abstract class Player {
     public abstract void convertResource();
 
     /**
+     * Return the score of the player
+     * @return Player score
+     */
+    public abstract int score();
+
+    /**
      * Collect the resources from the units controlled by the player
      */
     public void collectResources() throws IllegalGameActionException {

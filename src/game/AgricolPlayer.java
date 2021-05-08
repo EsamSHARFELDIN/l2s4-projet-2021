@@ -108,6 +108,19 @@ public class AgricolPlayer extends Player {
     }
 
     /**
+     * Return the score of the player, ie the sum of the gold owned by the
+     * controlled workers
+     * @return Player score
+     */
+    public int score() {
+        int score = 0;
+        for (Unit unit : this.units) {
+            score += unit.points();
+        }
+        return score;
+    }
+
+    /**
      * Collect gold from the units when the player chooses to do nothing for
      * a turn
      */

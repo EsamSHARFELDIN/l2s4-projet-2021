@@ -11,6 +11,8 @@ public class WarPlayer extends Player {
     private static final int INITIAL_WARRIORS = 35;
     private static final int INITIAL_FOOD = 10;
     private static final int INITIAL_GOLD = 0;
+    private static final int BONUS_THRESHOLD = 10;
+    private static final int BONUS_AMOUNT = 5;
 
     /**
      * the player's stock of warrior (35 at the start).
@@ -121,6 +123,23 @@ public class WarPlayer extends Player {
         this.wheatStock = 0;
         incrementFoodStock(this.woodStock * Resource.getConversionValue(Resource.Wood));
         this.woodStock = 0;
+    }
+
+    /**
+     * Return the score of the player, ie the amount of gold owned by the player
+     * added with army points (depending on the type of controlled tiles) and 5
+     * bonus points in case the player controls 10 or more tiles
+     * @return Player score
+     */
+    public int score() {
+        int score = this.goldStock;
+        for (Unit unit : this.units) {
+            score += unit.points();
+        }
+        if (this.units.size() >= BONUS_THRESHOLD) {
+            score += BONUS_AMOUNT;
+        }
+        return score;
     }
 
     /**
