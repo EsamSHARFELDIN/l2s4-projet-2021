@@ -13,9 +13,9 @@ package game;
  */
 public class DeployAction implements Action {
 	
-	private int x;
-	private int y;
-	private Unit u;
+	protected int x;
+	protected int y;
+	protected Unit u;
 	
 	/**
 	 * creating (preparing) an action of deploying
