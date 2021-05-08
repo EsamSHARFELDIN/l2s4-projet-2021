@@ -132,5 +132,11 @@ public abstract class Tile {
      */
     public abstract int getAdditionnalPoints();
 
+    /**
+     * Return the maximum army size allowed on a tile
+     * @return Maximum army size
+     */
+    public abstract int getMaxArmySize();
+
     public abstract void print();
 }

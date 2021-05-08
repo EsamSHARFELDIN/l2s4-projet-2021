@@ -101,4 +101,9 @@ public class OceanTile extends Tile {
     public int getAdditionnalPoints() {
     	return 0;
     }
+
+    /** {@inheritDoc} */
+    public int getMaxArmySize() {
+        return 0;
+    }
 }

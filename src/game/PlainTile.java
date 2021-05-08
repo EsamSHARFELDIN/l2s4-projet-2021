@@ -108,4 +108,9 @@ public class PlainTile extends Tile {
     public int getAdditionnalPoints() {
     	return ADDITIONAL_POINTS;
     }
+
+    /** {@inheritDoc} */
+    public int getMaxArmySize() {
+        return MAX_ARMY_SIZE;
+    }
 }
