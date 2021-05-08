@@ -39,6 +39,7 @@ public class WarPlayer extends Player {
     public void addUnit(Unit unit) {
         if (unit instanceof Army) {
             super.addUnit(unit);
+            this.decrementWarriorStock(unit.getSize());
         }
         else {
             throw new RuntimeException("Tried to add a wrong unit");
@@ -71,7 +72,6 @@ public class WarPlayer extends Player {
             int size = (int) (sizeRoll * Math.min(deploymentTile.getMaxArmySize(),
                                                   this.warriorStock) + 1);
             Unit army = new Army(deploymentTile, size);
-            this.decrementWarriorStock(size); /* TODO talk about WHEN to do this */
             return new WarDeployAction(deploymentTile.getX(), deploymentTile.getY(), army);
         }
     }
@@ -87,6 +87,7 @@ public class WarPlayer extends Player {
                 this.remunerate(unit);
             }
             else {
+                this.removeUnit(unit);
                 unit.destroy();
                 this.goldStock++;
             }
