@@ -1,14 +1,21 @@
 package game;
 
+import java.lang.Math;
+import java.util.*;
+
 /**
  * This class modelize a Player of a war game.
  * This class extends the Unit class (@see Player).
  */
 public class WarPlayer extends Player {
+    private static final int INITIAL_WARRIORS = 35;
+    private static final int INITIAL_FOOD = 10;
+    private static final int INITIAL_GOLD = 0;
+
     /**
      * the player's stock of warrior (35 at the start).
      */
-    protected int warriorStock = 35;
+    protected int warriorStock;
 
     /**
      * the player's stock of food.
@@ -22,7 +29,27 @@ public class WarPlayer extends Player {
      * @param name name of this player.
      */
     public WarPlayer(String name) {
-        super("Foo", 0, 0, 0, 0, 0);
+        super(name, 0, 0, 0, 0, INITIAL_GOLD);
+        this.warriorStock = INITIAL_WARRIORS;
+        this.foodStock = INITIAL_FOOD;
+    }
+
+    public void addUnit(Unit unit) {
+        if (unit instanceof Army) {
+            super.addUnit(unit);
+        }
+        else {
+            throw new RuntimeException("Tried to add a wrong unit");
+        }
+    }
+
+    public void removeUnit(Unit unit) {
+        if (unit instanceof Army) {
+            super.removeUnit(unit);
+        }
+        else {
+            throw new RuntimeException("Tried to remove a wrong unit");
+        }
     }
 
     /**
@@ -31,7 +58,20 @@ public class WarPlayer extends Player {
      * @return Action specific to the war game
      */
     public Action chooseAction(Board board) {
-
+        double actionRoll = Math.random();
+        if (this.warriorStock == 0 || actionRoll <= 0.5) {
+            return new DoNothingAction();
+        }
+        else {
+            List<Tile> freeTiles = board.freeTiles();
+            Tile deploymentTile = freeTiles.get((int) (Math.random() * freeTiles.size()));
+            double sizeRoll = Math.random();
+            int size = (int) (sizeRoll * Math.min(deploymentTile.getMaxArmySize(),
+                                                  this.warriorStock) + 1);
+            Unit army = new Army(deploymentTile, size);
+            this.decrementWarriorStock(size); /* TODO talk about WHEN to do this */
+            return new WarDeployAction(deploymentTile.getX(), deploymentTile.getY(), army);
+        }
     }
 
     /**
@@ -39,7 +79,7 @@ public class WarPlayer extends Player {
      * @param unit Unit to feed
      */
     public void remunerate(Unit unit) {
-
+        decrementFoodStock(unit.cost());
     }
 
     /**
@@ -47,8 +87,8 @@ public class WarPlayer extends Player {
      * maintenance cost of the unit, else <code>false</code>
      * @return A boolean indicating if the player can feed the unit
      */
-    public boolean canRemunerate() {
-
+    public boolean canRemunerate(Unit unit) {
+        return (unit.cost() <= this.foodStock);
     }
 
     /**
@@ -56,7 +96,14 @@ public class WarPlayer extends Player {
      */
     @Override
     public void convertResource() {
-
+        incrementFoodStock(this.stoneStock * Resource.getConversionValue(Resource.Stone));
+        this.stoneStock = 0;
+        incrementFoodStock(this.sandStock * Resource.getConversionValue(Resource.Sand));
+        this.sandStock = 0;
+        incrementFoodStock(this.wheatStock * Resource.getConversionValue(Resource.Wheat));
+        this.wheatStock = 0;
+        incrementFoodStock(this.woodStock * Resource.getConversionValue(Resource.Wood));
+        this.woodStock = 0;
     }
 
     /**
@@ -64,7 +111,7 @@ public class WarPlayer extends Player {
      * @return the number of warriors remaining to the player.
      */
     public int getWarriorStock() {
-        return warriorStock;
+        return this.warriorStock;
     }
 
     /**
@@ -72,7 +119,7 @@ public class WarPlayer extends Player {
      * @return the player's stock of food.
      */
     public int getFoodStock() {
-        return foodStock;
+        return this.foodStock;
     }
 
     /**
@@ -80,7 +127,7 @@ public class WarPlayer extends Player {
      * @param incr the value of the increment of the Player's warrior stock.
      */
     public void incrementWarriorStock(int incr) {
-
+        this.warriorStock += incr;
     }
 
     /**
@@ -88,7 +135,7 @@ public class WarPlayer extends Player {
      * @param incr the value of the increment of the Player's food stock.
      */
     public void incrementFoodStock(int incr) {
-
+        this.foodStock += incr;
     }
 
     /**
@@ -96,7 +143,7 @@ public class WarPlayer extends Player {
      * @param decr the value of the decrement of the Player's warrior stock.
      */
     public void decrementWarriorStock(int decr) {
-
+        this.warriorStock -= decr;
     }
 
     /**
@@ -105,6 +152,6 @@ public class WarPlayer extends Player {
 
      */
     public void decrementFoodStock(int decr) {
-
+        this.foodStock -= decr;
     }
 }

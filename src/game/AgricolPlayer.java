@@ -20,8 +20,6 @@ public class AgricolPlayer extends Player {
         super(name, 0, 0, 0, 0, INITIAL_GOLD);
     }
 
-
-
     public void addUnit(Unit unit) {
         if (unit instanceof Worker) {
             super.addUnit(unit);
@@ -38,7 +36,6 @@ public class AgricolPlayer extends Player {
         else {
             throw new RuntimeException("Tried to remove a wrong unit");
         }
-
     }
 
     /**
@@ -50,7 +47,7 @@ public class AgricolPlayer extends Player {
         double roll = Math.random();
         if (roll <= 0.33) {
             List<Tile> freeTiles = board.freeTiles();
-            Tile deploymentTile = freeTiles.get((int) Math.random() * freeTiles.size());
+            Tile deploymentTile = freeTiles.get((int) (Math.random() * freeTiles.size()));
             Unit worker = new Worker(deploymentTile);
             return new DeployAction(deploymentTile.getX(), deploymentTile.getY(), worker);
         }
