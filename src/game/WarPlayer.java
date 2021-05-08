@@ -75,6 +75,23 @@ public class WarPlayer extends Player {
     }
 
     /**
+     * Remunerate the armies of the player (in the order they were created). If
+     * there is no food to remunerate an army, it is destroyed and the player
+     * loses control of the previously occupied tile, but gets one gold back
+     */
+    public void remunerateAll() {
+        for (Unit unit : this.units) {
+            if (this.canRemunerate(unit)) {
+                this.remunerate(unit);
+            }
+            else {
+                unit.destroy();
+                this.goldStock++;
+            }
+        }
+    }
+
+    /**
      * Pay the maintenance cost of the unit
      * @param unit Unit to feed
      */

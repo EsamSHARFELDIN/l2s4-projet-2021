@@ -60,6 +60,22 @@ public class AgricolPlayer extends Player {
     }
 
     /**
+     * Remunerate the workers of the player (in the order they were created).
+     * If there is no food to remunerate a worker, it is destroyed and the
+     * player loses control of the previously occupied tile
+     */
+    public void remunerateAll() {
+        for (Unit unit : this.units) {
+            if (this.canRemunerate(unit)) {
+                this.remunerate(unit);
+            }
+            else {
+                unit.destroy();
+            }
+        }
+    }
+
+    /**
      * Pay the maintenance cost of the unit
      * @param unit Unit to feed
      */

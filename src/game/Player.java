@@ -48,6 +48,12 @@ public abstract class Player {
     public abstract Action chooseAction(Board board);
 
     /**
+     * Remunerate all units controlled by the player, and act appropriately if
+     * a unit cannot be remunerated
+     */
+    public abstract void remunerateAll();
+
+    /**
      * Allows the player to pay the cost of maintaining a unit
      * @param unit
      */
