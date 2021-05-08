@@ -70,6 +70,7 @@ public class AgricolPlayer extends Player {
                 this.remunerate(unit);
             }
             else {
+                this.removeUnit(unit);
                 unit.destroy();
             }
         }
