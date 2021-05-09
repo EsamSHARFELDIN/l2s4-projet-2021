@@ -81,19 +81,6 @@ public abstract class Tile {
     }
     
     /**
-     * return the cost of maintenance of an unit placed
-     * on this type of tile.
-     * 
-     * <code>COST</code> has to be 
-     * initialized before running the game (Game#play) 
-     * to avoid undefined behavior.
-     * 
-     * @return the cost of maintenance of an unit placed
-     * on this type of tile.
-     */
-    public abstract int getCost();
-    
-    /**
      * return the bonus gold a player may receive from each of
      * his unit placed on this type of tile when among
      * the selectable actions he chooses to do nothing.

@@ -74,21 +74,6 @@ public class OceanTile extends Tile {
     }
     
     /**
-     * return the cost of maintenance of an unit placed
-     * on this type of tile.
-     * 
-     * <code>COST</code> has to be 
-     * initialized before running the game (Game#play) 
-     * to avoid undefined behavior.
-     * 
-     * @return the cost of maintenance of an unit placed
-     * on this type of tile.
-     */
-    public int getCost() {
-    	return 0;
-    }
-    
-    /**
      * {@inheritDoc}
      */
     public int getAdditionnalPower() {

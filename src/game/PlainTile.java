@@ -10,12 +10,6 @@ package game;
 public class PlainTile extends Tile {
 
     /**
-     * The cost of maintenance of an unit placed
-     * on this type of tile.
-     */
-    public static int COST;
-
-    /**
      * The max size allowed for an unit to be
      * placed on this type of tile.
      */
@@ -90,21 +84,6 @@ public class PlainTile extends Tile {
      */
     public int getGoldWhenDoingNothing() {
     	return GOLD_WHEN_DOING_NOTHING;
-    }
-    
-    /**
-     * return the cost of maintenance of an unit placed
-     * on this type of tile.
-     * 
-     * <code>COST</code> has to be 
-     * initialized before running the game (Game#play) 
-     * to avoid undefined behavior.
-     * 
-     * @return the cost of maintenance of an unit placed
-     * on this type of tile.
-     */
-    public int getCost() {
-    	return COST;
     }
     
     /**
