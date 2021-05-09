@@ -95,11 +95,11 @@ public class Army extends Unit {
 	}
 	/**
      * gives the value of quantity of food this army needs to be kept after one turn.
-     * @return the quantity of food this army needs to be kept after one turn (it's equivalent to its size (@see #getSize())).
+     * @return the quantity of food this army needs to be kept after one turn.
      */
 	@Override
 	public int cost() {
-		return this.size;
+		return this.size * this.tile.getCostFactor();
 	}
 	/**
 	 * gives the bonus points given by this army depending on the type of place it's set on (mountain, desert, plain, ...).
