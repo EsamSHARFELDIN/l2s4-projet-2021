@@ -139,4 +139,22 @@ public abstract class Tile {
     public abstract int getMaxArmySize();
 
     public abstract void print();
+    
+    /**
+     * return the bonus to be added to the initial cost 
+     * of an unit placed on this tile.
+     * 
+     * @return the bonus to be added to the initial cost
+     * of an unit placed on this tile.
+     */
+    public abstract int getCostAdd();
+    
+    /**
+     * return the factor with which to multiply the
+     * initial cost of an unit placed on this tile.
+     * 
+     * @return the factor with which to multiply the
+     * initial cost of an unit placed on this tile.
+     */
+    public abstract int getCostFactor();
 }

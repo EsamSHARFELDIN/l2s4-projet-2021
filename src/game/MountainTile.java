@@ -45,7 +45,19 @@ public class MountainTile extends Tile {
      * the selectable actions he chooses to do nothing.
      */
     public static int GOLD_WHEN_DOING_NOTHING;
+    
+    /**
+     * The bonus to be added to the initial cost 
+     * of an unit placed on this tile. 
+     */
+    public static int COST_ADD;
 
+    /**
+     * the factor with which to multiply the
+     * initial cost of an unit placed on this tile.s
+     */
+    public static int COST_FACTOR;
+    
     /**
      * create a mountain type tile.
      */
@@ -119,4 +131,19 @@ public class MountainTile extends Tile {
     public int getMaxArmySize() {
         return MAX_ARMY_SIZE;
     }
+    
+    @Override
+	public int getCostAdd() {
+		return COST_ADD;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getCostFactor() {
+		return COST_FACTOR;
+	}
 }
+
+

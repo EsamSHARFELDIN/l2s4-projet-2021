@@ -106,4 +106,20 @@ public class OceanTile extends Tile {
     public int getMaxArmySize() {
         return 0;
     }
+
+    /**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getCostAdd() {
+		return 0;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getCostFactor() {
+		return 0;
+	}
 }
