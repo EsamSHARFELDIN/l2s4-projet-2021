@@ -10,12 +10,6 @@ package game;
 public class ForestTile extends Tile {
 
     /**
-     * The cost of maintenance of an unit placed
-     * on this type of tile.
-     */
-    public static int COST;
-
-    /**
      * The max size allowed for an unit to be
      * placed on this type of tile.
      */
@@ -42,6 +36,18 @@ public class ForestTile extends Tile {
      * the selectable actions he chooses to do nothing.
      */
     public static int GOLD_WHEN_DOING_NOTHING;
+    
+    /**
+     * The bonus to be added to the initial cost 
+     * of an unit placed on this tile. 
+     */
+    public static int COST_ADD;
+
+    /**
+     * the factor with which to multiply the
+     * initial cost of an unit placed on this tile.s
+     */
+    public static int COST_FACTOR;
 
     /**
      * create a forest type tile.
@@ -84,21 +90,6 @@ public class ForestTile extends Tile {
     }
     
     /**
-     * return the cost of maintenance of an unit placed
-     * on this type of tile.
-     * 
-     * <code>COST</code> has to be 
-     * initialized before running the game (Game#play) 
-     * to avoid undefined behavior.
-     * 
-     * @return the cost of maintenance of an unit placed
-     * on this type of tile.
-     */
-    public int getCost() {
-    	return COST;
-    }
-    
-    /**
      * {@inheritDoc}
      */
     public int getAdditionnalPower() {
@@ -116,4 +107,17 @@ public class ForestTile extends Tile {
     public int getMaxArmySize() {
         return MAX_ARMY_SIZE;
     }
+    
+    @Override
+	public int getCostAdd() {
+		return COST_ADD;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getCostFactor() {
+		return COST_FACTOR;
+	}
 }

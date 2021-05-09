@@ -58,6 +58,7 @@ public class Worker extends Unit {
 	 */
 	@Override
 	public int cost() {
-		return this.tile.getCost();
+		// we can consider that the initial cost here is 0
+		return this.tile.getCostAdd();
 	}	
 }

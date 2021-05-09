@@ -34,8 +34,8 @@ public class Army extends Unit {
      */
 	public Army(Tile place, Player player, int size) throws IllegalArgumentException {
 		super(place, player);
-		if (size < MIN_SIZE || size > MAX_SIZE)
-			throw new IllegalArgumentException("size need to be between (inclusive)"+ MIN_SIZE + "and "+ MAX_SIZE);
+		if (size < getMinArmySize() || size > getMaxArmySize())
+			throw new IllegalArgumentException("size need to be between (inclusive)"+ getMinArmySize() + "and "+ getMaxArmySize());
 		this.size = size;
 	}
 	
@@ -95,11 +95,11 @@ public class Army extends Unit {
 	}
 	/**
      * gives the value of quantity of food this army needs to be kept after one turn.
-     * @return the quantity of food this army needs to be kept after one turn (it's equivalent to its size (@see #getSize())).
+     * @return the quantity of food this army needs to be kept after one turn.
      */
 	@Override
 	public int cost() {
-		return this.size;
+		return this.size * this.tile.getCostFactor();
 	}
 	/**
 	 * gives the bonus points given by this army depending on the type of place it's set on (mountain, desert, plain, ...).
@@ -111,4 +111,23 @@ public class Army extends Unit {
 	public int points() {
 		return this.tile.getAdditionnalPoints();
 	}    
+	
+	/**
+	 * @return the max size of unit allowed on this tile.
+	 */
+	private int getMaxArmySize() {
+		if (this.hasTile()) {
+			return this.getTile().getMaxArmySize();
+		}
+		else {
+			return Army.MAX_SIZE;
+		}
+	}
+	
+	/**
+	 * @return the minimum size of unit allowed on this tile.
+	 */
+	private int getMinArmySize() {
+		return Army.MIN_SIZE;
+	}
 }

@@ -81,19 +81,6 @@ public abstract class Tile {
     }
     
     /**
-     * return the cost of maintenance of an unit placed
-     * on this type of tile.
-     * 
-     * <code>COST</code> has to be 
-     * initialized before running the game (Game#play) 
-     * to avoid undefined behavior.
-     * 
-     * @return the cost of maintenance of an unit placed
-     * on this type of tile.
-     */
-    public abstract int getCost();
-    
-    /**
      * return the bonus gold a player may receive from each of
      * his unit placed on this type of tile when among
      * the selectable actions he chooses to do nothing.
@@ -139,4 +126,22 @@ public abstract class Tile {
     public abstract int getMaxArmySize();
 
     public abstract void print();
+    
+    /**
+     * return the bonus to be added to the initial cost 
+     * of an unit placed on this tile.
+     * 
+     * @return the bonus to be added to the initial cost
+     * of an unit placed on this tile.
+     */
+    public abstract int getCostAdd();
+    
+    /**
+     * return the factor with which to multiply the
+     * initial cost of an unit placed on this tile.
+     * 
+     * @return the factor with which to multiply the
+     * initial cost of an unit placed on this tile.
+     */
+    public abstract int getCostFactor();
 }

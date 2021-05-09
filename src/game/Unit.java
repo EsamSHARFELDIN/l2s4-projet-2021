@@ -115,6 +115,14 @@ public abstract class Unit {
     public int points() {
         return this.goldQuantity;
     }
+    
+    /**
+     * tell if this unit is bound to a tile.
+     * @return true iff this unit is bound to a tile.
+     */
+    protected boolean hasTile() {
+    	return this.tile != null;
+    }
 
     /** Tile occupied by the unit */
     protected Tile tile;
