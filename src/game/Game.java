@@ -49,13 +49,10 @@ public abstract class Game {
      * Start the game and give the course of the game.
      * @return Player the winner of the game.
      */
-    public abstract Player play();
+    public abstract Player play() throws GameException;
 
     /**
      * Makes sure the game is over.
      * @return True if the game is over, False otherwise.
      */
-    private boolean isGameOver() {
-    	return true; // TODO
-    }
-}
+    protected abstract boolean isGameOver();

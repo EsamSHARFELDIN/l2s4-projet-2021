@@ -90,6 +90,7 @@ public class AgricolGame extends Game {
         else {
           it = this.players.listIterator();
           p = it.next();
+          this.turns_counter++;
         }
         /* réaliser une action */
         Action action = p.chooseAction(this.board);
