@@ -39,7 +39,7 @@ public class WarPlayer extends Player {
     public void addUnit(Unit unit) {
         if (unit instanceof Army) {
             super.addUnit(unit);
-            this.decrementWarriorStock(unit.getSize());
+            this.decrementWarriorStock(((Army) unit).getSize());
         }
         else {
             throw new RuntimeException("Tried to add a wrong unit");
@@ -82,12 +82,14 @@ public class WarPlayer extends Player {
      * loses control of the previously occupied tile, but gets one gold back
      */
     public void remunerateAll() {
-        for (Unit unit : this.units) {
+        Iterator<Unit> it = this.units.listIterator();
+        while (it.hasNext()) {
+            Unit unit = it.next();
             if (this.canRemunerate(unit)) {
                 this.remunerate(unit);
             }
             else {
-                this.removeUnit(unit);
+                it.remove();
                 unit.destroy();
                 this.goldStock++;
             }

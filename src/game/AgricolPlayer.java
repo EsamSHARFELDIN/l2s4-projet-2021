@@ -65,12 +65,14 @@ public class AgricolPlayer extends Player {
      * player loses control of the previously occupied tile
      */
     public void remunerateAll() {
-        for (Unit unit : this.units) {
+        Iterator<Unit> it = this.units.listIterator();
+        while (it.hasNext()) {
+            Unit unit = it.next();
             if (this.canRemunerate(unit)) {
                 this.remunerate(unit);
             }
             else {
-                this.removeUnit(unit);
+                it.remove();
                 unit.destroy();
             }
         }
