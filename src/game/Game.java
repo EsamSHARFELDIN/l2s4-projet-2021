@@ -56,3 +56,4 @@ public abstract class Game {
      * @return True if the game is over, False otherwise.
      */
     protected abstract boolean isGameOver();
+}
