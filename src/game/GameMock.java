@@ -5,11 +5,15 @@ package game;
  * class Game
  */
 public class GameMock extends Game {
-    public MockGame(int width, int height) {
+    public GameMock(int width, int height) {
         super(width, height);
     }
 
     public Player play() {
         return null;
+    }
+
+    protected boolean isGameOver() {
+        return true;
     }
 }
