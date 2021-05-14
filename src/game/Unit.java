@@ -1,6 +1,7 @@
 package game;
 
 import game.player.Player;
+import game.tile.Tile;
 
 /**
  * A class to represent units in different board games

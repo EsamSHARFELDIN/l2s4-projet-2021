@@ -1,12 +1,16 @@
-package game;
+package game.tile;
+
+import game.IllegalGameActionException;
+import game.Resource;
+
 /**
  * This class models a tile which is supposed to
- * be a desert area in the game with its
- * characteristics: dryness, little precipitation,
- * almost no plants nor animals, ... that may
- * imply something in the game proceeding.
+ * be a forest area in the game with its
+ * characteristics: a lot of trees and plants,
+ * some wild animals, ... that may imply something
+ * in the game proceeding.
  */
-public class DesertTile extends Tile {
+public class ForestTile extends Tile {
 
     /**
      * The max size allowed for an unit to be
@@ -47,29 +51,28 @@ public class DesertTile extends Tile {
      * initial cost of an unit placed on this tile.s
      */
     public static int COST_FACTOR;
-    
+
     /**
-     * Create a desert type tile.
+     * create a forest type tile.
      */
-    public DesertTile(int x, int y) {
+    public ForestTile(int x, int y) {
         super(x, y);
     }
 
     /**
      * @see Tile#getResource()
      * Return the type of resource this area gives.
-     * Desert area gives sands.
+     * Forest area gives woods.
      *
      * @return the resource given by this tile which is
-     * sand.
+     * wood.
      */
     public Resource getResource() throws IllegalGameActionException {
-        // TODO
-        return Resource.Sand;
+        return Resource.Wood;
     }
 
     public void print() {
-        System.out.print("D");
+        System.out.print("F");
     }
     
     /**
@@ -107,11 +110,8 @@ public class DesertTile extends Tile {
     public int getMaxArmySize() {
         return MAX_ARMY_SIZE;
     }
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
+    
+    @Override
 	public int getCostAdd() {
 		return COST_ADD;
 	}
@@ -123,6 +123,4 @@ public class DesertTile extends Tile {
 	public int getCostFactor() {
 		return COST_FACTOR;
 	}
-    
-    
 }

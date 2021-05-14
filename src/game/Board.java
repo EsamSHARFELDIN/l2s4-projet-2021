@@ -2,6 +2,13 @@ package game;
 
 import java.util.*;
 
+import game.tile.DesertTile;
+import game.tile.ForestTile;
+import game.tile.MountainTile;
+import game.tile.OceanTile;
+import game.tile.PlainTile;
+import game.tile.Tile;
+
 /**
  * A class to model the board in different games. A board is composed of tiles
  * of different types and is defined by a width and a height. A board is created

@@ -4,7 +4,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import game.Board;
+import game.IllegalGameActionException;
+import game.Unit;
+import game.UnknownTileException;
+import game.Worker;
 import game.player.Player;
+import game.tile.OceanTile;
+import game.tile.Tile;
 
 public class BoardTest {
 

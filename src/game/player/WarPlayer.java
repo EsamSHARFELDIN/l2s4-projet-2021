@@ -6,11 +6,11 @@ import java.util.*;
 import game.Army;
 import game.Board;
 import game.Resource;
-import game.Tile;
 import game.Unit;
 import game.action.Action;
 import game.action.DoNothingAction;
 import game.action.WarDeployAction;
+import game.tile.Tile;
 
 /**
  * This class modelize a Player of a war game.

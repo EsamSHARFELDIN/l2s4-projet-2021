@@ -1,4 +1,9 @@
-package game;
+package game.tile;
+
+import game.IllegalGameActionException;
+import game.Resource;
+import game.Unit;
+
 /**
  * This class models a tile which is supposed to
  * be a ocean area in the game with its

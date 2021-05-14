@@ -1,16 +1,16 @@
-/**
- *
- */
-package game;
+package game.tile;
+
+import game.IllegalGameActionException;
+import game.Resource;
 
 /**
  * This class models a tile which is supposed to
- * be a mountain area in the game with its
- * characteristics: altitude, difficult access,
- * great view ... that may imply something in the
- * game proceeding.
+ * be a plain area in the game with its
+ * characteristics: green grasses, crops, some
+ * farm animals, ... that may imply something
+ * in the game proceeding.
  */
-public class MountainTile extends Tile {
+public class PlainTile extends Tile {
 
     /**
      * The max size allowed for an unit to be
@@ -51,28 +51,25 @@ public class MountainTile extends Tile {
      * initial cost of an unit placed on this tile.s
      */
     public static int COST_FACTOR;
-    
-    /**
-     * create a mountain type tile.
-     */
-    public MountainTile(int x, int y) {
+
+    public PlainTile(int x, int y) {
         super(x, y);
     }
 
     /**
      * @see Tile#getResource()
      * Return the type of resource this area gives.
-     * Mountain area gives rocks (stone).
+     * Plain area gives wheat.
      *
      * @return the resource given by this tile which is
-     * rock (stone).
+     * wheat.
      */
     public Resource getResource() throws IllegalGameActionException {
-        return Resource.Stone;
+        return Resource.Wheat;
     }
 
     public void print() {
-        System.out.print("M");
+        System.out.print("P");
     }
     
     /**
@@ -124,5 +121,3 @@ public class MountainTile extends Tile {
 		return COST_FACTOR;
 	}
 }
-
-

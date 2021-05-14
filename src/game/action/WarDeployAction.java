@@ -5,10 +5,10 @@ import java.util.*;
 import game.Army;
 import game.Board;
 import game.GameException;
-import game.OceanTile;
-import game.Tile;
 import game.Unit;
 import game.player.Player;
+import game.tile.OceanTile;
+import game.tile.Tile;
 
 /**
  * A class which represents the specific consequences of deploying a unit on

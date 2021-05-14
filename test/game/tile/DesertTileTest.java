@@ -1,8 +1,9 @@
-package game;
+package game.tile;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 import game.*;
+import game.tile.DesertTile;
 
 public class DesertTileTest {
 

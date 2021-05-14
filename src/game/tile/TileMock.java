@@ -1,4 +1,6 @@
-package game;
+package game.tile;
+
+import game.Resource;
 
 /**
  * This class is just a mock of the class Tile. It's only for test

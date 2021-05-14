@@ -1,6 +1,7 @@
 package game;
 
 import game.player.Player;
+import game.tile.Tile;
 
 /** Mes propositions d'ajout:
  *	MAX_SIZE static constant
