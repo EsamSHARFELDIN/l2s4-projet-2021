@@ -6,9 +6,9 @@ import game.Army;
 import game.Board;
 import game.GameException;
 import game.OceanTile;
-import game.Player;
 import game.Tile;
 import game.Unit;
+import game.player.Player;
 
 /**
  * A class which represents the specific consequences of deploying a unit on

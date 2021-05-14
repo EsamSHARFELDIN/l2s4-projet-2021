@@ -7,9 +7,9 @@ import game.ForestTile;
 import game.GameException;
 import game.MountainTile;
 import game.PlainTile;
-import game.Player;
 import game.Resource;
 import game.action.Action;
+import game.player.Player;
 
 /**
  * A class which allows to model the war game.

@@ -5,7 +5,7 @@ import java.util.List;
 import game.Board;
 import game.GameException;
 import game.IllegalGameActionException;
-import game.Player;
+import game.player.Player;
 
 /**
  * An abstract class which allows to model the game.

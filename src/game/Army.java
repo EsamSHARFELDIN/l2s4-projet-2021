@@ -1,5 +1,7 @@
 package game;
 
+import game.player.Player;
+
 /** Mes propositions d'ajout:
  *	MAX_SIZE static constant
  *	MIN_SIZE static constant

@@ -1,9 +1,12 @@
-package game;
+package game.player;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import game.Resource;
+import game.player.AgricolPlayer;
 
 public class AgricolPlayerTest {
 	

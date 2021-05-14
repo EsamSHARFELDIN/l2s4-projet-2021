@@ -1,7 +1,7 @@
 package game.action;
 
 import game.Board;
-import game.Player;
+import game.player.Player;
 
 /**
  * A class which represents the action of converting resources into gold in the

@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Player;
-import game.WarPlayer;
 import game.game.Game;
+import game.player.Player;
+import game.player.WarPlayer;
 
 public class WarGameTest {
     @Test

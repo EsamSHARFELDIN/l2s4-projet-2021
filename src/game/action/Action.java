@@ -2,7 +2,7 @@ package game.action;
 
 import game.Board;
 import game.GameException;
-import game.Player;
+import game.player.Player;
 
 /**
  * This class represents an action.

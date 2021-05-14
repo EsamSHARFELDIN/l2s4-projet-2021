@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import game.AgricolPlayer;
-import game.Player;
 import game.game.Game;
+import game.player.AgricolPlayer;
+import game.player.Player;
 
 public class AgricolGameTest {
     @Test

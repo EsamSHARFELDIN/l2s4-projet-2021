@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.AgricolPlayer;
 import game.Board;
-import game.Player;
 import game.Resource;
 import game.action.Action;
 import game.action.AgricolExchangeAction;
+import game.player.AgricolPlayer;
+import game.player.Player;
 
 public class AgricolExchangeActionTest {
     

@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import game.player.Player;
+
 public class BoardTest {
 
     @Test (expected = IllegalArgumentException.class)

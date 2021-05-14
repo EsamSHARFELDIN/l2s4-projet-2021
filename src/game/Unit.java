@@ -1,5 +1,7 @@
 package game;
 
+import game.player.Player;
+
 /**
  * A class to represent units in different board games
  * Units are defined by the tile they occupy, the player

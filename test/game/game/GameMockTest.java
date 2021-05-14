@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import game.GameMock;
 import game.IllegalGameActionException;
-import game.Player;
-import game.WarPlayer;
+import game.player.Player;
+import game.player.WarPlayer;
 
 public class GameMockTest {
     @Test

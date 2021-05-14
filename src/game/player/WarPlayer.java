@@ -1,8 +1,13 @@
-package game;
+package game.player;
 
 import java.lang.Math;
 import java.util.*;
 
+import game.Army;
+import game.Board;
+import game.Resource;
+import game.Tile;
+import game.Unit;
 import game.action.Action;
 import game.action.DoNothingAction;
 import game.action.WarDeployAction;

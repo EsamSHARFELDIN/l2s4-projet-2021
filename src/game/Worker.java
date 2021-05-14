@@ -1,5 +1,7 @@
 package game;
 
+import game.player.Player;
+
 /**
  * this class models a worker. A worker is a type of unit used in the agricultural ("agricol") game. 
  * Simply, the worker .... works.

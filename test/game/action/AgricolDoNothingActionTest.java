@@ -4,17 +4,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.AgricolPlayer;
 import game.Board;
 import game.DesertTile;
 import game.ForestTile;
 import game.PlainTile;
-import game.Player;
 import game.Tile;
 import game.Unit;
 import game.Worker;
 import game.action.Action;
 import game.action.AgricolDoNothingAction;
+import game.player.AgricolPlayer;
+import game.player.Player;
 
 public class AgricolDoNothingActionTest {
   @Test

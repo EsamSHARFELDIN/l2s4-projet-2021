@@ -1,8 +1,13 @@
-package game;
+package game.player;
 
 import java.lang.Math;
 import java.util.*;
 
+import game.Board;
+import game.Resource;
+import game.Tile;
+import game.Unit;
+import game.Worker;
 import game.action.Action;
 import game.action.AgricolDoNothingAction;
 import game.action.AgricolExchangeAction;

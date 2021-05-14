@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import game.Player;
-import game.WarPlayer;
+import game.player.Player;
+import game.player.WarPlayer;
 
 public class WarGameTest {
     @Test
