@@ -1,4 +1,4 @@
-package game;
+package game.exception;
 
 /**
  * An exception class to indicate that an unspecified behaviour was invoked

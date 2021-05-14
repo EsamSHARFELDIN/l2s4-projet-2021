@@ -1,9 +1,9 @@
 package game.action;
 
 import game.Board;
-import game.GameException;
-import game.IllegalGameActionException;
-import game.UnknownTileException;
+import game.exception.GameException;
+import game.exception.IllegalGameActionException;
+import game.exception.UnknownTileException;
 import game.player.Player;
 import game.tile.Tile;
 import game.unit.Unit;

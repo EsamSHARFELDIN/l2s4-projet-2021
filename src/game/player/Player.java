@@ -3,9 +3,9 @@ package game.player;
 import java.util.*;
 
 import game.Board;
-import game.IllegalGameActionException;
 import game.Resource;
 import game.action.Action;
+import game.exception.IllegalGameActionException;
 import game.unit.Unit;
 
 /**

@@ -1,7 +1,7 @@
 package game.action;
 
 import game.Board;
-import game.GameException;
+import game.exception.GameException;
 import game.player.Player;
 
 /**

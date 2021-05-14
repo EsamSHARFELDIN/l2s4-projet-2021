@@ -3,7 +3,7 @@ package game.action;
 import java.util.*;
 
 import game.Board;
-import game.GameException;
+import game.exception.GameException;
 import game.player.Player;
 import game.tile.OceanTile;
 import game.tile.Tile;

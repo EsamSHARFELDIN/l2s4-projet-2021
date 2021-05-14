@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import game.Board;
-import game.IllegalGameActionException;
-import game.UnknownTileException;
+import game.exception.IllegalGameActionException;
+import game.exception.UnknownTileException;
 import game.player.Player;
 import game.tile.OceanTile;
 import game.tile.Tile;

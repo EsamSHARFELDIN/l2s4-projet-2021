@@ -1,7 +1,7 @@
 package game.unit;
 
-import game.IllegalGameActionException;
 import game.Resource;
+import game.exception.IllegalGameActionException;
 import game.player.Player;
 import game.tile.Tile;
 

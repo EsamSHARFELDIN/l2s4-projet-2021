@@ -3,8 +3,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import game.Board;
-import game.GameException;
-import game.IllegalGameActionException;
+import game.exception.GameException;
+import game.exception.IllegalGameActionException;
 import game.player.Player;
 
 /**

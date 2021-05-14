@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import game.Board;
-import game.GameException;
 import game.action.Action;
 import game.action.DeployAction;
+import game.exception.GameException;
 import game.player.Player;
 import game.unit.Unit;
 

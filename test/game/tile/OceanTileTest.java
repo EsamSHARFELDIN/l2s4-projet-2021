@@ -3,6 +3,7 @@ package game.tile;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import game.*;
+import game.exception.IllegalGameActionException;
 import game.tile.OceanTile;
 import game.unit.Unit;
 

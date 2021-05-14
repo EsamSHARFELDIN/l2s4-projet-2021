@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import game.GameMock;
-import game.IllegalGameActionException;
+import game.exception.IllegalGameActionException;
 import game.player.Player;
 import game.player.WarPlayer;
 

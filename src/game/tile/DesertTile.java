@@ -1,7 +1,7 @@
 package game.tile;
 
-import game.IllegalGameActionException;
 import game.Resource;
+import game.exception.IllegalGameActionException;
 
 /**
  * This class models a tile which is supposed to

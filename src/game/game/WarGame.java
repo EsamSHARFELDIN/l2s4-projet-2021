@@ -2,9 +2,9 @@ package game.game;
 
 import java.util.*;
 
-import game.GameException;
 import game.Resource;
 import game.action.Action;
+import game.exception.GameException;
 import game.player.Player;
 import game.tile.DesertTile;
 import game.tile.ForestTile;

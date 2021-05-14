@@ -2,6 +2,8 @@ package game;
 
 import java.util.*;
 
+import game.exception.IllegalGameActionException;
+import game.exception.UnknownTileException;
 import game.tile.DesertTile;
 import game.tile.ForestTile;
 import game.tile.MountainTile;
