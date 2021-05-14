@@ -1,6 +1,5 @@
-package game;
+package game.game;
 
-import game.game.Game;
 import game.player.Player;
 
 /**
