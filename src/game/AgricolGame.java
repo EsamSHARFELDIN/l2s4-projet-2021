@@ -1,5 +1,4 @@
 package game;
-import game.*;
 
 import java.util.*;
 
@@ -58,24 +57,6 @@ public class AgricolGame extends Game {
         DesertTile.GOLD_WHEN_DOING_NOTHING = 2;
         DesertTile.COST_ADD = 3;
         DesertTile.COST_FACTOR = 1;
-    }
-
-    /**
-     * Return the player with the highest score in the list. It is assumed that
-     * there is at least one player in the game
-     * @return Winning player
-     */
-    private Player findWinner() {
-        Player winner = this.players.get(0);
-        int maxScore = winner.score();
-        for (Player player : this.players) {
-            int currentScore = player.score();
-            if (currentScore > maxScore) {
-                winner = player;
-                maxScore = currentScore;
-            }
-        }
-        return winner;
     }
 
     /**

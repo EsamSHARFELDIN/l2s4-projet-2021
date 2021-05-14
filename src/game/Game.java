@@ -56,4 +56,22 @@ public abstract class Game {
      * @return True if the game is over, False otherwise.
      */
     protected abstract boolean isGameOver();
+
+    /**
+     * Return the player with the highest score in the list. It is assumed that
+     * there is at least one player in the game
+     * @return Winning player
+     */
+    protected Player findWinner() {
+        Player winner = this.players.get(0);
+        int maxScore = winner.score();
+        for (Player player : this.players) {
+            int currentScore = player.score();
+            if (currentScore > maxScore) {
+                winner = player;
+                maxScore = currentScore;
+            }
+        }
+        return winner;
+    }
 }

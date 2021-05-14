@@ -1,11 +1,13 @@
 package game;
-import game.*;
+
+import java.util.*;
 
 /**
  * A class which allows to model the war game.
  */
 public class WarGame extends Game {
-    
+    private static int MAX_TURNS = 10;
+
     protected int turns_counter;
 
     /**
@@ -62,11 +64,34 @@ public class WarGame extends Game {
      * @return Player the winner of the game.
      */
     @Override
-    public Player play() {
-        return null; // TODO placeholder
+    public Player play() throws GameException {
+        initialize();
+        if (this.players.isEmpty()) {
+            throw new RuntimeException("Tried to play a game with no players");
+        }
+
+        Iterator<Player> it = this.players.listIterator();
+
+        while (!this.isGameOver()) {
+            Player p;
+            if (it.hasNext()) {
+                p = it.next();
+            }
+            else {
+                it = this.players.listIterator();
+                p = it.next();
+                this.turns_counter++;
+            }
+            Action action = p.chooseAction(this.board);
+            action.execute(this.board, p);
+            p.collectResources();
+            p.remunerateAll();
+        }
+
+        return findWinner();
     }
 
     protected boolean isGameOver() {
-        return true; // TODO placeholder
+        return (this.board.isFull() || this.turns_counter == MAX_TURNS);
     }
 }
