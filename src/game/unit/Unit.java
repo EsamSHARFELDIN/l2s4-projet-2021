@@ -1,5 +1,7 @@
-package game;
+package game.unit;
 
+import game.IllegalGameActionException;
+import game.Resource;
 import game.player.Player;
 import game.tile.Tile;
 

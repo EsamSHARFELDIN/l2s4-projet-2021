@@ -5,8 +5,8 @@ import java.util.*;
 import game.Board;
 import game.IllegalGameActionException;
 import game.Resource;
-import game.Unit;
 import game.action.Action;
+import game.unit.Unit;
 
 /**
  * this is abstract class, it used to represent a player.

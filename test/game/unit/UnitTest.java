@@ -1,8 +1,10 @@
-package game;
+package game.unit;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import game.unit.Unit;
 
 public class unitTest {
 

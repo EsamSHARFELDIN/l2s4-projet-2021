@@ -2,13 +2,13 @@ package game.action;
 
 import java.util.*;
 
-import game.Army;
 import game.Board;
 import game.GameException;
-import game.Unit;
 import game.player.Player;
 import game.tile.OceanTile;
 import game.tile.Tile;
+import game.unit.Army;
+import game.unit.Unit;
 
 /**
  * A class which represents the specific consequences of deploying a unit on

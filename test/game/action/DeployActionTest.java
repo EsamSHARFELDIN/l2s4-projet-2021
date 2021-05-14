@@ -6,10 +6,10 @@ import org.junit.Test;
 
 import game.Board;
 import game.GameException;
-import game.Unit;
 import game.action.Action;
 import game.action.DeployAction;
 import game.player.Player;
+import game.unit.Unit;
 
 public class DeployActionTest {
     

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import game.*;
 import game.tile.OceanTile;
+import game.unit.Unit;
 
 public class OceanTileTest {
 

@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import game.Board;
-import game.Unit;
-import game.Worker;
 import game.action.Action;
 import game.action.AgricolDoNothingAction;
 import game.player.AgricolPlayer;
@@ -15,6 +13,8 @@ import game.tile.DesertTile;
 import game.tile.ForestTile;
 import game.tile.PlainTile;
 import game.tile.Tile;
+import game.unit.Unit;
+import game.unit.Worker;
 
 public class AgricolDoNothingActionTest {
   @Test

@@ -6,12 +6,12 @@ import org.junit.Test;
 
 import game.Board;
 import game.IllegalGameActionException;
-import game.Unit;
 import game.UnknownTileException;
-import game.Worker;
 import game.player.Player;
 import game.tile.OceanTile;
 import game.tile.Tile;
+import game.unit.Unit;
+import game.unit.Worker;
 
 public class BoardTest {
 

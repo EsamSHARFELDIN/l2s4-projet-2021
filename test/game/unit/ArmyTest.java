@@ -1,9 +1,10 @@
-package game;
+package game.unit;
 
 import static org.junit.Assert.*;
 
-import game.Army;
 import org.junit.Test;
+
+import game.unit.Army;
 
 public class armyTest {
 

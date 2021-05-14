@@ -2,7 +2,7 @@ package game.tile;
 
 import game.IllegalGameActionException;
 import game.Resource;
-import game.Unit;
+import game.unit.Unit;
 
 /**
  * This class is use to represents the Tile of the board.

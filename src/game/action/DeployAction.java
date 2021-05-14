@@ -3,10 +3,10 @@ package game.action;
 import game.Board;
 import game.GameException;
 import game.IllegalGameActionException;
-import game.Unit;
 import game.UnknownTileException;
 import game.player.Player;
 import game.tile.Tile;
+import game.unit.Unit;
 
 /**
  * A class modeling the action of deploying a unit 

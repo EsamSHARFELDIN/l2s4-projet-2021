@@ -8,6 +8,7 @@ import game.tile.MountainTile;
 import game.tile.OceanTile;
 import game.tile.PlainTile;
 import game.tile.Tile;
+import game.unit.Unit;
 
 /**
  * A class to model the board in different games. A board is composed of tiles

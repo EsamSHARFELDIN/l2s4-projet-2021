@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import game.Unit;
-import game.Worker;
 import game.tile.TileMock;
+import game.unit.Unit;
+import game.unit.Worker;
 
 public class TileMockTest {
 

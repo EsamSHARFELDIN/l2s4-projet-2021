@@ -5,13 +5,13 @@ import java.util.*;
 
 import game.Board;
 import game.Resource;
-import game.Unit;
-import game.Worker;
 import game.action.Action;
 import game.action.AgricolDoNothingAction;
 import game.action.AgricolExchangeAction;
 import game.action.DeployAction;
 import game.tile.Tile;
+import game.unit.Unit;
+import game.unit.Worker;
 
 /**
  * This class modelize a Player of an agricol game.

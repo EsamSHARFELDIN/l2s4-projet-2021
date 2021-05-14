@@ -1,4 +1,4 @@
-package game;
+package game.unit;
 
 import game.player.Player;
 import game.tile.Tile;
