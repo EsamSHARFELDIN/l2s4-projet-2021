@@ -152,12 +152,16 @@ public abstract class Player {
         switch (resource) {
         case Stone:
             this.stoneStock += i;
+            break;
         case Sand:
             this.sandStock += i;
+            break;
         case Wheat:
             this.wheatStock += i;
+            break;
         case Wood:
             this.woodStock += i;
+            break;
         }
     }
 
@@ -170,12 +174,16 @@ public abstract class Player {
         switch (resource) {
         case Stone:
             this.stoneStock -= i;
+            break;
         case Sand:
             this.sandStock -= i;
+            break;
         case Wheat:
             this.wheatStock -= i;
+            break;
         case Wood:
             this.woodStock -= i;
+            break;
         }
     }
 
