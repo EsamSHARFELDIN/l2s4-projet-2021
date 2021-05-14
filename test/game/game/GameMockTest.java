@@ -1,9 +1,14 @@
-package game;
+package game.game;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import game.GameMock;
+import game.IllegalGameActionException;
+import game.Player;
+import game.WarPlayer;
 
 public class GameMockTest {
     @Test

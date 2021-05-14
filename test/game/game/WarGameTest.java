@@ -1,9 +1,12 @@
-package game;
+package game.game;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import game.Player;
+import game.WarPlayer;
 
 public class WarGameTest {
     @Test

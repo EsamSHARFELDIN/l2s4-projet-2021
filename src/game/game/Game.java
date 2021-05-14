@@ -1,8 +1,10 @@
-package game;
+package game.game;
 import java.util.LinkedList;
 import java.util.List;
 
 import game.Board;
+import game.GameException;
+import game.IllegalGameActionException;
 import game.Player;
 
 /**

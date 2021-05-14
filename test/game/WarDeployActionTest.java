@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import game.game.Game;
+
 public class WarGameTest {
     @Test
     public void canConstructGame() {

@@ -1,5 +1,7 @@
 package game;
 
+import game.game.Game;
+
 /**
  * A mock game class for the purpose of testing the behaviours of the abstract
  * class Game

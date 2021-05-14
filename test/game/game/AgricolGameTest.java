@@ -1,9 +1,13 @@
-package game;
+package game.game;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import game.AgricolPlayer;
+import game.Player;
+import game.game.Game;
 
 public class AgricolGameTest {
     @Test
