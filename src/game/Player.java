@@ -2,6 +2,8 @@ package game;
 
 import java.util.*;
 
+import game.action.Action;
+
 /**
  * this is abstract class, it used to represent a player.
  *

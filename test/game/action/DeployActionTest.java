@@ -1,8 +1,15 @@
-package game;
+package game.action;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import game.Board;
+import game.GameException;
+import game.Player;
+import game.Unit;
+import game.action.Action;
+import game.action.DeployAction;
 
 public class DeployActionTest {
     

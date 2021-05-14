@@ -1,4 +1,13 @@
-package game;
+package game.action;
+
+import game.Board;
+import game.GameException;
+import game.IllegalGameActionException;
+import game.Player;
+import game.Tile;
+import game.Unit;
+import game.UnknownTileException;
+
 /**
  * A class modeling the action of deploying a unit 
  * (on the board) in the game. Then, if a player 

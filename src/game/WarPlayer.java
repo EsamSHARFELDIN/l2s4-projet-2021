@@ -3,6 +3,10 @@ package game;
 import java.lang.Math;
 import java.util.*;
 
+import game.action.Action;
+import game.action.DoNothingAction;
+import game.action.WarDeployAction;
+
 /**
  * This class modelize a Player of a war game.
  * This class extends the Unit class (@see Player).

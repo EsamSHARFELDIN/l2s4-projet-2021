@@ -1,8 +1,15 @@
-package game;
+package game.action;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import game.AgricolPlayer;
+import game.Board;
+import game.Player;
+import game.Resource;
+import game.action.Action;
+import game.action.AgricolExchangeAction;
 
 public class AgricolExchangeActionTest {
     

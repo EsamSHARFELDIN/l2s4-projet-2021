@@ -3,6 +3,11 @@ package game;
 import java.lang.Math;
 import java.util.*;
 
+import game.action.Action;
+import game.action.AgricolDoNothingAction;
+import game.action.AgricolExchangeAction;
+import game.action.DeployAction;
+
 /**
  * This class modelize a Player of an agricol game.
  * This class extends the Unit class (@see Player).

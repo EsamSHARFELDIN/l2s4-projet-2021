@@ -2,7 +2,6 @@ package game.game;
 
 import java.util.*;
 
-import game.Action;
 import game.DesertTile;
 import game.ForestTile;
 import game.GameException;
@@ -10,6 +9,7 @@ import game.MountainTile;
 import game.PlainTile;
 import game.Player;
 import game.Resource;
+import game.action.Action;
 
 /**
  * A class which allows to model the war game.

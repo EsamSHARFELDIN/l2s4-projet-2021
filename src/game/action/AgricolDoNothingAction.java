@@ -1,4 +1,8 @@
-package game;
+package game.action;
+
+import game.AgricolPlayer;
+import game.Board;
+import game.Player;
 
 /**
  * A class which represents the action of doing nothing and its consequences in

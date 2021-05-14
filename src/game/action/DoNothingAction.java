@@ -1,4 +1,7 @@
-package game;
+package game.action;
+
+import game.Board;
+import game.Player;
 
 /**
  * A class which represents the action of not doing anything for a turn in a

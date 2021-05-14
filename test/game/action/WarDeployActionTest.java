@@ -1,9 +1,11 @@
-package game;
+package game.action;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import game.Player;
+import game.WarPlayer;
 import game.game.Game;
 
 public class WarGameTest {
