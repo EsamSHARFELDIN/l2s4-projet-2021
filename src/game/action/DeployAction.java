@@ -60,6 +60,7 @@ public class DeployAction implements Action {
 					+ "non-existing tile: (" + this.x + ", "+ this.y + ")");
 		}
 		if (!tile.isBusy()) {
+                        u.setPlayer(player);
 			tile.setUnit(u);
 			player.addUnit(u);
 		}

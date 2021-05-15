@@ -96,6 +96,8 @@ public class AgricolGame extends Game {
             action.execute(this.board, p);
             /* rémunérer les unités */
             p.remunerateAll();
+            this.board.print();
+            System.out.println();
         }
 
         return findWinner();
