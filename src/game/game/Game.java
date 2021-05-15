@@ -20,9 +20,9 @@ public abstract class Game {
      * of players
      * @param width Width of the board to use
      * @param height Height of the board to use
-     * @throws IllegalArgumentException @see {@link Board#Board(int, int)}.  
+     * @throws IllegalArgumentException @see {@link Board#Board(int, int)}
      */
-    public Game(int width, int height) throws IllegalArgumentException{
+    public Game(int width, int height) throws IllegalArgumentException {
     	this.board = new Board(width, height);
     	this.players = new LinkedList<Player>();
     }
