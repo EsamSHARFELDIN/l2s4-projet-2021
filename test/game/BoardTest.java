@@ -158,7 +158,7 @@ public class BoardTest {
     }
 
     @Test (expected = UnknownTileException.class)
-    public void tileAtOutOfBounds() {
+    public void tileAtOutOfBounds() throws UnknownTileException{
       /* accéder à une tuile incorrecte (hors limte) */
       Board b = new Board(10, 15);
       b.tileAt(12, 22);
