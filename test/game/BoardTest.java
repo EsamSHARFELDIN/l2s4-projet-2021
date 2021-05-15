@@ -34,19 +34,19 @@ public class BoardTest {
       Board b = new Board(2, 1);
     }
 
-    /* Cond 1 */
-    /* - 2/3 de tuiles océan */
     @Test
     public void boardFollowsTheOceanRules() {
       Board b = new Board(10, 15);
       int cpt = 0;
-      /* Cond 1 */
-      /* 2 boucles imbriquées en comptant les tuiles océan (en utilisant instanceof),
-        et on vérifie que le nombre de tuiles océan <= (0.667 * hauteur * largeur)
-        */
-      for (int i = 0; i < b.height; i++) {
-        for (int j = 0; j < b.width; j++) {
-          if (b.tiles[i][j] instanceof OceanTile){
+      for (int x = 0; x < b.width; x++) {
+        for (int y = 0; y < b.height; y++) {
+    	  Tile current = null;
+    	  try {
+    		  current = b.tileAt(x, y);
+    	  } catch (UnknownTileException e) {
+    		  System.out.println(e.getMessage());
+    	  }
+          if (current instanceof OceanTile){
             cpt += 1;
           }
         }
@@ -60,7 +60,7 @@ public class BoardTest {
      * @return true iff there is at least one non OceanTile 
      * among <code>tiles</code>
      */
-    private boolean anyNonOceanTile(List<Tile> tiles) {
+    private static boolean anyNonOceanTile(List<Tile> tiles) {
     	for(Tile t : tiles) {
     		if (!(t instanceof OceanTile)) {
     			return true;
