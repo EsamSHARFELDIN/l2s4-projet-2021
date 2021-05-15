@@ -218,4 +218,14 @@ public abstract class Player {
     public String getName() {
         return this.name;
     }
+
+    public String summary() {
+        return this.name + ": " +
+            this.score() + " points, " +
+            this.units.size() + " Un, " +
+            this.stoneStock + " St, " +
+            this.sandStock + " Sa, " +
+            this.wheatStock + " Wh, " +
+            this.woodStock + " Wo, ";
+    }
 }

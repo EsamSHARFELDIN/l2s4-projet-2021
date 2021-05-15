@@ -145,4 +145,8 @@ public class AgricolPlayer extends Player {
             incrementGold(((Worker) u).goldcoinWhenplayerDoesNothing());
         }
     }
+
+    public String summary() {
+        return super.summary();
+    }
 }

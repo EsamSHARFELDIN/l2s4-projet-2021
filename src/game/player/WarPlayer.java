@@ -205,4 +205,10 @@ public class WarPlayer extends Player {
     public void decrementFoodStock(int decr) {
         this.foodStock -= decr;
     }
+
+    public String summary() {
+        return super.summary() +
+            this.warriorStock + " Wa, " +
+            this.foodStock + " Fo";
+    }
 }
