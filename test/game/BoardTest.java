@@ -129,19 +129,32 @@ public class BoardTest {
     }
 
     @Test
-    public void IsFullWhenFull() {
-      /* On itère sur toutes les tuiles et on met une unité sur chaque cases qui n'est pas de type océan*/
-      Board b = new Board(10, 15);
-      Player p;
-      /* Ajouter une unité à la première tuile terrestre */
-      for (int i = 0; i < b.height; i++) {
-        for (int j = 0; j < b.width; j++) {
-          if (!(b.tiles[i][j] instanceof OceanTile)) {
-            b.tiles[i][j].setUnit(new Worker(b.tiles[i][j], p));
-          }
-        }
-      }
-      assertTrue(b.isFull());
+    public void isFullWhenFull() {
+    	Board b = new Board(10, 15);
+	    /* On itère sur toutes les tuiles et on met une 
+	     * unité sur chaque cases qui n'est pas de type océan*/
+      
+	      Player p =  null;
+	      /* Ajouter une unité à la première tuile terrestre */
+	      for (int x = 0; x < b.width; x++) {
+	        for (int y = 0; y < b.height; y++) {
+	        	Tile current = null;
+		    	try {
+		    		current = b.tileAt(x, y);
+		    	} catch (UnknownTileException e) {
+		    		System.out.println(e.getMessage());
+		    	}
+		        if (!(current instanceof OceanTile)) {
+		        	try {
+		        		current.setUnit(new Worker(b.tileAt(x, y), p));
+		        	}
+		        	catch (GameException e) {
+		        		System.out.println(e.getMessage());
+		        	}
+		        }
+	        }
+	      }
+	      assertTrue(b.isFull());
     }
 
     @Test (expected = UnknownTileException.class)
