@@ -189,11 +189,12 @@ public class BoardTest {
     }
 
     @Test(expected = IllegalGameActionException.class)   
-    public void setUnitOnOceanTile() {
-      /* trouver une tuile de type OceanTile dans le tableau, essayer de faire setUnit dessus */
+    public void setUnitOnOceanTile() throws GameException{
+      /* trouver une tuile de type OceanTile dans le tableau,
+       * essayer de faire setUnit dessus */
       Board b = new Board(10, 15);
-      Tile t;
-      Player p;
+      Tile t = null;
+      Player p = null;
       boolean done = false;
       for (int i = 0; i < b.height && !done; i++) {
         for (int j = 0; j < b.width && !done; j++) {
