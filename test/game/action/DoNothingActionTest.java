@@ -8,20 +8,34 @@ import game.Board;
 import game.Resource;
 import game.action.Action;
 import game.action.DoNothingAction;
+import game.exception.GameException;
+import game.player.AgricolPlayer;
 import game.player.Player;
+import game.unit.Army;
 
 public class DoNothingActionTest {
 
   @Test 
-    public void canConstructorTest() {
+    public void canConstruct() {
       Action a = new DoNothingAction();
     }
 
   @Test
-  public void canExecuteTest() {
+  public void canExecute() throws GameException {
 
     Board b1 = new Board(15, 10);
-    Player p1 = new Player("Esam", 1, 4, 3, 2, 0);
+    
+    int stoneStock = 1;
+    int sandStock = 4;
+    int wheatStock = 3;
+    int woodStock = 2;
+    
+    Player p2 = new AgricolPlayer("Esam");
+    p2.incrementResource(stoneStock, Resource.Stone);
+    p2.incrementResource(sandStock, Resource.Sand);
+    p2.incrementResource(wheatStock, Resource.Wheat);
+    p2.incrementResource(woodStock, Resource.Wood);
+    
     Action a = new DoNothingAction();
     a.execute(b1, p2);
 
@@ -31,5 +45,4 @@ public class DoNothingActionTest {
     assertEquals(p2.getResource(Resource.Wood), 2);
     assertEquals(p2.getGold(), 0);
   }
-
 }
