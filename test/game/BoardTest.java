@@ -246,12 +246,22 @@ public class BoardTest {
 
     /* sur un bord du tableau qui n'est pas un coin*/
     @Test
-    public void adjacentTilesForSides() {
-
+    public void adjacentTilesForSides() throws GameException {
+    	Board b = new Board(15, 10);
+        List<Tile> list = b.adjacentTiles(0, 7);
+        assertEquals(3, list.size());
+        assertTrue(list.contains(b.tileAt(0, 6)));
+        assertTrue(list.contains(b.tileAt(1, 7)));
+        assertTrue(list.contains(b.tileAt(0, 8)));
     }
 
+    /* sur un coin */
     @Test
-    public void adjacentTilesPourLesCoins() { /* sur un coin */
-      
+    public void adjacentTilesForCorner() throws GameException { 
+    	Board b = new Board(15, 10);
+        List<Tile> list = b.adjacentTiles(14, 0);
+        assertEquals(2, list.size());
+        assertTrue(list.contains(b.tileAt(13, 0)));
+        assertTrue(list.contains(b.tileAt(14, 1)));
     }
 }
