@@ -21,6 +21,24 @@ import game.unit.Unit;
  */
 public class Board {
     /**
+     * give the width of this board.
+     * 
+     * @return the width of this board.
+     */
+    public int getWidth() {
+		return width;
+	}
+
+	/** 
+	 * give the height of this board.
+	 * 
+	 * @return the height of this board.
+	 */
+	public int getHeight() {
+		return height;
+	}
+
+	/**
      * Construct a board defined by its width (horizontal size) and a height
      * (vertical size), representing numbers of tiles
      * @param width Horizontal size in number of tiles
