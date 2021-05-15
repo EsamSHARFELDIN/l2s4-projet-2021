@@ -14,7 +14,6 @@ import game.tile.PlainTile;
 /**
  * A class which allows to model the war game.
  */
-
 public class AgricolGame extends Game {
     private static int MAX_TURNS = 6;
 
