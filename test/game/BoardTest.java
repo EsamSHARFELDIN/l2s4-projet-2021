@@ -228,9 +228,9 @@ public class BoardTest {
     }
     
     @Test (expected = UnknownTileException.class)
-    public void adjacentTilesOutOfBounds() {
+    public void adjacentTilesOutOfBounds() throws UnknownTileException{
       Board b = new Board(10, 15);
-      b.getAdjacentTiles(12, 22);
+      b.adjacentTiles(12, 22);
     }
 
     @Test
