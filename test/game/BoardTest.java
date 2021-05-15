@@ -181,10 +181,10 @@ public class BoardTest {
     }
 
     @Test (expected = UnknownTileException.class)
-    public void setUnitAtUnknownTile(){
+    public void setUnitAtUnknownTile() throws GameException{
       Board b = new Board(10, 15);
-      Tile t;
-      Player p;
+      Tile t = null;
+      Player p = null;
       b.setUnitAt(12, 22, new Worker(t, p));
     }
 
