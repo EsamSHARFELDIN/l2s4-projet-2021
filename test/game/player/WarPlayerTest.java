@@ -17,7 +17,7 @@ public class WarPlayerTest {
     private WarPlayer player;
 
     @BeforeClass
-    public static void setAgricolGameContext() {
+    public static void setWarGameContext() {
         Resource.setConversionValue(Resource.Stone, 0);
         Resource.setConversionValue(Resource.Sand, 0);
         Resource.setConversionValue(Resource.Wood, 1);
