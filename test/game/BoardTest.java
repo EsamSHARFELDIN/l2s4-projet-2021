@@ -2,6 +2,8 @@ package game;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import game.Board;
@@ -52,28 +54,43 @@ public class BoardTest {
       assertTrue(cpt <= (0.667 * b.width * b.height));
     }
     
-    /* Cond 2 */
-      /* - pas de tuile "terrestre" isolée
-      */
-      /* 2 boucles imbriquées, et pour toutes les tuiles*/
+    
+    /**
+     * @param tiles a list of tiles
+     * @return true iff there is at least one non OceanTile 
+     * among <code>tiles</code>
+     */
+    private boolean anyNonOceanTile(List<Tile> tiles) {
+    	for(Tile t : tiles) {
+    		if (!(t instanceof OceanTile)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
     @Test
     public void boardFollowsTheTerrestrialRules(){
       Board b = new Board(10, 15);
-      for (int i = 0; i < b.height; i++) {
-        for (int j = 0; j < b.width; j++) {
-          if (!(this.tiles[i][j] instanceof OceanTile)) {
-            /* en utilisant getAdjacentTiles : vérifier qu'une tuile de la liste renvoyée par
-            getAdjacentTiles(j, i) est une instance d'autre chose que OceanTile */
-            List<Tile> liste = getAdjacentTiles(j, i);
-            /* Vérifier qu'une tuile voisine de this.tiles[i][j] est une instance d'une classe != de OceanTile */
-            boolean found = false;
-            for (Tile t : liste) {
-              if (!(t instanceof OceanTile)) {
-                found = true;
-              }
-            }
-            assertTrue(found);
-          }
+      for (int x = 0; x < b.width; x++) {
+        for (int y = 0; y < b.height; y++) {
+        	Tile current = null;
+        	try {
+        		current = b.tileAt(x, y);
+        	} catch (UnknownTileException e) {
+        		System.out.println(e.getMessage());
+        	}
+        	// current is not an ocean tile
+        	if (!(current instanceof OceanTile)) {
+	        	List<Tile> adjTiles = null;
+	        	try {
+	        		adjTiles = b.adjacentTiles(x, y);
+	        	} catch (UnknownTileException e) {
+	        		System.out.println(e.getMessage());
+	        	}
+	        	// at least one neighbor of current should not be an OceanTile
+	        	assertTrue(anyNonOceanTile(adjTiles));
+        	}
         }
       }
     }
