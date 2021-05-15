@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Test;
 
 import game.Board;
+import game.exception.GameException;
 import game.exception.IllegalGameActionException;
 import game.exception.UnknownTileException;
 import game.player.Player;
@@ -97,17 +98,30 @@ public class BoardTest {
 
     @Test
     public void isFullWhenNotFull() {
-      /* Créer un plateau, sans rien faire de plus et vérifier que isFull renvoie false */
+      /* Créer un plateau, sans rien faire de plus 
+       * et vérifier que isFull renvoie false */
+    	Board b = new Board(10, 15);
+    	assertFalse(b.isFull());
+    	
       /* Vérifier aussi en ajoutant une seule unité sur une seule tuile */
-      Board b = new Board(10, 15);
-      Player p;
+      Player p =  null;
       boolean done = false;
       /* Ajouter une unité à la première tuile terrestre */
-      for (int i = 0; i < b.height && !done; i++) {
-        for (int j = 0; j < b.width && !done; j++) {
-          if (!(b.tiles[i][j] instanceof OceanTile)) {
-            b.tiles[i][j].setUnit(new Worker(b.tiles[i][j], p));
-            done = true;
+      for (int x = 0; x < b.width && !done; x++) {
+        for (int y = 0; y < b.height && !done; y++) {
+	    	Tile current = null;
+	    	try {
+	    		current = b.tileAt(x, y);
+	    	} catch (UnknownTileException e) {
+	    		System.out.println(e.getMessage());
+	    	}
+          if (!(current instanceof OceanTile)) {
+        	  try {
+        		  current.setUnit(new Worker(b.tileAt(x, y), p));
+        		  done = true;
+        	  } catch (GameException e) {
+        		  System.out.println(e.getMessage());
+        	  }
           }
         }
       }
