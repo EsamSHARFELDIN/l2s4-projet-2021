@@ -69,7 +69,8 @@ public class PlainTile extends Tile {
     }
 
     public void print() {
-        System.out.print("P");
+        System.out.print("P/");
+        super.print();
     }
     
     /**

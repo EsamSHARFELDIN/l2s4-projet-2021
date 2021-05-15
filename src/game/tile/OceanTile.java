@@ -58,7 +58,8 @@ public class OceanTile extends Tile {
     }
 
     public void print() {
-        System.out.print("O");
+        System.out.print("O/");
+        super.print();
     }
     
     /**

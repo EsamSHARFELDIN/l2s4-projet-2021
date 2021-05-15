@@ -75,7 +75,8 @@ public class MountainTile extends Tile {
     }
 
     public void print() {
-        System.out.print("M");
+        System.out.print("M/");
+        super.print();
     }
     
     /**

@@ -73,7 +73,8 @@ public class DesertTile extends Tile {
     }
 
     public void print() {
-        System.out.print("D");
+        System.out.print("D/");
+        super.print();
     }
     
     /**

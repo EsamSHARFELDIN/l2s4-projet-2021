@@ -129,6 +129,10 @@ public abstract class Unit {
     	return this.tile != null;
     }
 
+    public void print() {
+        System.out.print(this.player.getName().charAt(0) + "/");
+    }
+
     /** Tile occupied by the unit */
     protected Tile tile;
 

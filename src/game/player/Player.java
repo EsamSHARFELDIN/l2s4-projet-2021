@@ -210,4 +210,12 @@ public abstract class Player {
     public void decrementGold(int i) {
         this.goldStock -= i;
     }
+
+    /**
+     * Return the name of the player
+     * @return Player's name
+     */
+    public String getName() {
+        return this.name;
+    }
 }

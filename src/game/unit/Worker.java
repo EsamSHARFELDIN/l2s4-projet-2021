@@ -63,5 +63,10 @@ public class Worker extends Unit {
 	public int cost() {
 		// we can consider that the initial cost here is 0
 		return this.tile.getCostAdd();
-	}	
+	}
+
+    public void print() {
+        super.print();
+        System.out.printf("%2d", this.goldQuantity);
+    }
 }

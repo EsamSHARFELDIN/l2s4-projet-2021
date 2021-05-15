@@ -72,7 +72,8 @@ public class ForestTile extends Tile {
     }
 
     public void print() {
-        System.out.print("F");
+        System.out.print("F/");
+        super.print();
     }
     
     /**

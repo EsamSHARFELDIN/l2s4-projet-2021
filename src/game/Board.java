@@ -224,7 +224,9 @@ public class Board {
     public void print() {
         for (int i = 0; i < this.height; i++) {
             for (int j = 0; j < this.width; j++) {
+                System.out.print("[");
                 this.tiles[i][j].print();
+                System.out.print("] ");
             }
             System.out.println();
         }

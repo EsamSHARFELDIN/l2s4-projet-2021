@@ -133,4 +133,9 @@ public class Army extends Unit {
 	private int getMinArmySize() {
 		return Army.MIN_SIZE;
 	}
+
+    public void print() {
+        super.print();
+        System.out.printf("%2d", this.size);
+    }
 }
