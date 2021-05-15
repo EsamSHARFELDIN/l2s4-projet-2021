@@ -77,7 +77,7 @@ public class Army extends Unit {
 	 * @param incr the value with which the size's increment is done.
 	 */
 	public void incrementSize(int incr) {
-		this.size = Math.max(this.size + incr, MAX_SIZE);
+            this.size = Math.min(this.size + incr, this.getMaxArmySize());
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class Army extends Unit {
      * @param decr the value with which the size's decrement is done.
 	 */
 	public void decrementSize(int decr) {
-		this.size = Math.min(this.size - decr, MIN_SIZE);
+		this.size = Math.max(this.size - decr, MIN_SIZE);
 	}
 	
 	/**
