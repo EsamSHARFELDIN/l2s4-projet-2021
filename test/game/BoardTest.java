@@ -169,7 +169,13 @@ public class BoardTest {
       Board b = new Board(10, 15);
       for (int i = 0; i < b.height; i++) {
         for (int j = 0; j < b.width; j++) {
-          assertSame(b.tiles[i][j], b.tileAt(j, i));
+        	Tile current = null;
+	    	try {
+	    		current = b.tileAt(j, i);
+	    	} catch (UnknownTileException e) {
+	    		System.out.println(e.getMessage());
+	    	}
+          assertSame(b.tiles[i][j], current);
         }
       }
     }
