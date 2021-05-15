@@ -112,7 +112,7 @@ public class Army extends Unit {
 	 */
 	@Override
 	public int points() {
-		return this.tile.getAdditionnalPoints();
+            return super.points() + this.tile.getAdditionnalPoints();
 	}    
 	
 	/**
