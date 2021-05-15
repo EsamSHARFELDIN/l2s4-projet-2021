@@ -29,8 +29,8 @@ public class OceanTile extends Tile {
      * any resources.
      */
     public Resource getResource() throws IllegalGameActionException {
-    	throw new IllegalGameActionException("Trying to get resources from "
-    			+ "an ocean tile");
+        throw new IllegalGameActionException("Trying to get resources from "
+                                             + "an ocean tile");
     }
 
     /**
@@ -54,43 +54,43 @@ public class OceanTile extends Tile {
      */
     public void setUnit(Unit u) throws IllegalGameActionException {
         throw new IllegalGameActionException("Trying to set an unit on an"
-        		+ "ocean tile");
+                                             + "ocean tile");
     }
 
     public void print() {
         System.out.print("O/");
         super.print();
     }
-    
+
     /**
      * return the bonus gold a player may receive from each of
      * his unit placed on this type of tile when among
      * the selectable actions he chooses to do nothing.
-     * 
-     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be 
-     * initialized before running the game (Game#play) 
+     *
+     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be
+     * initialized before running the game (Game#play)
      * to avoid undefined behavior.
-     * 
+     *
      * @return The bonus gold a player may receive from each of
      * his unit placed on this type of tile when among
      * the selectable actions he chooses to do nothing.
      */
     public int getGoldWhenDoingNothing() {
-    	return 0;
+        return 0;
     }
-    
+
     /**
      * {@inheritDoc}
      */
     public int getAdditionnalPower() {
-    	return 0;
+        return 0;
     }
-    
+
     /**
      * {@inheritDoc}
      */
     public int getAdditionnalPoints() {
-    	return 0;
+        return 0;
     }
 
     /** {@inheritDoc} */
@@ -99,18 +99,18 @@ public class OceanTile extends Tile {
     }
 
     /**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getCostAdd() {
-		return 0;
-	}
+     * {@inheritDoc}
+     */
+    @Override
+    public int getCostAdd() {
+        return 0;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getCostFactor() {
-		return 0;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int getCostFactor() {
+        return 0;
+    }
 }

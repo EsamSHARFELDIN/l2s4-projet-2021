@@ -1,18 +1,15 @@
 package game.tile;
 
-
 import static org.junit.Assert.*;
 import org.junit.Test;
-import game.*;
-import game.tile.MountainTile;
 
+import game.Resource;
+import game.exception.IllegalGameActionException;
 
 public class MountainTileTest {
-
     @Test
-    public void getResourceTest(){
-        MountainTile t1 = new MountainTile();
-        assertSame(Rock, t1.getResource());
+    public void getResourceTest() throws IllegalGameActionException {
+        Tile tile = new MountainTile(0, 0);
+        assertSame(Resource.Stone, tile.getResource());
     }
-
 }

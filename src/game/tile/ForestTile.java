@@ -39,10 +39,10 @@ public class ForestTile extends Tile {
      * the selectable actions he chooses to do nothing.
      */
     public static int GOLD_WHEN_DOING_NOTHING;
-    
+
     /**
-     * The bonus to be added to the initial cost 
-     * of an unit placed on this tile. 
+     * The bonus to be added to the initial cost
+     * of an unit placed on this tile.
      */
     public static int COST_ADD;
 
@@ -75,53 +75,53 @@ public class ForestTile extends Tile {
         System.out.print("F/");
         super.print();
     }
-    
+
     /**
      * return the bonus gold a player may receive from each of
      * his unit placed on this type of tile when among
      * the selectable actions he chooses to do nothing.
-     * 
-     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be 
-     * initialized before running the game (Game#play) 
+     *
+     * <code>GOLD_WHEN_DOING_NOTHING</code> has to be
+     * initialized before running the game (Game#play)
      * to avoid undefined behavior.
-     * 
+     *
      * @return The bonus gold a player may receive from each of
      * his unit placed on this type of tile when among
      * the selectable actions he chooses to do nothing.
      */
     public int getGoldWhenDoingNothing() {
-    	return GOLD_WHEN_DOING_NOTHING;
+        return GOLD_WHEN_DOING_NOTHING;
     }
-    
+
     /**
      * {@inheritDoc}
      */
     public int getAdditionnalPower() {
-    	return ADDITIONAL_POWER;
+        return ADDITIONAL_POWER;
     }
-    
+
     /**
      * {@inheritDoc}
      */
     public int getAdditionnalPoints() {
-    	return ADDITIONAL_POINTS;
+        return ADDITIONAL_POINTS;
     }
 
     /** {@inheritDoc} */
     public int getMaxArmySize() {
         return MAX_ARMY_SIZE;
     }
-    
-    @Override
-	public int getCostAdd() {
-		return COST_ADD;
-	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getCostFactor() {
-		return COST_FACTOR;
-	}
+    @Override
+    public int getCostAdd() {
+        return COST_ADD;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int getCostFactor() {
+        return COST_FACTOR;
+    }
 }

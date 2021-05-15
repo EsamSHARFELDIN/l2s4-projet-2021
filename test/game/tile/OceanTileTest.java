@@ -2,39 +2,27 @@ package game.tile;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import game.*;
+
 import game.exception.IllegalGameActionException;
-import game.tile.OceanTile;
 import game.unit.Unit;
+import game.unit.Worker;
 
 public class OceanTileTest {
-
-    OceanTile t1 = new OceanTile();
-    Unit u1 = new Unit();
+    private OceanTile t1 = new OceanTile(0, 0);
+    private Unit u1 = new Worker();
 
     @Test
     public void IsBusyTest(){
-        assertSame(true , t1.isBusy());
+        assertTrue(this.t1.isBusy());
     }
 
-    @Test(excepted = IllegalGameActionException.class)
-    public void getResourceTest() {
-
-        OceanTile t1 = new OceanTile();
-        t1.getResource();
-
+    @Test(expected = IllegalGameActionException.class)
+    public void cannotGetResource() throws IllegalGameActionException {
+        this.t1.getResource();
     }
 
-    @Test(excepted = IllegalGameActionException.class)
-    public void setUnitTest() {
-
-        OceanTile t1 = new OceanTile();
-        Unit u1 = new Unit();
-        t1.setUnit(u1);
-
+    @Test(expected = IllegalGameActionException.class)
+    public void cannotSetUnit() throws IllegalGameActionException {
+        this.t1.setUnit(u1);
     }
-
-
-
-
 }
