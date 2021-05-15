@@ -303,11 +303,6 @@ public class WarPlayerTest {
         player.decrementFoodStock(5);
 
         assertEquals(5, player.getFoodStock());
-
-        //food stock can not be negative
-        player.decrementFoodStock(40);
-
-        // assertEquals(0, player.getFoodStock());
     }
 
     @Test
@@ -315,11 +310,6 @@ public class WarPlayerTest {
         player.decrementWarriorStock(5);
 
         assertEquals(30, player.getWarriorStock());
-
-        //warrior stock can not be negative
-        player.decrementWarriorStock(40);
-
-        // assertEquals(0, player.getWarriorStock());
     }
 
     @Test

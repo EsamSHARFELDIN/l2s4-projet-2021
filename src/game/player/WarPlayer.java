@@ -24,12 +24,14 @@ public class WarPlayer extends Player {
     private static final int BONUS_AMOUNT = 5;
 
     /**
-     * the player's stock of warrior (35 at the start).
+     * the player's stock of warrior (35 at the start). No check is performed to
+     *  prevent the stock from being negative
      */
     protected int warriorStock;
 
     /**
-     * the player's stock of food.
+     * the player's stock of food. No check is performed to prevent the stock
+     *  from being negative
      */
     protected int foodStock;
 
@@ -187,7 +189,8 @@ public class WarPlayer extends Player {
     }
 
     /**
-     * decrease the player's stock of warrior.
+     * decrease the player's stock of warrior. No check is performed to prevent
+     *  the stock from being negative
      * @param decr the value of the decrement of the Player's warrior stock.
      */
     public void decrementWarriorStock(int decr) {
@@ -195,9 +198,9 @@ public class WarPlayer extends Player {
     }
 
     /**
-     * decrease the player's stock of food.
+     * decrease the player's stock of food. No check is performed to prevent the
+     *  stock from being negative
      * @param decr the value of the decrement of the Player's food stock.
-
      */
     public void decrementFoodStock(int decr) {
         this.foodStock -= decr;
