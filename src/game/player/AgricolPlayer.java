@@ -93,7 +93,9 @@ public class AgricolPlayer extends Player {
      * @param unit Unit to feed
      */
     public void remunerate(Unit unit) {
-        decrementGold(unit.cost());
+        int unitCost = unit.cost();
+        decrementGold(unitCost);
+        unit.receiveGold(unitCost);
     }
 
     /**
