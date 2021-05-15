@@ -234,18 +234,19 @@ public class BoardTest {
     }
 
     @Test
-    public void adjacentTilesMid() { /* au milieu */
+    public void adjacentTilesMid() throws GameException { /* au milieu */
       Board b = new Board(15, 10);
-      List<Tile> list = b.getAdjacentTiles(7, 7);
+      List<Tile> list = b.adjacentTiles(7, 7);
       assertEquals(4, list.size());
-      assertTrue(list.contains(b.tiles[6][6]));
-      assertTrue(list.contains(b.tiles[7][6]));
-      assertTrue(list.contains(b.tiles[6][7]));
-      assertTrue(list.contains(b.tiles[8][8]));
+      assertTrue(list.contains(b.tileAt(7, 6)));
+      assertTrue(list.contains(b.tileAt(8, 7)));
+      assertTrue(list.contains(b.tileAt(7, 8)));
+      assertTrue(list.contains(b.tileAt(6, 7)));
     }
 
+    /* sur un bord du tableau qui n'est pas un coin*/
     @Test
-    public void adjacentTilesSurLesCotes() { /* sur un bord du tableau */
+    public void adjacentTilesForSides() {
 
     }
 
