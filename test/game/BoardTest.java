@@ -207,14 +207,14 @@ public class BoardTest {
     }
 
     @Test
-    public void setUnitOK() {
-      /* trouver case correcte, faire setUnit, vérifier avec assertSame */
+    public void setUnitOK() throws GameException{
+      /* trouver case correcte, faire setUnit, 
+       * vérifier avec assertSame */
       Board b = new Board(10, 15);
-      Tile t;
-      Player p;
-      Unit u;
+      Player p = null;
+      Unit u = null;
       boolean done = false;
-      int i, j;
+      int i, j = 0;
       for (i = 0; i < b.height && !done; i++) {
         for (j = 0; j < b.width && !done; j++) {
           if (!(b.tiles[i][j] instanceof OceanTile)) {
@@ -224,7 +224,7 @@ public class BoardTest {
           }
         }
       }
-      assertSame(u, b.tiles[i][j].getUnit());
+      assertSame(u, b.tileAt(j, i).getUnit());
     }
     
     @Test (expected = UnknownTileException.class)
