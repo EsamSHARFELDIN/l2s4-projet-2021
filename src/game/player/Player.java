@@ -122,6 +122,16 @@ public abstract class Player {
     public void removeUnit(Unit unit) {
         this.units.remove(unit);
     }
+    
+    /**
+     * tell if <code>unit</code> is controlled by this player.
+     * @param unit an unit
+     * @return <code>true</code> iff <code>unit</code> is 
+     * controlled by this player.
+     */
+    public boolean hasUnit(Unit unit) {
+    	return this.units.contains(unit);
+    }
 
     /**
      * Get the player resource
