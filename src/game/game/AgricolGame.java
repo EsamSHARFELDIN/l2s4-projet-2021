@@ -78,25 +78,28 @@ public class AgricolGame extends Game {
             throw new RuntimeException("Tried to play with no players");
         }
         /* Initialiser itérateur au début de la liste des joueurs */
-        Iterator<Player> it = this.players.listIterator();
+        ListIterator<Player> it = this.players.listIterator();
 
         while (!this.isGameOver()) {
-            Player p;
-            if (it.hasNext()) {
-                p = it.next();
+            if (it.nextIndex() == 0) {
+                System.out.println("Turn " + this.turns_counter);
             }
-            else {
-                it = this.players.listIterator();
-                p = it.next();
-                this.turns_counter++;
-            }
-            /* choisir et réaliser une action */
+
+            Player p = it.next();
             Action action = p.chooseAction(this.board);
             action.execute(this.board, p);
-            /* rémunérer les unités */
             p.remunerateAll();
+
             this.board.print();
+            for (Player player : this.players) {
+                System.out.println(player.summary());
+            }
             System.out.println();
+
+            if (!it.hasNext()) {
+                it = this.players.listIterator();
+                this.turns_counter++;
+            }
         }
 
         return findWinner();

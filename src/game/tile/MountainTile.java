@@ -125,4 +125,8 @@ public class MountainTile extends Tile {
     public int getCostFactor() {
         return COST_FACTOR;
     }
+
+    public String toString() {
+        return "Mountain" + super.toString();
+    }
 }

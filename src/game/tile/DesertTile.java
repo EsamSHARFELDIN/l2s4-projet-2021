@@ -128,4 +128,8 @@ public class DesertTile extends Tile {
     public int getCostFactor() {
         return COST_FACTOR;
     }
+
+    public String toString() {
+        return "Desert" + super.toString();
+    }
 }

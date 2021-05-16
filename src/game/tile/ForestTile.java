@@ -124,4 +124,8 @@ public class ForestTile extends Tile {
     public int getCostFactor() {
         return COST_FACTOR;
     }
+
+    public String toString() {
+        return "Forest" + super.toString();
+    }
 }

@@ -113,4 +113,8 @@ public class OceanTile extends Tile {
     public int getCostFactor() {
         return 0;
     }
+
+    public String toString() {
+        return "Ocean" + super.toString();
+    }
 }

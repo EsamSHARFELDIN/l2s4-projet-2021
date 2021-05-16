@@ -133,6 +133,10 @@ public abstract class Unit {
         System.out.print(this.player.getName().charAt(0) + "/");
     }
 
+    public String toString() {
+        return "Unit(" + this.goldQuantity + ")";
+    }
+
     /** Tile occupied by the unit */
     protected Tile tile;
 

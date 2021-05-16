@@ -69,4 +69,8 @@ public class Worker extends Unit {
         super.print();
         System.out.printf("%2d", this.goldQuantity);
     }
+
+    public String toString() {
+        return "Worker(" + this.goldQuantity + ")";
+    }
 }

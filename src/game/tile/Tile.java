@@ -153,4 +153,8 @@ public abstract class Tile {
             System.out.print("    ");
         }
     }
+
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
+    }
 }

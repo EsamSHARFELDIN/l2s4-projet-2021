@@ -228,4 +228,8 @@ public abstract class Player {
             this.wheatStock + " Wh, " +
             this.woodStock + " Wo, ";
     }
+
+    public String toString() {
+        return this.name;
+    }
 }

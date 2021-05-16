@@ -138,4 +138,8 @@ public class Army extends Unit {
         super.print();
         System.out.printf("%2d", this.size);
     }
+
+    public String toString() {
+        return "Army(" + this.size + ")";
+    }
 }

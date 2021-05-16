@@ -63,6 +63,7 @@ public class DeployAction implements Action {
                         u.setPlayer(player);
 			tile.setUnit(u);
 			player.addUnit(u);
+                        System.out.println(this.trace(player, tile));
 		}
 		else {
 			throw new IllegalGameActionException("Trying to set an unit on "
@@ -70,4 +71,7 @@ public class DeployAction implements Action {
 		}
 	}
 
+    private String trace(Player player, Tile tile) {
+        return player + " deploys " + this.u + " at " + tile;
+    }
 }
