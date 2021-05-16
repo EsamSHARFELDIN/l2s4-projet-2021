@@ -25,7 +25,12 @@ public class AgricolDoNothingAction extends DoNothingAction {
      * @param player Player taking the action
      */
     public void execute(Board board, Player player) {
-        /* TODO talk about the downcast */
+        super.execute(board, player);
         ((AgricolPlayer) player).collectIdleGold();
+        System.out.println(this.trace(player));
+    }
+
+    private String trace(Player player) {
+        return player + " collects gold from their units";
     }
 }

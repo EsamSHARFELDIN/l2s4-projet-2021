@@ -25,5 +25,10 @@ public class AgricolExchangeAction implements Action {
      */
     public void execute(Board board, Player player) {
         player.convertResource();
+        System.out.println(this.trace(player));
+    }
+
+    private String trace(Player player) {
+        return player + " exchanges their resources";
     }
 }

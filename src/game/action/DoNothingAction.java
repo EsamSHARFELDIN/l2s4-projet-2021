@@ -22,5 +22,11 @@ public class DoNothingAction implements Action {
      * @param board Playing board
      * @param player Player taking the action
      **/
-    public void execute(Board board, Player player) {}
+    public void execute(Board board, Player player) {
+        System.out.println(this.trace(player));
+    }
+
+    private String trace(Player player) {
+        return player + " idles";
+    }
 }

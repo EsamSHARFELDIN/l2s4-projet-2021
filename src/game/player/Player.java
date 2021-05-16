@@ -223,6 +223,7 @@ public abstract class Player {
         return this.name + ": " +
             this.score() + " points, " +
             this.units.size() + " Un, " +
+            this.goldStock + " Go, " +
             this.stoneStock + " St, " +
             this.sandStock + " Sa, " +
             this.wheatStock + " Wh, " +
