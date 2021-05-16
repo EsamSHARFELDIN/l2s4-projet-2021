@@ -88,6 +88,7 @@ public class AgricolGame extends Game {
             Player p = it.next();
             Action action = p.chooseAction(this.board);
             action.execute(this.board, p);
+            p.collectResources();
             p.remunerateAll();
 
             this.board.print();
