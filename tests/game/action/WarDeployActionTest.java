@@ -92,10 +92,28 @@ public class WarDeployActionTest {
 	}
 	
 	/*
-	 * When  
+	 * When the enemys's military strength is less than the deployed
+	 * ally army's military strength and also less or equal than 1.
 	 */
 	@Test
 	public void deployWithCapture() {
+		Army enemy = new Army(1);
+		unitToDeploy = new Army(3);
+		Tile tileForEnemy = b.tileAt(1, 1) // A mountain tile
+		int initialGold = p1.getGold();
 		
+		new WarDeployAction(tileForEnemy.getX(), tileForEnemy.getY(), enemy)
+   		.execute(b, p2);
+		
+		Tile tileForAlly = b.tileAt(2, 1);
+		
+		new WarDeployAction(tileForAlly.getX(), tileForAlly.getY(), unitToDeploy)
+   		.execute(b, p1);
+		
+		// the enemy should be captured by p1
+		assertTrue(p1.hasUnit(enemy));
+		
+		// p1 receive 2 gold
+		assertSame(initialGold + 2, p1.getGold());
 	}
 }
