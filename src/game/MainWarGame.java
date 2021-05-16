@@ -1,22 +1,22 @@
 package game;
 
 import game.game.Game;
-import game.game.AgricolGame;
+import game.game.WarGame;
 import game.exception.GameException;
 import game.player.Player;
-import game.player.AgricolPlayer;
+import game.player.WarPlayer;
 
-public class MainAgricolGame {
+public class MainWarGame {
     public static void main(String args[]) {
-        Game game = new AgricolGame(10, 10);
+        Game game = new WarGame(10, 10);
 
         if (args.length == 0) {
-            System.out.println("Usage: java game.MainAgricolGame %s [, ...]");
+            System.out.println("Usage: java game.MainWarGame %s [, ...]");
             return;
         }
 
         for (int i = 0; i < args.length; i++) {
-            Player p = new AgricolPlayer(args[i]);
+            Player p = new WarPlayer(args[i]);
             game.addPlayer(p);
         }
 
