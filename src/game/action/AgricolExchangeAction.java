@@ -1,6 +1,6 @@
 package game.action;
 
-import game.board.RandomBoard;
+import game.board.Board;
 import game.player.Player;
 
 /**
@@ -23,7 +23,7 @@ public class AgricolExchangeAction implements Action {
      * @param board Playing board
      * @param player Player who is deploying the unit
      */
-    public void execute(RandomBoard board, Player player) {
+    public void execute(Board board, Player player) {
         player.convertResource();
     }
 }

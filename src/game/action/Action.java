@@ -1,6 +1,6 @@
 package game.action;
 
-import game.board.RandomBoard;
+import game.board.Board;
 import game.exception.GameException;
 import game.player.Player;
 
@@ -20,5 +20,5 @@ public interface Action {
 	 * @param board the board with which the action will be realized.
 	 * @param player the player that is realizing this action.
 	 */
-    void execute(RandomBoard board, Player player) throws GameException;
+    void execute(Board board, Player player) throws GameException;
 }

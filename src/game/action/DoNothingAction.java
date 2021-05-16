@@ -1,6 +1,6 @@
 package game.action;
 
-import game.board.RandomBoard;
+import game.board.Board;
 import game.player.Player;
 
 /**
@@ -22,5 +22,5 @@ public class DoNothingAction implements Action {
      * @param board Playing board
      * @param player Player taking the action
      **/
-    public void execute(RandomBoard board, Player player) {}
+    public void execute(Board board, Player player) {}
 }
