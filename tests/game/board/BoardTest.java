@@ -8,13 +8,14 @@ import org.junit.Test;
 
 import game.board.Board;
 import game.board.RandomBoard;
+import game.board.ExampleBoard;
 import game.exception.GameException;
 import game.exception.IllegalGameActionException;
 import game.exception.UnknownTileException;
 import game.player.Player;
 import game.player.AgricolPlayer;
 import game.tile.OceanTile;
-import game.tile.Tile;
+import game.tile.*;
 import game.unit.Unit;
 import game.unit.Worker;
 
@@ -118,8 +119,7 @@ public class BoardTest {
         /* Ajouter une unité à la première tuile terrestre */
         for (int x = 0; x < b.width; x++) {
             for (int y = 0; y < b.height; y++) {
-                Tile current = null;
-                current = b.tileAt(x, y);
+                Tile current = b.tileAt(x, y);
                 if (!(current instanceof OceanTile)) {
                     current.setUnit(new Worker(b.tileAt(x, y), p));
                 }
@@ -159,18 +159,10 @@ public class BoardTest {
     public void setUnitOnOceanTile() throws GameException {
         /* trouver une tuile de type OceanTile dans le tableau,
          * essayer de faire setUnit dessus */
-        Board b = new RandomBoard(10, 15);
-        Tile t = null;
-        Player p = null;
-        boolean done = false;
-        for (int i = 0; i < b.height && !done; i++) {
-            for (int j = 0; j < b.width && !done; j++) {
-                if (b.tiles[i][j] instanceof OceanTile) {
-                    b.setUnitAt(j, i, new Worker(t, p));
-                    done = true;
-                }
-            }
-        }
+        Board b = new ExampleBoard();
+        Tile t = new PlainTile(0, 0);
+        Player p = new AgricolPlayer("hop");
+        b.setUnitAt(0, 0, new Worker(t, p));
     }
 
     @Test
@@ -178,20 +170,12 @@ public class BoardTest {
         /* trouver case correcte, faire setUnit,
          * vérifier avec assertSame */
         Board b = new RandomBoard(10, 15);
-        Player p = null;
-        Unit u = null;
-        boolean done = false;
-        int i, j = 0;
-        for (i = 0; i < b.height && !done; i++) {
-            for (j = 0; j < b.width && !done; j++) {
-                if (!(b.tiles[i][j] instanceof OceanTile)) {
-                    u = new Worker(b.tiles[i][j], p);
-                    b.setUnitAt(j, i, u);
-                    done = true;
-                }
-            }
-        }
-        assertSame(u, b.tileAt(j, i).getUnit());
+        Tile t = new PlainTile(0, 0);
+        Player p = new AgricolPlayer("hop");
+        Unit u = new Worker(t, p);
+        b.setUnitAt(0, 0, new Worker(t, p));
+        b.setUnitAt(1, 1, u);
+        assertSame(u, b.tileAt(1, 1).getUnit());
     }
 
     @Test (expected = UnknownTileException.class)
