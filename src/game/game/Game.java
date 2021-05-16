@@ -2,7 +2,7 @@ package game.game;
 import java.util.LinkedList;
 import java.util.List;
 
-import game.Board;
+import game.board.RandomBoard;
 import game.exception.GameException;
 import game.exception.IllegalGameActionException;
 import game.player.Player;
@@ -12,7 +12,7 @@ import game.player.Player;
  */
 
 public abstract class Game {
-    protected Board board;
+    protected RandomBoard board;
     protected List<Player> players;
 
     /**
@@ -20,10 +20,10 @@ public abstract class Game {
      * of players
      * @param width Width of the board to use
      * @param height Height of the board to use
-     * @throws IllegalArgumentException @see {@link Board#Board(int, int)}
+     * @throws IllegalArgumentException @see {@link RandomBoard#Board(int, int)}
      */
     public Game(int width, int height) throws IllegalArgumentException {
-    	this.board = new Board(width, height);
+    	this.board = new RandomBoard(width, height);
     	this.players = new LinkedList<Player>();
     }
 
