@@ -2,7 +2,7 @@ package game.action;
 
 import java.util.*;
 
-import game.board.RandomBoard;
+import game.board.Board;
 import game.exception.GameException;
 import game.player.Player;
 import game.tile.OceanTile;
@@ -97,7 +97,7 @@ public class WarDeployAction extends DeployAction {
      * @param board Playing board
      * @param player Player who is deploying the unit
      */
-    public void execute(RandomBoard board, Player player) throws GameException {
+    public void execute(Board board, Player player) throws GameException {
         System.out.println("WARDEPLOYACTION::EXECUTE called");
         super.execute(board, player);
         Tile deploymentTile = board.tileAt(this.x, this.y);
