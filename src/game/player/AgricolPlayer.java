@@ -79,13 +79,25 @@ public class AgricolPlayer extends Player {
         while (it.hasNext()) {
             Unit unit = it.next();
             if (this.canRemunerate(unit)) {
+                System.out.println(canRemunerateTrace(unit));
                 this.remunerate(unit);
             }
             else {
+                System.out.println(cannotRemunerateTrace(unit));
                 it.remove();
                 unit.destroy();
             }
         }
+    }
+
+    private String canRemunerateTrace(Unit unit) {
+        return this.toString() + " remunerates " + unit + " on " + unit.getTile() +
+            " with " + unit.cost() + " gold";
+    }
+
+    private String cannotRemunerateTrace(Unit unit) {
+        return this.toString() + " loses " + unit + " costing " + unit.cost() +
+            " gold on " + unit.getTile();
     }
 
     /**
@@ -112,6 +124,7 @@ public class AgricolPlayer extends Player {
      */
     @Override
     public void convertResource() {
+        System.out.println(convertTrace());
         incrementGold(this.stoneStock * Resource.getConversionValue(Resource.Stone));
         this.stoneStock = 0;
         incrementGold(this.sandStock * Resource.getConversionValue(Resource.Sand));
@@ -120,6 +133,18 @@ public class AgricolPlayer extends Player {
         this.wheatStock = 0;
         incrementGold(this.woodStock * Resource.getConversionValue(Resource.Wood));
         this.woodStock = 0;
+    }
+
+    private String convertTrace() {
+        return this.toString() + " converts\n" +
+            this.stoneStock + " Stone into " +
+            this.stoneStock * Resource.getConversionValue(Resource.Stone) + " gold\n" +
+            this.sandStock + " Sand into " +
+            this.sandStock * Resource.getConversionValue(Resource.Sand) + " gold\n" +
+            this.wheatStock + " Wheat into " +
+            this.wheatStock * Resource.getConversionValue(Resource.Wheat) + " gold\n" +
+            this.woodStock + " Wood into " +
+            this.woodStock * Resource.getConversionValue(Resource.Wood) + " gold";
     }
 
     /**
