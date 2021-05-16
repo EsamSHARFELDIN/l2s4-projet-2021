@@ -113,10 +113,32 @@ public class WarDeployActionTest {
 	}
 	
 	/*
-	 *  
+	 * When deploying beside an ally which has less size than the
+	 * deployed ally army.
 	 */
 	@Test
-	public void deployWithReinforcingAllyBeside() {
+	public void deployWithReinforcingAllyBeside() throws GameException {
+		Army ally1 = new Army(1);
+		Army ally2 = new Army(4);
+		int initSize1 = ally1.getSize(); // for ally1
+		int initSize2 = ally2.getSize(); // for ally2
+		unitToDeploy = new Army(5);
 		
+		Tile tileForAlly1 = b.tileAt(1, 3);
+		Tile tileForAlly2 = b.tileAt(2, 4);
+		Tile tileForAlly = b.tileAt(2, 3); // for unitToDeploy
+		
+		new WarDeployAction(tileForAlly1.getX(), tileForAlly1.getY(), ally1)
+   		.execute(b, p1);
+		
+		new WarDeployAction(tileForAlly2.getX(), tileForAlly2.getY(), ally2)
+   		.execute(b, p1);
+		
+		new WarDeployAction(tileForAlly.getX(), tileForAlly.getY(), unitToDeploy)
+   		.execute(b, p1);
+		
+		// ally1 and ally2's size increased by 1
+		assertSame(initSize1 + 1, ally1.getSize());
+		assertSame(initSize2 + 1, ally2.getSize());
 	}
 }
