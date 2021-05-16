@@ -1,6 +1,6 @@
 package game.action;
 
-import game.Board;
+import game.board.Board;
 import game.exception.GameException;
 import game.player.Player;
 

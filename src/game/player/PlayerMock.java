@@ -1,8 +1,8 @@
 package game.player;
 
-import game.Board;
 import game.action.Action;
 import game.action.DoNothingAction;
+import game.board.RandomBoard;
 import game.unit.Unit;
 
 public class PlayerMock extends Player {
@@ -11,7 +11,7 @@ public class PlayerMock extends Player {
         super(name, rock, sand, wheat, wood, gold);
     }
 
-    public Action chooseAction(Board board) {
+    public Action chooseAction(RandomBoard board) {
         return new DoNothingAction();
     }
 
