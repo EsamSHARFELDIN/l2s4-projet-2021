@@ -223,12 +223,42 @@ public class AgricolPlayerTest {
 
     @Test
     public void testConvertResource() {
-        int initGoldStock = player.getGold();
+        assertEquals(15, this.player.getGold());
+        assertEquals(0, this.player.getResource(Resource.Wheat));
+        assertEquals(0, this.player.getResource(Resource.Wood));
+        assertEquals(0, this.player.getResource(Resource.Stone));
+        assertEquals(0, this.player.getResource(Resource.Sand));
 
-        //test that convertResource() call does not throw an exception
-        player.convertResource();
+        this.player.incrementResource(1, Resource.Wheat);
+        assertEquals(15, this.player.getGold());
+        assertEquals(1, this.player.getResource(Resource.Wheat));
+        assertEquals(0, this.player.getResource(Resource.Wood));
+        assertEquals(0, this.player.getResource(Resource.Stone));
+        assertEquals(0, this.player.getResource(Resource.Sand));
 
-        assertTrue(initGoldStock <= player.getGold());
+        this.player.convertResource();
+        assertEquals(17, this.player.getGold());
+        assertEquals(0, this.player.getResource(Resource.Wheat));
+        assertEquals(0, this.player.getResource(Resource.Wood));
+        assertEquals(0, this.player.getResource(Resource.Stone));
+        assertEquals(0, this.player.getResource(Resource.Sand));
+
+        this.player.incrementResource(1, Resource.Wheat);
+        this.player.incrementResource(2, Resource.Wood);
+        this.player.incrementResource(3, Resource.Stone);
+        this.player.incrementResource(4, Resource.Sand);
+        assertEquals(17, this.player.getGold());
+        assertEquals(1, this.player.getResource(Resource.Wheat));
+        assertEquals(2, this.player.getResource(Resource.Wood));
+        assertEquals(3, this.player.getResource(Resource.Stone));
+        assertEquals(4, this.player.getResource(Resource.Sand));
+
+        this.player.convertResource();
+        assertEquals(67, this.player.getGold());
+        assertEquals(0, this.player.getResource(Resource.Wheat));
+        assertEquals(0, this.player.getResource(Resource.Wood));
+        assertEquals(0, this.player.getResource(Resource.Stone));
+        assertEquals(0, this.player.getResource(Resource.Sand));
     }
 
     @Test
