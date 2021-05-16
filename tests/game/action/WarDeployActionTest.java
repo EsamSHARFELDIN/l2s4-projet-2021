@@ -164,4 +164,27 @@ public class WarDeployActionTest {
 		// no effect on enemy's size
 		assertSame(initSizeEnemy, enemy.getSize());
 	}
+	
+	/*
+	 * When deploying beside an ally with greater size.  
+	 */
+	@Test
+	public void deployWithSuperiorAllyBeside() throws GameException {
+		Army ally = new Army(5);
+		int initSizeAlly = ally.getSize();
+		unitToDeploy = new Army(3);
+		
+		Tile tileForAlly = b.tileAt(2, 3); // mountain tile
+		Tile tileForUnit = b.tileAt(1, 3); // for unitToDeploy, plain tile
+		
+		new WarDeployAction(tileForAlly.getX(), tileForAlly.getY(), ally)
+   		.execute(b, p2);
+		
+		new WarDeployAction(tileForUnit.getX(), tileForUnit.getY(), unitToDeploy)
+   		.execute(b, p1);
+		
+		
+		// no effect on ally size
+		assertSame(initSizeAlly, ally.getSize());
+	}
 }
