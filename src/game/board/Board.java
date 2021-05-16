@@ -36,6 +36,24 @@ public abstract class Board {
     }
 
     /**
+     * give the width of this board.
+     * 
+     * @return the width of this board.
+     */
+    public int getWidth() {
+		return width;
+	}
+
+	/** 
+	 * give the height of this board.
+	 * 
+	 * @return the height of this board.
+	 */
+	public int getHeight() {
+		return height;
+	}
+	
+    /**
      * Check whether the board is full, i.e whether all of the occupable tiles
      * are currently occupied by units
      * @return <code>true</code> if all tiles are occupied, else
@@ -108,6 +126,9 @@ public abstract class Board {
      * is out of the specified bounds
      */
     public List<Tile> adjacentTiles(int x, int y) throws UnknownTileException {
+    	if (x < 0 || x >= this.width || y < 0 || y >= this.height) {
+    		throw new UnknownTileException("Tile out of bounds");
+    	}
         List<Tile> tiles = new ArrayList<Tile>();
         if (y > 0) {
             tiles.add(this.tiles[y - 1][x]);
