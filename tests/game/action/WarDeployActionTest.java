@@ -91,10 +91,10 @@ public class WarDeployActionTest {
 	 * ally army's military strength and also less or equal than 1.
 	 */
 	@Test
-	public void deployWithCapture() {
+	public void deployWithCapture() throws GameException {
 		Army enemy = new Army(1);
 		unitToDeploy = new Army(3);
-		Tile tileForEnemy = b.tileAt(1, 1) // A mountain tile
+		Tile tileForEnemy = b.tileAt(1, 1); // A mountain tile
 		int initialGold = p1.getGold();
 		
 		new WarDeployAction(tileForEnemy.getX(), tileForEnemy.getY(), enemy)
@@ -110,5 +110,13 @@ public class WarDeployActionTest {
 		
 		// p1 receive 2 gold
 		assertSame(initialGold + 2, p1.getGold());
+	}
+	
+	/*
+	 *  
+	 */
+	@Test
+	public void deployWithReinforcingAllyBeside() {
+		
 	}
 }
