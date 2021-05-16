@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Board;
 import game.action.Action;
 import game.action.DeployAction;
+import game.board.RandomBoard;
 import game.exception.GameException;
 import game.player.AgricolPlayer;
 import game.player.Player;
@@ -23,7 +23,7 @@ public class DeployActionTest {
         
     @Test
     public void canExecuteAction() throws GameException{
-	    Board b1 = new Board(15, 10);
+	    RandomBoard b1 = new RandomBoard(15, 10);
 	    Player p1 = new AgricolPlayer("Esam");
 	    
 	    /* Executer execute */

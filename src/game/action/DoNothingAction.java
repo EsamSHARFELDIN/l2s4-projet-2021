@@ -1,6 +1,6 @@
 package game.action;
 
-import game.Board;
+import game.board.RandomBoard;
 import game.player.Player;
 
 /**
@@ -16,11 +16,11 @@ public class DoNothingAction implements Action {
     public DoNothingAction() {}
 
     /**
-     * @see Action#execute(Board, Player)
+     * @see Action#execute(RandomBoard, Player)
      * Execute a waiting action. Nothing happens, and arguments are only needed
      * for consistency reasons
      * @param board Playing board
      * @param player Player taking the action
      **/
-    public void execute(Board board, Player player) {}
+    public void execute(RandomBoard board, Player player) {}
 }

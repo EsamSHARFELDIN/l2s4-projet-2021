@@ -2,9 +2,9 @@ package game.player;
 
 import java.util.*;
 
-import game.Board;
 import game.Resource;
 import game.action.Action;
+import game.board.RandomBoard;
 import game.exception.IllegalGameActionException;
 import game.unit.Unit;
 
@@ -51,7 +51,7 @@ public abstract class Player {
      * @param board Playing board
      * @return an instance of a class implementing the Action.
      */
-    public abstract Action chooseAction(Board board);
+    public abstract Action chooseAction(RandomBoard board);
 
     /**
      * Remunerate all units controlled by the player, and act appropriately if

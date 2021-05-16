@@ -1,6 +1,6 @@
 package game.action;
 
-import game.Board;
+import game.board.RandomBoard;
 import game.exception.GameException;
 import game.exception.IllegalGameActionException;
 import game.exception.UnknownTileException;
@@ -41,7 +41,7 @@ public class DeployAction implements Action {
 		this.u = u;
 	}
 	/**
-	 * @see Action#execute(Board, Player)
+	 * @see Action#execute(RandomBoard, Player)
 	 * Make an unit deployment happens (and nothing more).
 	 * 
 	 * @param board the board where the unit will be
@@ -51,7 +51,7 @@ public class DeployAction implements Action {
 	 * @throws GameException when something abnormal about the game happens.
 	 */
 	@Override
-	public void execute(Board board, Player player) throws GameException {
+	public void execute(RandomBoard board, Player player) throws GameException {
 		Tile tile;
 		try {
 			tile = board.tileAt(this.x, this.y);

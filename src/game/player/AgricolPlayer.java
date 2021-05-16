@@ -3,12 +3,12 @@ package game.player;
 import java.lang.Math;
 import java.util.*;
 
-import game.Board;
 import game.Resource;
 import game.action.Action;
 import game.action.AgricolDoNothingAction;
 import game.action.AgricolExchangeAction;
 import game.action.DeployAction;
+import game.board.RandomBoard;
 import game.tile.Tile;
 import game.unit.Unit;
 import game.unit.Worker;
@@ -53,7 +53,7 @@ public class AgricolPlayer extends Player {
      * @param board Playing board
      * @return Action specific to the agricultural game
      */
-    public Action chooseAction(Board board) {
+    public Action chooseAction(RandomBoard board) {
         double roll = Math.random();
         if (roll <= 0.33) {
             List<Tile> freeTiles = board.freeTiles();

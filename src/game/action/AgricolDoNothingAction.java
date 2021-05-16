@@ -1,6 +1,6 @@
 package game.action;
 
-import game.Board;
+import game.board.RandomBoard;
 import game.player.AgricolPlayer;
 import game.player.Player;
 
@@ -18,13 +18,13 @@ public class AgricolDoNothingAction extends DoNothingAction {
     public AgricolDoNothingAction() {}
 
     /**
-     * @see DoNothingAction#execute(Board, Player)
+     * @see DoNothingAction#execute(RandomBoard, Player)
      * Execute the action: the player receives a gold coin for each Plain or
      * Forest he controls, and two coins for each Desert
      * @param board Playing board
      * @param player Player taking the action
      */
-    public void execute(Board board, Player player) {
+    public void execute(RandomBoard board, Player player) {
         /* TODO talk about the downcast */
         ((AgricolPlayer) player).collectIdleGold();
     }

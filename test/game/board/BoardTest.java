@@ -1,4 +1,4 @@
-package game;
+package game.board;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import game.Board;
+import game.board.RandomBoard;
 import game.exception.GameException;
 import game.exception.IllegalGameActionException;
 import game.exception.UnknownTileException;
@@ -20,24 +20,24 @@ public class BoardTest {
 
     @Test (expected = IllegalArgumentException.class)
     public void cannotBuildBoardIfHeightInferior1() {
-      Board b = new Board(3, 0);
+      RandomBoard b = new RandomBoard(3, 0);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void cannotBuildBoardIfWidthInferior2() {
-      Board b = new Board(1, 12);
+      RandomBoard b = new RandomBoard(1, 12);
     }
 
 
     
     @Test
     public void canBuildBoardWithGoodArguments() {
-      Board b = new Board(2, 1);
+      RandomBoard b = new RandomBoard(2, 1);
     }
 
     @Test
     public void boardFollowsTheOceanRules() {
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       int cpt = 0;
       for (int x = 0; x < b.width; x++) {
         for (int y = 0; y < b.height; y++) {
@@ -72,7 +72,7 @@ public class BoardTest {
     
     @Test
     public void boardFollowsTheTerrestrialRules(){
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       for (int x = 0; x < b.width; x++) {
         for (int y = 0; y < b.height; y++) {
         	Tile current = null;
@@ -100,7 +100,7 @@ public class BoardTest {
     public void isFullWhenNotFull() {
       /* Créer un plateau, sans rien faire de plus 
        * et vérifier que isFull renvoie false */
-    	Board b = new Board(10, 15);
+    	RandomBoard b = new RandomBoard(10, 15);
     	assertFalse(b.isFull());
     	
       /* Vérifier aussi en ajoutant une seule unité sur une seule tuile */
@@ -130,7 +130,7 @@ public class BoardTest {
 
     @Test
     public void isFullWhenFull() {
-    	Board b = new Board(10, 15);
+    	RandomBoard b = new RandomBoard(10, 15);
 	    /* On itère sur toutes les tuiles et on met une 
 	     * unité sur chaque cases qui n'est pas de type océan*/
       
@@ -160,13 +160,13 @@ public class BoardTest {
     @Test (expected = UnknownTileException.class)
     public void tileAtOutOfBounds() throws UnknownTileException{
       /* accéder à une tuile incorrecte (hors limte) */
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       b.tileAt(12, 22);
     }
 
     @Test
     public void tileAtOK() {
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       for (int i = 0; i < b.height; i++) {
         for (int j = 0; j < b.width; j++) {
         	Tile current = null;
@@ -182,7 +182,7 @@ public class BoardTest {
 
     @Test (expected = UnknownTileException.class)
     public void setUnitAtUnknownTile() throws GameException{
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       Tile t = null;
       Player p = null;
       b.setUnitAt(12, 22, new Worker(t, p));
@@ -192,7 +192,7 @@ public class BoardTest {
     public void setUnitOnOceanTile() throws GameException{
       /* trouver une tuile de type OceanTile dans le tableau,
        * essayer de faire setUnit dessus */
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       Tile t = null;
       Player p = null;
       boolean done = false;
@@ -210,7 +210,7 @@ public class BoardTest {
     public void setUnitOK() throws GameException{
       /* trouver case correcte, faire setUnit, 
        * vérifier avec assertSame */
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       Player p = null;
       Unit u = null;
       boolean done = false;
@@ -229,13 +229,13 @@ public class BoardTest {
     
     @Test (expected = UnknownTileException.class)
     public void adjacentTilesOutOfBounds() throws UnknownTileException{
-      Board b = new Board(10, 15);
+      RandomBoard b = new RandomBoard(10, 15);
       b.adjacentTiles(12, 22);
     }
 
     @Test
     public void adjacentTilesMid() throws GameException { /* au milieu */
-      Board b = new Board(15, 10);
+      RandomBoard b = new RandomBoard(15, 10);
       List<Tile> list = b.adjacentTiles(7, 7);
       assertEquals(4, list.size());
       assertTrue(list.contains(b.tileAt(7, 6)));
@@ -247,7 +247,7 @@ public class BoardTest {
     /* sur un bord du tableau qui n'est pas un coin*/
     @Test
     public void adjacentTilesForSides() throws GameException {
-    	Board b = new Board(15, 10);
+    	RandomBoard b = new RandomBoard(15, 10);
         List<Tile> list = b.adjacentTiles(0, 7);
         assertEquals(3, list.size());
         assertTrue(list.contains(b.tileAt(0, 6)));
@@ -258,7 +258,7 @@ public class BoardTest {
     /* sur un coin */
     @Test
     public void adjacentTilesForCorner() throws GameException { 
-    	Board b = new Board(15, 10);
+    	RandomBoard b = new RandomBoard(15, 10);
         List<Tile> list = b.adjacentTiles(14, 0);
         assertEquals(2, list.size());
         assertTrue(list.contains(b.tileAt(13, 0)));

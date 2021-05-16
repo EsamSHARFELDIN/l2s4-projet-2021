@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Board;
 import game.action.Action;
 import game.action.AgricolDoNothingAction;
+import game.board.RandomBoard;
 import game.exception.GameException;
 import game.player.AgricolPlayer;
 import game.player.Player;
@@ -27,7 +27,7 @@ public class AgricolDoNothingActionTest {
   public void canExecuteAction() throws GameException {
     /* Construire joueur */
     Player p = new AgricolPlayer("André");
-    Board b = new Board(15, 10);
+    RandomBoard b = new RandomBoard(15, 10);
     
     /* Construire tuiles, workers, les placer sur les tuiles */ 
     Tile t1 = new PlainTile(0, 0);

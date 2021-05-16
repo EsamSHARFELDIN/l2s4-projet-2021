@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Board;
 import game.Resource;
 import game.action.Action;
 import game.action.AgricolExchangeAction;
+import game.board.RandomBoard;
 import game.exception.GameException;
 import game.player.AgricolPlayer;
 import game.player.Player;
@@ -22,7 +22,7 @@ public class AgricolExchangeActionTest {
     @Test
     public void canExecuteTestWithoutResources() throws GameException {
       Action a = new AgricolExchangeAction();
-      Board b1 = new Board(15, 10);
+      RandomBoard b1 = new RandomBoard(15, 10);
       
       Player p1 = new AgricolPlayer("Kilian");
       
@@ -37,7 +37,7 @@ public class AgricolExchangeActionTest {
     @Test
     public void canExecuteTestWithResources() throws GameException {
       Action a = new AgricolExchangeAction();
-      Board b1 = new Board(15, 10);
+      RandomBoard b1 = new RandomBoard(15, 10);
 
       int stoneStock = 1;
       int sandStock = 4;
