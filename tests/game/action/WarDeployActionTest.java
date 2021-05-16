@@ -65,25 +65,20 @@ public class WarDeployActionTest {
     
 	/*
 	 * When the enemy's military strength is less than the deployed
-	 * army's military strength
+	 * army's military strength and greater than 1.
 	 */
 	@Test
-	public void deployWithInferiorEnnemyBeside() throws GameException {
-	   /* 
-	    * enemy's military strength can't be greater than 
-		* unitToDeploy's military strength even if enemy is on a mountain
-		*/
+	public void deployWithInferiorEnnemyBesideAndNoCapture() throws GameException {
 	   int initialSize = 2;
 	   Army enemy = new Army(initialSize);
 	   unitToDeploy = new Army(5);
-	   Tile tileForEnemy = findNotOceanTile(b);
+	   Tile tileForEnemy = b.tileAt(1,  1);
 	   
 	   
 	   new WarDeployAction(tileForEnemy.getX(), tileForEnemy.getY(), enemy)
 	   		.execute(b, p2);
 	   
-	   Tile tileForAlly = b.adjacentTiles(tileForEnemy.getX(), tileForEnemy.getY())
-			   				.get(0);
+	   Tile tileForAlly = b.tileAt(2, 1);
 	   new WarDeployAction(tileForAlly.getX(), tileForAlly.getY(), unitToDeploy)
 	   		.execute(b, p1);
 	   
