@@ -24,16 +24,15 @@ public class WarGame extends Game {
      * @param width Width of the board to use
      * @param height Height of the board to use
      */
-    public WarGame(int width, int height){
+    public WarGame(int width, int height) {
         super(width, height);
         this.turns_counter = 0;
-        initialize();
     }
 
     /**
      * initializes a new war game.
      */
-    private void initialize(){
+    private void initialize() {
         Resource.setConversionValue(Resource.Stone, 0);
         Resource.setConversionValue(Resource.Sand, 0);
         Resource.setConversionValue(Resource.Wood, 1);
@@ -76,25 +75,33 @@ public class WarGame extends Game {
     public Player play() throws GameException {
         initialize();
         if (this.players.isEmpty()) {
-            throw new RuntimeException("Tried to play a game with no players");
+            throw new RuntimeException("Tried to play with no players");
         }
 
-        Iterator<Player> it = this.players.listIterator();
+        ListIterator<Player> it = this.players.listIterator();
 
         while (!this.isGameOver()) {
-            Player p;
-            if (it.hasNext()) {
-                p = it.next();
+            if (it.nextIndex() == 0) {
+                System.out.println("Turn " + this.turns_counter);
             }
-            else {
-                it = this.players.listIterator();
-                p = it.next();
-                this.turns_counter++;
-            }
+
+            Player p = it.next();
             Action action = p.chooseAction(this.board);
             action.execute(this.board, p);
             p.collectResources();
+            p.convertResource();
             p.remunerateAll();
+
+            this.board.print();
+            for (Player player : this.players) {
+                System.out.println(player.summary());
+            }
+            System.out.println();
+
+            if (!it.hasNext()) {
+                it = this.players.listIterator();
+                this.turns_counter++;
+            }
         }
 
         return findWinner();
