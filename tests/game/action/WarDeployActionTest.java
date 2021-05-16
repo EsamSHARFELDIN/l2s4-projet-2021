@@ -141,4 +141,27 @@ public class WarDeployActionTest {
 		assertSame(initSize1 + 1, ally1.getSize());
 		assertSame(initSize2 + 1, ally2.getSize());
 	}
+	
+	/*
+	 * When deploying beside an enemy with greater military strength.  
+	 */
+	@Test
+	public void deployWithSuperiorEnnemyBeside() throws GameException {
+		Army enemy = new Army(5);
+		int initSizeEnemy = enemy.getSize();
+		unitToDeploy = new Army(3);
+		
+		Tile tileForEnemy = b.tileAt(2, 3); // mountain tile
+		Tile tileForUnit = b.tileAt(1, 3); // for unitToDeploy, plain tile
+		
+		new WarDeployAction(tileForEnemy.getX(), tileForEnemy.getY(), enemy)
+   		.execute(b, p2);
+		
+		new WarDeployAction(tileForUnit.getX(), tileForUnit.getY(), unitToDeploy)
+   		.execute(b, p1);
+		
+		
+		// no effect on enemy's size
+		assertSame(initSizeEnemy, enemy.getSize());
+	}
 }
