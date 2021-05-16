@@ -88,43 +88,47 @@ public class BoardTest {
     public void isFullWhenNotFull() throws UnknownTileException, IllegalGameActionException {
         /* Créer un plateau, sans rien faire de plus
          * et vérifier que isFull renvoie false */
-        Board b = new RandomBoard(10, 15);
+        Board b = new ExampleBoard();
         assertFalse(b.isFull());
 
         /* Vérifier aussi en ajoutant une seule unité sur une seule tuile */
-        Player p = null;
-        boolean done = false;
-        /* Ajouter une unité à la première tuile terrestre */
-        for (int x = 0; x < b.width && !done; x++) {
-            for (int y = 0; y < b.height && !done; y++) {
-                Tile current = null;
-                current = b.tileAt(x, y);
-                if (!(current instanceof OceanTile)) {
-                    current.setUnit(new Worker(b.tileAt(x, y), p));
-                    done = true;
-
-                }
-            }
-        }
+        b.setUnitAt(1, 1, new Worker());
         assertFalse(b.isFull());
     }
 
     @Test
     public void isFullWhenFull() throws UnknownTileException, IllegalGameActionException {
-        Board b = new RandomBoard(10, 15);
+        Board b = new ExampleBoard();
         /* On itère sur toutes les tuiles et on met une
          * unité sur chaque cases qui n'est pas de type océan*/
 
-        Player p =  null;
-        /* Ajouter une unité à la première tuile terrestre */
-        for (int x = 0; x < b.width; x++) {
-            for (int y = 0; y < b.height; y++) {
-                Tile current = b.tileAt(x, y);
-                if (!(current instanceof OceanTile)) {
-                    current.setUnit(new Worker(b.tileAt(x, y), p));
-                }
-            }
-        }
+        b.setUnitAt(1, 1, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(2, 1, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(4, 0, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(5, 0, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(4, 1, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(5, 1, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(1, 3, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(2, 3, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(3, 3, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(4, 3, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(1, 4, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(2, 4, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(3, 4, new Worker());
+        assertFalse(b.isFull());
+        b.setUnitAt(4, 4, new Worker());
         assertTrue(b.isFull());
     }
 
@@ -173,7 +177,6 @@ public class BoardTest {
         Tile t = new PlainTile(0, 0);
         Player p = new AgricolPlayer("hop");
         Unit u = new Worker(t, p);
-        b.setUnitAt(0, 0, new Worker(t, p));
         b.setUnitAt(1, 1, u);
         assertSame(u, b.tileAt(1, 1).getUnit());
     }
