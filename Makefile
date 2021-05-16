@@ -2,7 +2,7 @@ SOURCEFILES = $(shell find ./src -name '*.java')
 
 .PHONY = all doc cls clean
 
-all: agricol.jar
+all: agricole.jar guerre.jar
 
 doc:
 	javadoc game -sourcepath ./src -subpackages game -d ./doc
