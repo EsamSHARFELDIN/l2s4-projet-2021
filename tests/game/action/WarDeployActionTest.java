@@ -38,32 +38,18 @@ public class WarDeployActionTest {
         p1 = new WarPlayer("Gentil");
         p2 = new WarPlayer("Méchant");
     }
-    
-    /**
-     * @param b a board well constructed
-     * @return a tile from <code>b</code> which is not
-     * an OceanTile
-     */
-    static private Tile findNotOceanTile(RandomBoard b) {
-    	for (int x = 0; x < b.getWidth(); x++) {
-    		for (int y = 0; y < b.getHeight(); y++) {
-    			Tile current = null;
-    			try {
-    				current = b.tileAt(x, y);
-    			}
-    			catch (UnknownTileException e) {
-    				// nothing
-    			}
-    			if (!(current instanceof OceanTile)) {
-    				return current;
-    			}
-    		}
-    	}
-    	return null;
+    /* Simply deploy */
+    @Test
+    public void deploy() throws GameException {
+    	Tile tileForAlly = b.tileAt(4, 0);
+    	
+    	new WarDeployAction(tileForAlly.getX(), tileForAlly.getY(), unitToDeploy)
+   		.execute(b, p1);
+    	
+    	// unitToDeploy is deployed
+    	assertSame(unitToDeploy, b.tileAt(4,  0).getUnit());
     }
-
-    
-	/*
+   	/*
 	 * When the enemy's military strength is less than the deployed
 	 * army's military strength and greater than 1.
 	 */
