@@ -44,15 +44,23 @@ public class WarDeployAction extends DeployAction {
     }
 
     private void allyEffect(Tile adjacentTile, Tile deploymentTile) {
+        System.out.println(allyEffectTrace(adjacentTile, deploymentTile));
         /* l'armée voisine augmente sa taille de 1 */
         ((Army) adjacentTile.getUnit()).incrementSize(1);
         /* +1 or pour l'unité déployée */
         deploymentTile.getUnit().receiveGold(1);
     }
 
+    private String allyEffectTrace(Tile adjacentTile, Tile deploymentTile) {
+        return "Size of neighbour " + adjacentTile.getUnit() +
+            " on " + adjacentTile + " is increased by 1 and the unit deployed on " +
+            deploymentTile + " gets 1 gold";
+    }
+
     private void enemyEffect(Tile adjacentTile, Tile deploymentTile) {
         int halfStrength = ((Army) adjacentTile.getUnit()).militaryStrength() / 2;
         if (halfStrength < 1) {
+            System.out.println(enemyEffectConquestTrace(adjacentTile, deploymentTile));
             /* ralliement */
             adjacentTile.getUnit().setPlayer(deploymentTile.getUnit().getPlayer());
             /* +2 or pour l'unité déployée */
@@ -64,7 +72,21 @@ public class WarDeployAction extends DeployAction {
             int halfSize = size / 2;
             ((Army) adjacentTile.getUnit()).incrementSize(halfSize - size);
             /* TODO: simplifiable avec une méthode Army::setSize(int)... */
+            System.out.println(enemyEffectNoConquestTrace(adjacentTile, deploymentTile,
+                                                          halfSize));
         }
+    }
+
+    private String enemyEffectConquestTrace(Tile adjacentTile, Tile deploymentTile) {
+        return adjacentTile.getUnit() + " on " + adjacentTile + " now belongs to " +
+            deploymentTile.getUnit().getPlayer() + ", and the unit deployed on " +
+            deploymentTile + " gets 2 gold";
+    }
+
+    private String enemyEffectNoConquestTrace(Tile adjacentTile, Tile deploymentTile, int size) {
+        return adjacentTile.getUnit() + " on " + adjacentTile +
+            " now has size " + size;
+
     }
 
     /**
@@ -76,11 +98,15 @@ public class WarDeployAction extends DeployAction {
      * @param player Player who is deploying the unit
      */
     public void execute(RandomBoard board, Player player) throws GameException {
+        System.out.println("WARDEPLOYACTION::EXECUTE called");
         super.execute(board, player);
         Tile deploymentTile = board.tileAt(this.x, this.y);
         List<Tile> adjacent = board.adjacentTiles(this.x, this.y);
+        boolean noEffect = true;
         for (Tile tile : adjacent) {
             if (triggersReaction(tile, deploymentTile)) {
+                noEffect = false;
+                System.out.println("Effects on " + tile + ":");
                 if (isAllied(tile, player)) {
                     allyEffect(tile, deploymentTile);
                 }
@@ -88,6 +114,9 @@ public class WarDeployAction extends DeployAction {
                     enemyEffect(tile, deploymentTile);
                 }
             }
+        }
+        if (noEffect) {
+            System.out.println("No effect on surrounding tiles");
         }
     }
 }
