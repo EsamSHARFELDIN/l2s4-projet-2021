@@ -62,6 +62,7 @@ public class DeployAction implements Action {
 		if (!tile.isBusy()) {
                         u.setPlayer(player);
 			tile.setUnit(u);
+                        u.setTile(tile);
 			player.addUnit(u);
                         System.out.println(this.trace(player, tile));
 		}

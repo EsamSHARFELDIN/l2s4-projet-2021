@@ -62,7 +62,9 @@ public class WarDeployAction extends DeployAction {
         if (halfStrength < 1) {
             System.out.println(enemyEffectConquestTrace(adjacentTile, deploymentTile));
             /* ralliement */
+            adjacentTile.getUnit().getPlayer().removeUnit(adjacentTile.getUnit());
             adjacentTile.getUnit().setPlayer(deploymentTile.getUnit().getPlayer());
+            deploymentTile.getUnit().getPlayer().addUnit(adjacentTile.getUnit());
             /* +2 or pour l'unité déployée */
             deploymentTile.getUnit().receiveGold(2);
         }
