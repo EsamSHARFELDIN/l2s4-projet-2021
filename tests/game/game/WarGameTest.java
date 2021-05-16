@@ -5,31 +5,45 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import game.exception.GameException;
 import game.player.Player;
 import game.player.WarPlayer;
 
 public class WarGameTest {
-    @Test
-    public void canConstructGame() {
-        Game g = new Wargame(20, 12);
-        Player p1 = new WarPlayer("p1");
-        Player p2 = new WarPlayer("p2");
-        Player p3 = new WarPlayer("p3");
-        g.addPlayer(p1);
-        g.addPlayer(p2);
-        g.addPlayer(p3);
+    private WarGame g;
+    private Player p1;
+    private Player p2;
+    private Player p3;
+
+    @Before
+    public void init() {
+        this.g = new WarGame(20, 12);
+        this.p1 = new WarPlayer("p1");
+        this.p2 = new WarPlayer("p2");
+        this.p3 = new WarPlayer("p3");
     }
 
     @Test
-    public void canPlay() {
-        Game g = new Wargame(20, 12);
-        Player p1 = new WarPlayer("p1");
-        Player p2 = new WarPlayer("p2");
-        Player p3 = new WarPlayer("p3");
-        g.addPlayer(p1);
-        g.addPlayer(p2);
-        g.addPlayer(p3);
-        Player winner = g.play();
-        assertTrue(winner == p1 || winner == p2 || winner == p3);
+    public void canConstructGame() {
+        this.g = new WarGame(20, 12);
+        this.p1 = new WarPlayer("p1");
+        this.p2 = new WarPlayer("p2");
+        this.p3 = new WarPlayer("p3");
+        this.g.addPlayer(p1);
+        this.g.addPlayer(p2);
+        this.g.addPlayer(p3);
+    }
+
+    @Test
+    public void canPlay() throws GameException {
+        this.g.addPlayer(p1);
+        this.g.addPlayer(p2);
+        this.g.addPlayer(p3);
+        Player winner = this.g.play();
+        assertTrue(winner == this.p1 || winner == this.p2 || winner == this.p3);
+        for (Player p : g.players) {
+            assertTrue(p.score() <= winner.score());
+        }
+        assertTrue(this.g.board.isFull() || this.g.turns_counter == 10);
     }
 }

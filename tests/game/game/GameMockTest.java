@@ -11,10 +11,14 @@ import game.player.WarPlayer;
 
 public class GameMockTest {
     private Game g;
+    private Player p1;
+    private Player p2;
 
     @Before
     public void init() {
         this.g = new GameMock(12, 24);
+        this.p1 = new WarPlayer("Samson");
+        this.p2 = new WarPlayer("David");
     }
 
     @Test
@@ -24,34 +28,28 @@ public class GameMockTest {
 
     @Test
     public void canAddPlayer() {
-        Player p1 = new WarPlayer("Samson");
-        Player p2 = new WarPlayer("David");
-        this.g.addPlayer(p1);
-        this.g.addPlayer(p2);
+        this.g.addPlayer(this.p1);
+        this.g.addPlayer(this.p2);
         assertEquals(2, this.g.players.size());
-        assertSame(p1, this.g.players.get(0));
-        assertSame(p2, this.g.players.get(1));
+        assertSame(this.p1, this.g.players.get(0));
+        assertSame(this.p2, this.g.players.get(1));
     }
 
     @Test
     public void canRemovePlayerIfPlaying() throws IllegalGameActionException {
-        Player p1 = new WarPlayer("Samson");
-        Player p2 = new WarPlayer("David");
-        this.g.addPlayer(p1);
-        this.g.addPlayer(p2);
+        this.g.addPlayer(this.p1);
+        this.g.addPlayer(this.p2);
         assertEquals(2, this.g.players.size());
-        assertSame(p1, this.g.players.get(0));
-        assertSame(p2, this.g.players.get(1));
-        this.g.removePlayer(p1);
+        assertSame(this.p1, this.g.players.get(0));
+        assertSame(this.p2, this.g.players.get(1));
+        this.g.removePlayer(this.p1);
         assertEquals(1, this.g.players.size());
-        assertSame(p2, this.g.players.get(0));
+        assertSame(this.p2, this.g.players.get(0));
     }
 
     @Test(expected = IllegalGameActionException.class)
     public void cannotRemovePlayerIfNotPlaying() throws IllegalGameActionException {
-        Player p1 = new WarPlayer("Samson");
-        Player p2 = new WarPlayer("David");
-        this.g.addPlayer(p1);
-        this.g.removePlayer(p2);
+        this.g.addPlayer(this.p1);
+        this.g.removePlayer(this.p2);
     }
 }
