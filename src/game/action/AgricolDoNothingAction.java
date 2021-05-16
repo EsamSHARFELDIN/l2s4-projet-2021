@@ -1,7 +1,6 @@
 package game.action;
 
 import game.board.Board;
-import game.board.RandomBoard;
 import game.player.AgricolPlayer;
 import game.player.Player;
 

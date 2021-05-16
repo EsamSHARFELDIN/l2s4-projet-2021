@@ -97,14 +97,26 @@ public class WarPlayer extends Player {
         while (it.hasNext()) {
             Unit unit = it.next();
             if (this.canRemunerate(unit)) {
+                System.out.println(canRemunerateTrace(unit));
                 this.remunerate(unit);
             }
             else {
+                System.out.println(cannotRemunerateTrace(unit));
                 it.remove();
                 unit.destroy();
                 this.goldStock++;
             }
         }
+    }
+
+    private String canRemunerateTrace(Unit unit) {
+        return this.toString() + " remunerates " + unit + " on " + unit.getTile() +
+            " with " + unit.cost() + " food";
+    }
+
+    private String cannotRemunerateTrace(Unit unit) {
+        return this.toString() + " loses " + unit + " costing " + unit.cost() +
+            " food on " + unit.getTile() + " but get 1 gold back";
     }
 
     /**
@@ -129,6 +141,7 @@ public class WarPlayer extends Player {
      */
     @Override
     public void convertResource() {
+        System.out.println(convertTrace());
         incrementFoodStock(this.stoneStock * Resource.getConversionValue(Resource.Stone));
         this.stoneStock = 0;
         incrementFoodStock(this.sandStock * Resource.getConversionValue(Resource.Sand));
@@ -137,6 +150,18 @@ public class WarPlayer extends Player {
         this.wheatStock = 0;
         incrementFoodStock(this.woodStock * Resource.getConversionValue(Resource.Wood));
         this.woodStock = 0;
+    }
+
+    private String convertTrace() {
+        return this.toString() + " converts\n" +
+            this.stoneStock + " Stone into " +
+            this.stoneStock * Resource.getConversionValue(Resource.Stone) + " food\n" +
+            this.sandStock + " Sand into " +
+            this.sandStock * Resource.getConversionValue(Resource.Sand) + " food\n" +
+            this.wheatStock + " Wheat into " +
+            this.wheatStock * Resource.getConversionValue(Resource.Wheat) + " food\n" +
+            this.woodStock + " Wood into " +
+            this.woodStock * Resource.getConversionValue(Resource.Wood) + " food";
     }
 
     /**
