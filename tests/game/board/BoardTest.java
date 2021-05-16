@@ -169,7 +169,7 @@ public class BoardTest {
     public void setUnitOK() throws GameException {
         /* trouver case correcte, faire setUnit,
          * vérifier avec assertSame */
-        Board b = new RandomBoard(10, 15);
+        Board b = new ExampleBoard();
         Tile t = new PlainTile(0, 0);
         Player p = new AgricolPlayer("hop");
         Unit u = new Worker(t, p);
