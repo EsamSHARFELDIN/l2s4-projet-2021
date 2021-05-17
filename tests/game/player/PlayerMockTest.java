@@ -119,6 +119,16 @@ public class PlayerMockTest {
         this.p.decrementGold(3);
         assertEquals(2, this.p.getGold());
     }
+    
+    @Test
+    public void hasUnitTest() {
+    	Unit u = new Worker();
+    	
+    	assertFalse(p.hasUnit(u));
+    	
+    	p.addUnit(u);
+    	assertTrue(p.hasUnit(u));
+    }
 
     private Player p;
 }
