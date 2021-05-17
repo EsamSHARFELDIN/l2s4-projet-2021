@@ -29,16 +29,6 @@ public class RandomBoard extends Board {
      */
     public RandomBoard(int width, int height) throws IllegalArgumentException {
     	super(width, height);
-        if (width < 2) {
-            throw new IllegalArgumentException("Board: invalid width in constructor");
-        }
-        if (height < 1) {
-            throw new IllegalArgumentException("Board: invalid height in constructor");
-        }
-
-        this.tiles = new Tile[height][width];
-        this.width = width;
-        this.height = height;
         this.populate();
     }
 
