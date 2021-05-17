@@ -39,10 +39,10 @@ public class DoNothingActionTest {
     Action a = new DoNothingAction();
     a.execute(b1, p2);
 
-    assertEquals(p2.getResource(Resource.Stone), 1);
-    assertEquals(p2.getResource(Resource.Sand), 4);
-    assertEquals(p2.getResource(Resource.Wheat), 3);
-    assertEquals(p2.getResource(Resource.Wood), 2);
-    assertEquals(p2.getGold(), 0);
+    assertEquals(1, p2.getResource(Resource.Stone));
+    assertEquals(4, p2.getResource(Resource.Sand), 4);
+    assertEquals(3, p2.getResource(Resource.Wheat), 3);
+    assertEquals(2, p2.getResource(Resource.Wood), 2);
+    assertEquals(15, p2.getGold());
   }
 }
