@@ -30,13 +30,17 @@ public class WarDeployAction extends DeployAction {
     }
 
     private boolean triggersReaction(Tile adjacentTile, Tile deploymentTile) {
-        /* effet si la tuile voisine est une tuile terrestre occupée, et que la
-         * puissance de l'armée qui l'occupe est strictement inférieure à la
-         * puissance de l'armée déployée */
-        return (!(adjacentTile instanceof OceanTile) &&
-                adjacentTile.isBusy() &&
-                (((Army) adjacentTile.getUnit()).militaryStrength() <
-                 ((Army) deploymentTile.getUnit()).militaryStrength()));
+        if (!(adjacentTile instanceof OceanTile) && adjacentTile.isBusy()) {
+            if (isAllied(adjacentTile, deploymentTile.getUnit().getPlayer())) {
+                return ((Army) adjacentTile.getUnit()).getSize() <
+                    ((Army) deploymentTile.getUnit()).getSize();
+            }
+            else {
+                return ((Army) adjacentTile.getUnit()).militaryStrength() <
+                    ((Army) deploymentTile.getUnit()).militaryStrength();
+            }
+        }
+        return false;
     }
 
     private boolean isAllied(Tile tile, Player player) {
@@ -72,7 +76,8 @@ public class WarDeployAction extends DeployAction {
             /* taille armée de la tuile voisine = ancienne taille / 2 */
             int size = ((Army) adjacentTile.getUnit()).getSize();
             int halfSize = size / 2;
-            ((Army) adjacentTile.getUnit()).incrementSize(halfSize - size);
+            // ((Army) adjacentTile.getUnit()).incrementSize(halfSize - size);
+            ((Army) adjacentTile.getUnit()).setSize(halfSize);
             /* TODO: simplifiable avec une méthode Army::setSize(int)... */
             System.out.println(enemyEffectNoConquestTrace(adjacentTile, deploymentTile,
                                                           halfSize));
@@ -88,7 +93,6 @@ public class WarDeployAction extends DeployAction {
     private String enemyEffectNoConquestTrace(Tile adjacentTile, Tile deploymentTile, int size) {
         return adjacentTile.getUnit() + " on " + adjacentTile +
             " now has size " + size;
-
     }
 
     /**
