@@ -48,7 +48,8 @@ public class DeployAction implements Action {
 	 * deployed.
 	 * @param player the player who is deploying the
 	 * unit.
-	 * @throws GameException when something abnormal about the game happens.
+	 * @throws UnknownTileException when trying to deploy on a non-existing tile.
+	 * @throws IllegalGameException when trying to deploy on a busy tile.
 	 */
 	@Override
 	public void execute(Board board, Player player) throws GameException {
