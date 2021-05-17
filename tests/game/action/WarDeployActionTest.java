@@ -2,6 +2,7 @@ package game.action;
 
 import static org.junit.Assert.*;
 
+import org.junit.BeforeClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,11 +13,9 @@ import game.exception.UnknownTileException;
 import game.game.Game;
 import game.player.Player;
 import game.player.WarPlayer;
-import game.tile.OceanTile;
-import game.tile.Tile;
-import game.unit.Army;
-import game.unit.Unit;
-import game.unit.Worker;
+import game.Resource;
+import game.tile.*;
+import game.unit.*;
 
 public class WarDeployActionTest {
     private Board b;
@@ -26,6 +25,42 @@ public class WarDeployActionTest {
      * Enemy player
      */
     private Player p2;
+
+    @BeforeClass
+    public static void setWarGameContext() {
+        Resource.setConversionValue(Resource.Stone, 0);
+        Resource.setConversionValue(Resource.Sand, 0);
+        Resource.setConversionValue(Resource.Wood, 1);
+        Resource.setConversionValue(Resource.Wheat, 5);
+
+        PlainTile.MAX_ARMY_SIZE = 5;
+        PlainTile.ADDITIONAL_POWER = 0;
+        PlainTile.ADDITIONAL_POINTS = 1;
+        PlainTile.GOLD_WHEN_DOING_NOTHING = 0;
+        PlainTile.COST_ADD = 0;
+        PlainTile.COST_FACTOR = 1;
+
+        MountainTile.MAX_ARMY_SIZE = 3;
+        MountainTile.ADDITIONAL_POWER = 2;
+        MountainTile.ADDITIONAL_POINTS = 4;
+        MountainTile.GOLD_WHEN_DOING_NOTHING = 0;
+        MountainTile.COST_ADD = 0;
+        MountainTile.COST_FACTOR = 1;
+
+        ForestTile.MAX_ARMY_SIZE = 5;
+        ForestTile.ADDITIONAL_POWER = 0;
+        ForestTile.ADDITIONAL_POINTS = 2;
+        ForestTile.GOLD_WHEN_DOING_NOTHING = 0;
+        ForestTile.COST_ADD = 0;
+        ForestTile.COST_FACTOR = 1;
+
+        DesertTile.MAX_ARMY_SIZE = 3;
+        DesertTile.ADDITIONAL_POWER = 0;
+        DesertTile.ADDITIONAL_POINTS = 4;
+        DesertTile.GOLD_WHEN_DOING_NOTHING = 0;
+        DesertTile.COST_ADD = 0;
+        DesertTile.COST_FACTOR = 2;
+    }
 
     @Before
     public void setUp() {
@@ -73,7 +108,7 @@ public class WarDeployActionTest {
             .execute(b, p1);
 
         // enemy's size should be halved
-        assertSame(initialSize / 2, enemy.getSize());
+        assertEquals(initialSize / 2, enemy.getSize());
     }
 
     /*
@@ -130,8 +165,8 @@ public class WarDeployActionTest {
             .execute(b, p1);
 
         // ally1 and ally2's size increased by 1
-        assertSame(initSize1 + 1, ally1.getSize());
-        assertSame(initSize2 + 1, ally2.getSize());
+        assertEquals(initSize1 + 1, ally1.getSize());
+        assertEquals(initSize2 + 1, ally2.getSize());
     }
 
     /*
@@ -154,7 +189,7 @@ public class WarDeployActionTest {
 
 
         // no effect on enemy's size
-        assertSame(initSizeEnemy, enemy.getSize());
+        assertEquals(initSizeEnemy, enemy.getSize());
     }
 
     /*
@@ -177,6 +212,6 @@ public class WarDeployActionTest {
 
 
         // no effect on ally size
-        assertSame(initSizeAlly, ally.getSize());
+        assertEquals(initSizeAlly, ally.getSize());
     }
 }
