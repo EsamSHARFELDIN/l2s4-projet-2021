@@ -18,7 +18,7 @@ public class AgricolDoNothingAction extends DoNothingAction {
     public AgricolDoNothingAction() {}
 
     /**
-     * @see DoNothingAction#execute(RandomBoard, Player)
+     * @see DoNothingAction#execute(Board, Player)
      * Execute the action: the player receives a gold coin for each Plain or
      * Forest he controls, and two coins for each Desert
      * @param board Playing board
