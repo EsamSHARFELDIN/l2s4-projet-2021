@@ -19,7 +19,7 @@ import game.tile.*;
 import game.unit.Unit;
 import game.unit.Worker;
 
-public class BoardTest {
+public class RandomBoardTest {
 
     @Test (expected = IllegalArgumentException.class)
     public void cannotBuildBoardIfHeightInferior1() {
