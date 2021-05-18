@@ -8,13 +8,13 @@ import game.action.Action;
 import game.action.AgricolDoNothingAction;
 import game.action.AgricolExchangeAction;
 import game.action.DeployAction;
-import game.board.RandomBoard;
+import game.board.Board;
 import game.tile.Tile;
 import game.unit.Unit;
 import game.unit.Worker;
 
 /**
- * This class modelize a Player of an agricol game.
+ * This class model a Player of an agricol game.
  * This class extends the Unit class (@see Player).
  */
 public class AgricolPlayer extends Player {
@@ -23,7 +23,7 @@ public class AgricolPlayer extends Player {
     /**
      * create a player for the agricol game with the given name.
      *
-     * Initially, this player has 15 gold coin and no ressources.
+     * Initially, this player has 15 gold coin and no resources.
      * @param name name of this player
      */
     public AgricolPlayer(String name) {
@@ -53,7 +53,7 @@ public class AgricolPlayer extends Player {
      * @param board Playing board
      * @return Action specific to the agricultural game
      */
-    public Action chooseAction(RandomBoard board) {
+    public Action chooseAction(Board board) {
         double roll = Math.random();
         if (roll <= 0.33) {
             List<Tile> freeTiles = board.freeTiles();
@@ -148,7 +148,7 @@ public class AgricolPlayer extends Player {
     }
 
     /**
-     * Return the score of the player, ie the sum of the gold owned by the
+     * Return the score of the player, i.e the sum of the gold owned by the
      * controlled workers
      * @return Player score
      */
