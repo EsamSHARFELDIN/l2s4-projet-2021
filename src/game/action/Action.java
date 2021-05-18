@@ -5,20 +5,19 @@ import game.exception.GameException;
 import game.player.Player;
 
 /**
- * This class represents an action.
- * More precisely,  it is an action among those the player 
- * can choose each first part of the game.
- * For example, in the War game, a player, in the first part of his turn,
- * can choose between deploying and doing nothing.
- * An action can be executed (realized).
- *
+ * Interface representing an action in a board game. Classes implementing this
+ * interface must provide a definition of the execute method, which can affect
+ * the board or the player taking action. There is no guarantee that a
+ * particular action is legal in a particular game, and execution of an illegal
+ * action may throw a GameException
  */
 public interface Action {
-	/**
-	 * Realize this action with the given board and player.
-	 * 
-	 * @param board the board with which the action will be realized.
-	 * @param player the player that is realizing this action.
-	 */
+    /**
+     * Execute this action with the given board and player
+     * @param board The board on which the action is to be executed
+     * @param player The player taking the action
+     * @throws GameException if the action implies some illegal manipulation
+     * of the board
+     */
     void execute(Board board, Player player) throws GameException;
 }
