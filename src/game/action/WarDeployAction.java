@@ -15,7 +15,6 @@ import game.unit.Unit;
  * a game tile in the war game. The deployment has military consequences on the
  * surrounding tiles and on the occupying units, such as tile conquest and army
  * capture
- * @version 01/04/21
  */
 public class WarDeployAction extends DeployAction {
     /**
@@ -23,7 +22,7 @@ public class WarDeployAction extends DeployAction {
      * tile and a specified unit
      * @param x Horizontal coordinate of the tile
      * @param y Vertical coordinate of the tile
-     * @param u Deployed unit
+     * @param u Deployed unit. Must be an instance of class Army
      */
     public WarDeployAction(int x, int y, Unit u) {
         super(x, y, u);
@@ -147,6 +146,7 @@ public class WarDeployAction extends DeployAction {
      * @param adjacentTile Tile next to the tile where a new army is deployed.
      * Must be occupied by a unit
      * @param deploymentTile Tile where the army is deployed
+     * @param size New size of the enemy army
      * @return string representation of the effect
      */
     private String enemyEffectNoConquestTrace(Tile adjacentTile, Tile deploymentTile, int size) {
@@ -155,15 +155,28 @@ public class WarDeployAction extends DeployAction {
     }
 
     /**
-     * @see DeployAction#execute(Board, Player)
      * Execute the action: deploy the unit and proceed with the appropriate
-     * military consequences on the surrounding tiles and units. The details of
-     * the rules can be found in the specification document
+     * military consequences on the surrounding tiles and units. For every unit
+     * occupying a neighbour tile of the tile where the army is deployed:<br>
+     * - if the army belongs to a different player than the deploying player,
+     * and its military power is strictly inferior to the power of the deployed
+     * army, and its military power divided by two is less than 1, then the army
+     *  is conquered (but its size does not change), and the newly deployed army
+     * gets 2 gold<br>
+     * - if the army belongs to the deploying player and its size is strictly
+     * inferior to the the size of the deployed army, then its size is increased
+     * by 1 within the limits defined by the type of terrain, and the newly
+     * deployed army gets 1 gold<br>
+     * - if the army has a size superior or equal to that of the deployed army,
+     * then nothing happens<br>
+     * Units on the board must be instances of class Army exclusively
+     *
      * @param board Playing board
      * @param player Player who is deploying the unit
+     *
+     * @see DeployAction#execute(Board, Player)
      */
     public void execute(Board board, Player player) throws GameException {
-        System.out.println("WARDEPLOYACTION::EXECUTE called");
         super.execute(board, player);
         Tile deploymentTile = board.tileAt(this.x, this.y);
         List<Tile> adjacent = board.adjacentTiles(this.x, this.y);

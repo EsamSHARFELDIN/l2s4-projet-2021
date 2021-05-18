@@ -5,7 +5,7 @@ SOURCEFILES = $(shell find ./src -name '*.java')
 all: agricole.jar guerre.jar
 
 doc:
-	javadoc game -sourcepath ./src -subpackages game -d ./doc
+	javadoc game -sourcepath ./src -subpackages game -d ./doc -private
 
 agricole.jar: ./classes/MainAgricolGame.class
 	jar cvfe ./jar/agricole.jar game.MainAgricolGame -C ./classes .
