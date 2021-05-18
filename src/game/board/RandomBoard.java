@@ -15,8 +15,8 @@ import game.unit.Unit;
 /**
  * A class to model the board in different games. A board is composed of tiles
  * of different types and is defined by a width and a height. A board is created
- * following two rules: at least 2 in 3 tiles are of type ocean, and all tile
- * that is not of type ocean must have a neighboring tile which isn't either
+ * randomly but following two rules: at least 2 in 3 tiles are of type ocean, and all tile
+ * that is not of type ocean must have a neighboring tile which isn't either.
  */
 public class RandomBoard extends Board {
     /**
