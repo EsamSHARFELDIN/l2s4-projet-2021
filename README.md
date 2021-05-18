@@ -11,6 +11,60 @@
 
 [Le sujet 2021](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents)
 
+# Instructions
+
+## Makefile
+
+A la racine du projet se trouve un `Makefile` dans lequel sont définies les
+cibles suivantes :
+
+```console
+doc
+guerre.jar
+agricol.jar
+cls
+clean
+all
+```
+
+La cible `doc` permet de générer la documentation des classes du projet, qui est
+placée à l'intérieur d'un répertoire `doc` à la racine du projet :
+
+```console
+$ make doc
+$ firefox doc/index.html
+```
+
+La cible `guerre.jar` permet de générer une archive jar exécutable pour le jeu
+de guerre, qui est placée à l'intérieur d'un répertoire `jar` à la racine du
+projet. L'exécutable correspond à une partie du jeu de guerre, sur un plateau
+aléatoire de dimensions `10 x 10`. Les noms des joueurs (au moins 1) doivent
+être passés en arguments, par exemple :
+
+```console
+$ make guerre.jar
+$ java -jar jar/guerre.jar Alina Baptiste Charlotte Denis
+```
+
+La cible `agricole.jar` permet de générer un jar exécutable similaire pour le
+jeu agricole, par exemple :
+
+```console
+$ make agricole.jar
+$ java -jar jar/agricole.jar Alina Baptiste Charlotte Denis
+```
+
+La cible `cls` permet de compiler l'ensemble des classes java présentes dans le
+répertoire `src` à la racine du projet. Les classes compilées sont placées dans
+le répertoire `classes` à la racine.
+
+La cible `clean` permet de supprimer les archives jar exécutables, la
+documentation générée, les fichiers `.class` dans le répertoire `classes` et
+dans le répertoire contenant les classes de test `tests`.
+
+La cible `all` (choisie par défaut en exécutant `make` sans argument à la racine
+du projet) permet de générer les jar exécutables des deux jeux.
+
 # Livrables
 
 ## Livrable 1

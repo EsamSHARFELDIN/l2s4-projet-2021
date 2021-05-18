@@ -26,3 +26,4 @@ clean:
 	rm -f ./jar/*.jar
 	rm -rf ./doc
 	rm -rf ./classes/*
+	find ./tests -name '*.class' -delete
