@@ -16,7 +16,7 @@ public class DoNothingAction implements Action {
     public DoNothingAction() {}
 
     /**
-     * @see Action#execute(RandomBoard, Player)
+     * @see Action#execute(Board, Player)
      * Execute a waiting action. Nothing happens, and arguments are only needed
      * for consistency reasons
      * @param board Playing board
