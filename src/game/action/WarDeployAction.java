@@ -29,6 +29,17 @@ public class WarDeployAction extends DeployAction {
         super(x, y, u);
     }
 
+    /**
+     * Return <code>true</code> if the deployment on deploymentTile triggers a
+     * reaction on adjacentTile, ie if the armies are allied and the size of the
+     * army on adjacentTile is strictly inferior to the size of the army on
+     * deploymentTile, or if the armies are enemies and the military strength of
+     * the army on adjacentTile is strictly inferior to the military strength
+     * of the army on deploymentTile, else return <code>false</code>
+     * @param adjacentTile Tile next to the tile where a new army is deployed
+     * @param deploymentTile Tile where the army is deployed
+     * @return <code>true<code> iff the deployment triggers a reaction
+     */
     private boolean triggersReaction(Tile adjacentTile, Tile deploymentTile) {
         if (!(adjacentTile instanceof OceanTile) && adjacentTile.isBusy()) {
             if (isAllied(adjacentTile, deploymentTile.getUnit().getPlayer())) {
@@ -43,10 +54,24 @@ public class WarDeployAction extends DeployAction {
         return false;
     }
 
+    /**
+     * Return <code>true</code> if the tile belongs to the player
+     * @param tile Tile to check. Must be occupied by a unit
+     * @param player Player to compare to the player occupying the tile
+     * @return Indication on the ally status of the tile and player
+     */
     private boolean isAllied(Tile tile, Player player) {
         return (tile.getUnit().getPlayer() == player);
     }
 
+    /**
+     * Performs the operations corresponding to the effect of a deployment next
+     * to an allied army. The size of the allied army is increased by 1 and the
+     * deployed army receives 1 gold. Also prints a trace message to stdout
+     * @param adjacentTile Tile next to the tile where a new army is deployed.
+     * Must be occupied by a unit
+     * @param deploymentTile Tile where the army is deployed
+     */
     private void allyEffect(Tile adjacentTile, Tile deploymentTile) {
         System.out.println(allyEffectTrace(adjacentTile, deploymentTile));
         /* l'armée voisine augmente sa taille de 1 */
@@ -55,12 +80,30 @@ public class WarDeployAction extends DeployAction {
         deploymentTile.getUnit().receiveGold(1);
     }
 
+    /**
+     * Return a printable message for the effects of a deployment next to an
+     * allied army
+     * @param adjacentTile Tile next to the tile where a new army is deployed.
+     * Must be occupied by a unit
+     * @param deploymentTile Tile where the army is deployed
+     * @return string representation of the effect
+     */
     private String allyEffectTrace(Tile adjacentTile, Tile deploymentTile) {
         return "Size of neighbour " + adjacentTile.getUnit() +
             " on " + adjacentTile + " is increased by 1 and the unit deployed on " +
             deploymentTile + " gets 1 gold";
     }
 
+    /**
+     * Performs the operations corresponding to the effect of a deployment next
+     * to an enemy army. If the strength of the enemy / 2 is less than 1, the
+     * tile is conquered and the enemy army joins the units of the deploying
+     * player (its size is not decreased). Else, its size is divided by 2. Also
+     * prints a trace message to stdout
+     * @param adjacentTile Tile next to the tile where a new army is deployed.
+     * Must be occupied by a unit
+     * @param deploymentTile Tile where the army is deployed
+     */
     private void enemyEffect(Tile adjacentTile, Tile deploymentTile) {
         int halfStrength = ((Army) adjacentTile.getUnit()).militaryStrength() / 2;
         if (halfStrength < 1) {
@@ -84,12 +127,28 @@ public class WarDeployAction extends DeployAction {
         }
     }
 
+    /**
+     * Return a printable message for the effects of a deployment next to an
+     * enemy army which is conquered
+     * @param adjacentTile Tile next to the tile where a new army is deployed.
+     * Must be occupied by a unit
+     * @param deploymentTile Tile where the army is deployed
+     * @return string representation of the effect
+     */
     private String enemyEffectConquestTrace(Tile adjacentTile, Tile deploymentTile) {
         return adjacentTile.getUnit() + " on " + adjacentTile + " now belongs to " +
             deploymentTile.getUnit().getPlayer() + ", and the unit deployed on " +
             deploymentTile + " gets 2 gold";
     }
 
+    /**
+     * Return a printable message for the effects of a deployment next to an
+     * enemy army which is not conquered
+     * @param adjacentTile Tile next to the tile where a new army is deployed.
+     * Must be occupied by a unit
+     * @param deploymentTile Tile where the army is deployed
+     * @return string representation of the effect
+     */
     private String enemyEffectNoConquestTrace(Tile adjacentTile, Tile deploymentTile, int size) {
         return adjacentTile.getUnit() + " on " + adjacentTile +
             " now has size " + size;
