@@ -69,8 +69,8 @@ public class RandomBoard extends Board {
     }
 
     /* For each tile from the set, if the tile is the first of its row,
-     * initialize its right neighbour if not already initialized. If the tile
-     * is not the first of its row, initialize its left neighbour if not
+     * initialize its right neighbor if not already initialized. If the tile
+     * is not the first of its row, initialize its left neighbor if not
      * already initialized */
     private void initializeSecondary(Set<Integer> primaryCodes) {
         for (int code : primaryCodes) {
@@ -105,15 +105,6 @@ public class RandomBoard extends Board {
             break;
         }
     }
-
-    /** Two-dimensional array of tiles, used to represent the game world */
-    protected Tile[][] tiles;
-
-    /** Width of the board, as a number of tiles */
-    protected int width;
-
-    /** Height of the board, as a number of tile */
-    protected int height;
 
     /** Random source used to generate the board */
     private static Random source = new Random();
