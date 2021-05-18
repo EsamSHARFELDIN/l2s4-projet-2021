@@ -28,6 +28,12 @@ public class AgricolExchangeAction implements Action {
         System.out.println(this.trace(player));
     }
 
+    /**
+     * Return a printable message representing the exchange action in the
+     * agricultural simulation
+     * @param player Player choosing to exchange their resources
+     * @return String representation of the action
+     */
     private String trace(Player player) {
         return player + " exchanges their resources";
     }

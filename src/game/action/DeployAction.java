@@ -42,7 +42,8 @@ public class DeployAction implements Action {
 	}
 	/**
 	 * @see Action#execute(Board, Player)
-	 * Make an unit deployment happens (and nothing more).
+	 * Make an unit deployment happens (and nothing more). A trace is
+         * printed to stdout
 	 * 
 	 * @param board the board where the unit will be
 	 * deployed.
@@ -73,6 +74,12 @@ public class DeployAction implements Action {
 		}
 	}
 
+    /**
+     * Return a printable message representing the deployment action
+     * @param player Player deploying a unit
+     * @param tile Tile where the unit is deployed
+     * @return String representation of the action
+     */
     private String trace(Player player, Tile tile) {
         return player + " deploys " + this.u + " at " + tile;
     }

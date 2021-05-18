@@ -26,6 +26,11 @@ public class DoNothingAction implements Action {
         System.out.println(this.trace(player));
     }
 
+    /**
+     * Return a printable message representing the idling action
+     * @param player Player choosing to idle
+     * @return String representation of the action
+     */
     private String trace(Player player) {
         return player + " idles";
     }
