@@ -6,7 +6,18 @@ import game.exception.GameException;
 import game.player.Player;
 import game.player.WarPlayer;
 
+/**
+ * This is the main class of the war game.
+ * Call the method main() to launch this game.
+ *
+ */
 public class MainWarGame {
+	/**
+     * @param args names of the players who are going
+     * to play in this war game. Each element of this 
+     * argument represents a player.
+     * 
+     */
     public static void main(String args[]) {
         Game game = new WarGame(10, 10);
 
