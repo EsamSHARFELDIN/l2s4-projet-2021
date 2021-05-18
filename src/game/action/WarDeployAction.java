@@ -96,7 +96,7 @@ public class WarDeployAction extends DeployAction {
     }
 
     /**
-     * @see DeployAction#execute(RandomBoard, Player)
+     * @see DeployAction#execute(Board, Player)
      * Execute the action: deploy the unit and proceed with the appropriate
      * military consequences on the surrounding tiles and units. The details of
      * the rules can be found in the specification document
