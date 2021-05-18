@@ -7,13 +7,13 @@ import game.Resource;
 import game.action.Action;
 import game.action.DoNothingAction;
 import game.action.WarDeployAction;
-import game.board.RandomBoard;
+import game.board.Board;
 import game.tile.Tile;
 import game.unit.Army;
 import game.unit.Unit;
 
 /**
- * This class modelize a Player of a war game.
+ * This class model a Player of a war game.
  * This class extends the Unit class (@see Player).
  */
 public class WarPlayer extends Player {
@@ -71,7 +71,7 @@ public class WarPlayer extends Player {
      * @param board Playing board
      * @return Action specific to the war game
      */
-    public Action chooseAction(RandomBoard board) {
+    public Action chooseAction(Board board) {
         double actionRoll = Math.random();
         if (this.warriorStock == 0 || actionRoll <= 0.5) {
             return new DoNothingAction();
