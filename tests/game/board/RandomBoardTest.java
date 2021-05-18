@@ -49,7 +49,10 @@ public class RandomBoardTest {
                 }
             }
         }
-        assertTrue(cpt <= (0.667 * b.width * b.height));
+        int nbTile = b.getWidth() * b.getHeight();
+        float rate = ((float) cpt) / nbTile;
+        // Ocean tiles should occupy at least 2/3 of the board
+        assertTrue(rate >= (float) (2/3));
     }
 
     /**
