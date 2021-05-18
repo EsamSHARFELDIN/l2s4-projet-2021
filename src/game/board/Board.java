@@ -22,7 +22,7 @@ public abstract class Board {
      * <code>height</code> is less than 1
      */
     public Board(int width, int height) throws IllegalArgumentException {
-        if (width < 1) {
+        if (width < 2) {
             throw new IllegalArgumentException("Board: invalid width in constructor");
         }
         if (height < 1) {
