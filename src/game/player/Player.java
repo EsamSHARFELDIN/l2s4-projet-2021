@@ -27,13 +27,14 @@ public abstract class Player {
     protected int goldStock;
 
     /**
+     * Create a new player with the given arguments.
      *
      * @param name the name of the player
-     * @param rockStock
-     * @param sandStock
-     * @param wheatStock
-     * @param woodStock
-     * @param goldStock
+     * @param stoneStock initial value of the stone stock.
+     * @param sandStock initial value of the sand stock.
+     * @param wheatStock initial value of the wheat stock.
+     * @param woodStock initial value of the wood stock.
+     * @param goldStock initial value of the gold stock.
      */
     public Player(String name, int stoneStock, int sandStock, int wheatStock,
                   int woodStock, int goldStock) {
