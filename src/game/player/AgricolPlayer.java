@@ -15,13 +15,15 @@ import game.unit.Worker;
 
 /**
  * This class model a Player of an agricol game.
- * This class extends the Unit class (@see Player).
+ * This class extends the Player class
+ * @see Player
  */
 public class AgricolPlayer extends Player {
+    /** Initial amount of gold */
     private static final int INITIAL_GOLD = 15;
 
     /**
-     * create a player for the agricol game with the given name.
+     * Create a player for the agricol game with the given name.
      *
      * Initially, this player has 15 gold coin and no resources.
      * @param name name of this player
@@ -30,6 +32,11 @@ public class AgricolPlayer extends Player {
         super(name, 0, 0, 0, 0, INITIAL_GOLD);
     }
 
+    /**
+     * Add a unit to the units of a player
+     * @param unit Unit to add. Must be an instance of class Worker
+     * @throws RuntimeException if the unit is not an instance of Worker
+     */
     public void addUnit(Unit unit) {
         if (unit instanceof Worker) {
             super.addUnit(unit);
@@ -39,6 +46,11 @@ public class AgricolPlayer extends Player {
         }
     }
 
+    /**
+     * Remove a unit from the units of a player
+     * @param unit Unit to remove. Must be an instance of class Worker
+     * @throws RuntimeException if the unit is not an instance of Worker
+     */
     public void removeUnit(Unit unit) {
         if (unit instanceof Worker) {
             super.removeUnit(unit);
@@ -90,11 +102,23 @@ public class AgricolPlayer extends Player {
         }
     }
 
+    /**
+     * Return a printable message to indicate that the player is able to pay the
+     * maintenance cost of a unit
+     * @param unit Maintained unit
+     * @return String representation of the fact that a unit can be paid
+     */
     private String canRemunerateTrace(Unit unit) {
         return this.toString() + " remunerates " + unit + " on " + unit.getTile() +
             " with " + unit.cost() + " gold";
     }
 
+    /**
+     * Return a printable message to indicate that the player is unable to pay
+     * the maintenance cost of a unit
+     * @param unit Maintained unit
+     * @return String representation of the fact that a unit cannot be paid
+     */
     private String cannotRemunerateTrace(Unit unit) {
         return this.toString() + " loses " + unit + " costing " + unit.cost() +
             " gold on " + unit.getTile();
@@ -135,6 +159,11 @@ public class AgricolPlayer extends Player {
         this.woodStock = 0;
     }
 
+    /**
+     * Return a printable message to the conversion which would be performed if
+     * convertResource was called
+     * @return String representation of the resource conversion
+     */
     private String convertTrace() {
         return this.toString() + " converts\n" +
             this.stoneStock + " Stone into " +
@@ -171,6 +200,11 @@ public class AgricolPlayer extends Player {
         }
     }
 
+    /**
+     * Return a string representation of the specific resources of an
+     * AgricolPlayer
+     * @return String representation
+     */
     public String summary() {
         return super.summary();
     }

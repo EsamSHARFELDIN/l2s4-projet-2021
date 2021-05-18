@@ -14,13 +14,28 @@ import game.unit.Unit;
 
 /**
  * This class model a Player of a war game.
- * This class extends the Unit class (@see Player).
+ * This class extends the Player class
+ * @see Player
  */
 public class WarPlayer extends Player {
+    /** Initial amount of deployable warriors */
     private static final int INITIAL_WARRIORS = 35;
+
+    /** Initial amount of food */
     private static final int INITIAL_FOOD = 10;
+
+    /** Initial amount of gold */
     private static final int INITIAL_GOLD = 0;
+
+    /**
+     * If a WarPlayer controls BONUS_THRESHOLD or more territories, they get
+     * bonus points to their score
+     */
     private static final int BONUS_THRESHOLD = 10;
+
+    /** Amount of bonus points if a WarPlayer occupies more than BONUS_THRESHOLD
+     tiles
+    */
     private static final int BONUS_AMOUNT = 5;
 
     /**
@@ -47,6 +62,12 @@ public class WarPlayer extends Player {
         this.foodStock = INITIAL_FOOD;
     }
 
+    /**
+     * Add a unit to the units of a player. This method decrements the number of
+     * warriors available to the player by the size of the deployed army
+     * @param unit Unit to add. Must be an instance of class Army
+     * @throws RuntimeException if the unit is not an instance of Army
+     */
     public void addUnit(Unit unit) {
         if (unit instanceof Army) {
             super.addUnit(unit);
@@ -57,6 +78,11 @@ public class WarPlayer extends Player {
         }
     }
 
+    /**
+     * Remove a unit from the units of a player
+     * @param unit Unit to remove. Must be an instance of class Army
+     * @throws RuntimeException if the unit is not an instance of Army
+     */
     public void removeUnit(Unit unit) {
         if (unit instanceof Army) {
             super.removeUnit(unit);
@@ -109,11 +135,23 @@ public class WarPlayer extends Player {
         }
     }
 
+    /**
+     * Return a printable message to indicate that the player is able to pay the
+     * maintenance cost of a unit
+     * @param unit Maintained unit
+     * @return String representation of the fact that a unit can be paid
+     */
     private String canRemunerateTrace(Unit unit) {
         return this.toString() + " remunerates " + unit + " on " + unit.getTile() +
             " with " + unit.cost() + " food";
     }
 
+    /**
+     * Return a printable message to indicate that the player is unable to pay
+     * the maintenance cost of a unit
+     * @param unit Maintained unit
+     * @return String representation of the fact that a unit cannot be paid
+     */
     private String cannotRemunerateTrace(Unit unit) {
         return this.toString() + " loses " + unit + " costing " + unit.cost() +
             " food on " + unit.getTile() + " but get 1 gold back";
@@ -152,6 +190,11 @@ public class WarPlayer extends Player {
         this.woodStock = 0;
     }
 
+    /**
+     * Return a printable message to the conversion which would be performed if
+     * convertResource was called
+     * @return String representation of the resource conversion
+     */
     private String convertTrace() {
         return this.toString() + " converts\n" +
             this.stoneStock + " Stone into " +
@@ -231,6 +274,10 @@ public class WarPlayer extends Player {
         this.foodStock -= decr;
     }
 
+    /**
+     * Return a string representation of the specific resources of a WarPlayer
+     * @return String representation
+     */
     public String summary() {
         return super.summary() +
             this.warriorStock + " Wa, " +

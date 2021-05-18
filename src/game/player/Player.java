@@ -10,20 +10,28 @@ import game.exception.IllegalGameActionException;
 import game.unit.Unit;
 
 /**
- * this is abstract class, it used to represent a player.
- *
- *
+ * This is abstract class, it used to represent a player.
  */
 public abstract class Player {
+    /** Name of the player */
     protected String name;
-    /**
-     * @param units the list of characters he controls.
-     */
+
+    /** List of units the player controls */
     protected List<Unit> units;
+
+    /** Amuont of stone in the player's stocks */
     protected int stoneStock;
+
+    /** Amuont of sand in the player's stocks */
     protected int sandStock;
+
+    /** Amuont of wheat in the player's stocks */
     protected int wheatStock;
+
+    /** Amuont of wood in the player's stocks */
     protected int woodStock;
+
+    /** Amuont of gold in the player's stocks */
     protected int goldStock;
 
     /**
@@ -124,15 +132,15 @@ public abstract class Player {
     public void removeUnit(Unit unit) {
         this.units.remove(unit);
     }
-    
+
     /**
      * tell if <code>unit</code> is controlled by this player.
      * @param unit an unit
-     * @return <code>true</code> iff <code>unit</code> is 
+     * @return <code>true</code> iff <code>unit</code> is
      * controlled by this player.
      */
     public boolean hasUnit(Unit unit) {
-    	return this.units.contains(unit);
+        return this.units.contains(unit);
     }
 
     /**
@@ -231,6 +239,12 @@ public abstract class Player {
         return this.name;
     }
 
+    /**
+     * Return a string representation of the state of a player, containing
+     * their name, score, number of units, and amount of different resources
+     * possessed
+     * @return String representation of a player
+     */
     public String summary() {
         return this.name + ": " +
             this.score() + " points, " +
@@ -242,6 +256,11 @@ public abstract class Player {
             this.woodStock + " Wo, ";
     }
 
+    /**
+     * Return a basic string representation of the player, consisting of their
+     * name
+     * @return Name of a player
+     */
     public String toString() {
         return this.name;
     }
