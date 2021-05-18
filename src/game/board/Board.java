@@ -18,11 +18,11 @@ public abstract class Board {
      * (vertical size), representing numbers of tiles
      * @param width Horizontal size in number of tiles
      * @param height Vertical size in number of tiles
-     * @throws IllegalArgumentException iff <code>width</code> is less than 2 or
-     * <code>height</code> is less than 1
+     * @throws IllegalArgumentException iff <code>width</code> or
+     * <code>height</code>is less than 1
      */
     public Board(int width, int height) throws IllegalArgumentException {
-        if (width < 2) {
+        if (width < 1) {
             throw new IllegalArgumentException("Board: invalid width in constructor");
         }
         if (height < 1) {
@@ -32,27 +32,24 @@ public abstract class Board {
         this.tiles = new Tile[height][width];
         this.width = width;
         this.height = height;
-        // this.populate();
     }
 
     /**
      * give the width of this board.
-     * 
      * @return the width of this board.
      */
     public int getWidth() {
-		return width;
-	}
+        return width;
+    }
 
-	/** 
-	 * give the height of this board.
-	 * 
-	 * @return the height of this board.
-	 */
-	public int getHeight() {
-		return height;
-	}
-	
+    /**
+     * give the height of this board.
+     * @return the height of this board.
+     */
+    public int getHeight() {
+        return height;
+    }
+
     /**
      * Check whether the board is full, i.e whether all of the occupable tiles
      * are currently occupied by units
@@ -126,9 +123,9 @@ public abstract class Board {
      * is out of the specified bounds
      */
     public List<Tile> adjacentTiles(int x, int y) throws UnknownTileException {
-    	if (x < 0 || x >= this.width || y < 0 || y >= this.height) {
-    		throw new UnknownTileException("Tile out of bounds");
-    	}
+        if (x < 0 || x >= this.width || y < 0 || y >= this.height) {
+                throw new UnknownTileException("Tile out of bounds");
+        }
         List<Tile> tiles = new ArrayList<Tile>();
         if (y > 0) {
             tiles.add(this.tiles[y - 1][x]);
