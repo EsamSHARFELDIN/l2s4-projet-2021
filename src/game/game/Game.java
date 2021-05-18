@@ -2,6 +2,7 @@ package game.game;
 import java.util.LinkedList;
 import java.util.List;
 
+import game.board.Board;
 import game.board.RandomBoard;
 import game.exception.GameException;
 import game.exception.IllegalGameActionException;
@@ -12,7 +13,7 @@ import game.player.Player;
  */
 
 public abstract class Game {
-    protected RandomBoard board;
+    protected Board board;
     protected List<Player> players;
 
     /**
