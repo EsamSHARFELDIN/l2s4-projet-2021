@@ -71,13 +71,14 @@ public abstract class Player {
 
     /**
      * Allows the player to pay the cost of maintaining a unit
-     * @param unit
+     * @param unit Unit to remunerate
      */
     public abstract void remunerate(Unit unit);
 
     /**
      * Indicate whether the resources of the player allow him to maintain one of
      * his units
+     * @param unit Unit to check
      * @return <code>true</code> if the player can remunerate the unit, else
      * <code>false</code>
      */
@@ -96,6 +97,8 @@ public abstract class Player {
 
     /**
      * Collect the resources from the units controlled by the player
+     * @throws IllegalGameActionException if a unit occupies a tile which does
+     * not produce resources
      */
     public void collectResources() throws IllegalGameActionException {
         for (Unit u : this.units) {
@@ -119,7 +122,7 @@ public abstract class Player {
 
     /**
      * Add a unit to the player stock
-     * @param unit a unit
+     * @param unit Unit to add
      */
     public void addUnit(Unit unit) {
         this.units.add(unit);
@@ -127,7 +130,7 @@ public abstract class Player {
 
     /**
      * Remove a unit from the player stock
-     * @param unit
+     * @param unit Unit to remove
      */
     public void removeUnit(Unit unit) {
         this.units.remove(unit);
@@ -145,7 +148,7 @@ public abstract class Player {
 
     /**
      * Get the player resource
-     * @param resource
+     * @param resource Type of resource to retrieve
      * @return Amount of a particular resource type
      */
     public int getResource(Resource resource) {
@@ -165,7 +168,7 @@ public abstract class Player {
 
     /**
      * Increase the player resource
-     * @param i Amount
+     * @param i Amount to add to the stock of given resource
      * @param resource Type of resource
      */
     public void incrementResource(int i, Resource resource) {
@@ -187,7 +190,7 @@ public abstract class Player {
 
     /**
      * Decrease the player resource
-     * @param i Amount
+     * @param i Amount to substract from the stock of resource
      * @param resource Type of resource
      */
     public void decrementResource(int i, Resource resource) {
