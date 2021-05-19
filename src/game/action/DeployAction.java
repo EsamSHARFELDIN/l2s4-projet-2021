@@ -57,7 +57,7 @@ public class DeployAction implements Action {
      * @param board The board where the unit will be deployed
      * @param player The player who is deploying the unit
      * @throws UnknownTileException when trying to deploy on a non-existing tile
-     * @throws IllegalGameException when trying to deploy on a busy tile
+     * @throws IllegalGameActionException when trying to deploy on a busy tile
      *
      * @see Action#execute(Board, Player)
      */

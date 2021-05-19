@@ -37,7 +37,7 @@ public class WarDeployAction extends DeployAction {
      * of the army on deploymentTile, else return <code>false</code>
      * @param adjacentTile Tile next to the tile where a new army is deployed
      * @param deploymentTile Tile where the army is deployed
-     * @return <code>true<code> iff the deployment triggers a reaction
+     * @return <code>true</code> iff the deployment triggers a reaction
      */
     private boolean triggersReaction(Tile adjacentTile, Tile deploymentTile) {
         if (!(adjacentTile instanceof OceanTile) && adjacentTile.isBusy()) {
