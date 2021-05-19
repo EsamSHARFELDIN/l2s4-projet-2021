@@ -42,6 +42,6 @@ public class AgricolDoNothingAction extends DoNothingAction {
      * @return String representation of the action
      */
     private String trace(Player player) {
-        return player + " collects gold from their units";
+        return player + " collects idling gold from their units";
     }
 }

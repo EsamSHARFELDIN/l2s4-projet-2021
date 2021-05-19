@@ -67,7 +67,7 @@ public class Worker extends Unit {
 
     public void print() {
         super.print();
-        System.out.printf("%2d", this.goldQuantity);
+        System.out.printf("%4d", this.goldQuantity);
     }
 
     public String toString() {

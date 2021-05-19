@@ -23,8 +23,8 @@ public class AgricolExchangeAction implements Action {
      * @param player Player who is deploying the unit
      */
     public void execute(Board board, Player player) {
-        player.convertResource();
         System.out.println(this.trace(player));
+        player.convertResource();
     }
 
     /**

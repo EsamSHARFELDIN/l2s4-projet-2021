@@ -150,7 +150,7 @@ public abstract class Tile {
             this.unit.print();
         }
         else {
-            System.out.print("    ");
+            System.out.print("      ");
         }
     }
 

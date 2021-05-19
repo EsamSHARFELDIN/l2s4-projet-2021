@@ -148,7 +148,7 @@ public class Army extends Unit {
 
     public void print() {
         super.print();
-        System.out.printf("%2d", this.size);
+        System.out.printf("%d/%2d", this.goldQuantity, this.size);
     }
 
     public String toString() {
