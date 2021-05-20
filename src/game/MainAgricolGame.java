@@ -6,7 +6,18 @@ import game.exception.GameException;
 import game.player.Player;
 import game.player.AgricolPlayer;
 
+/**
+ * This is the main class of the agricol game.
+ * To launch the agricol game, call the main() method.
+ *
+ */
 public class MainAgricolGame {
+    /**
+     * @param args names of the players who are going
+     * to play in this agricol game. Each element of this 
+     * argument represents a player.
+     * 
+     */
     public static void main(String args[]) {
         Game game = new AgricolGame(10, 10);
 
