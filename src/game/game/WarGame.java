@@ -13,6 +13,13 @@ import game.tile.PlainTile;
 
 /**
  * A class which allows to model the war game.
+ * Players will have to deploy their army on the territory.
+ * Players will also need to maintain (feed) their army.
+ * An enemy's army can be captured.
+ * 
+ * The goal is to have the most higher score at the end of the 
+ * game. A player's score depends on his amount of gold and his
+ * army's amount of gold (and some bonus eventually).
  */
 public class WarGame extends Game {
     private static int MAX_TURNS = 10;
@@ -20,11 +27,13 @@ public class WarGame extends Game {
     protected int turns_counter;
 
     /**
-     * Creates a war game with a board of given dimensions
+     * Creates a war game with a board of given dimensions.
+     * 
      * @param width Width of the board to use
      * @param height Height of the board to use
+     * @throws IllegalArgumentException iff width is less than 2 or height is less than 1
      */
-    public WarGame(int width, int height) {
+    public WarGame(int width, int height) throws IllegalArgumentException {
         super(width, height);
         this.turns_counter = 0;
     }
