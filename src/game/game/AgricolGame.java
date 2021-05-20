@@ -12,7 +12,15 @@ import game.tile.MountainTile;
 import game.tile.PlainTile;
 
 /**
- * A class which allows to model the war game.
+ * A class which allows to model the agricol game.
+ * A game in which a player employs workers to produce
+ * resources.
+ * The goal is to earn gold (money) by exploiting the 
+ * territory. Players'gold is earned by the workers'production.
+ * Workers have to be paid regularly. A player's score is the 
+ * total sum of his workers'gold.
+ * 
+ * The winner is the player with the most gold.
  */
 public class AgricolGame extends Game {
     private static int MAX_TURNS = 6;
@@ -69,7 +77,7 @@ public class AgricolGame extends Game {
 
     /**
      * Start the agricol game and give the course of the game.
-     * @return Player the winner of the game.
+     * @return the winner of the game.
      */
     @Override
     public Player play() throws GameException {
