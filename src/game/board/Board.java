@@ -10,6 +10,7 @@ import game.unit.Unit;
 /**
  * A class to model the board in different games. A board is composed of tiles
  * of different types and is defined by a width and a height.
+ * Technically, the board is implemented with a 2D array of tile.
  * @version 15/03/21
  */
 public abstract class Board {
