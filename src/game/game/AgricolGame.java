@@ -29,8 +29,10 @@ public class AgricolGame extends Game {
 
     /**
      * Creates an agricol game with a board of given dimensions
+     * 
      * @param width Width of the board to use
      * @param height Height of the board to use
+     * @throws IllegalArgumentException iff width is less than 2 or height is less than 1
      */
     public AgricolGame(int width, int height) {
         super(width, height);
