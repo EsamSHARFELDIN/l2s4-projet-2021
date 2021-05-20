@@ -19,20 +19,26 @@ public abstract class Player {
     /** List of units the player controls */
     protected List<Unit> units;
 
-    /** Amuont of stone in the player's stocks */
+    /** Amount of stone in the player's stocks */
     protected int stoneStock;
 
-    /** Amuont of sand in the player's stocks */
+    /** Amount of sand in the player's stocks */
     protected int sandStock;
 
-    /** Amuont of wheat in the player's stocks */
+    /** Amount of wheat in the player's stocks */
     protected int wheatStock;
 
-    /** Amuont of wood in the player's stocks */
+    /** Amount of wood in the player's stocks */
     protected int woodStock;
 
-    /** Amuont of gold in the player's stocks */
+    /** Amount of gold in the player's stocks */
     protected int goldStock;
+
+    /**
+     * Current score of the player, set at construction and at the end of every
+     * turn
+     */
+    protected int currentScore;
 
     /**
      * Create a new player with the given arguments.
@@ -54,6 +60,7 @@ public abstract class Player {
         this.wheatStock = wheatStock;
         this.woodStock = woodStock;
         this.goldStock = goldStock;
+        this.currentScore = this.score();
     }
 
     /**
@@ -249,8 +256,12 @@ public abstract class Player {
      * @return String representation of a player
      */
     public String summary() {
+        int previousScore = this.currentScore;
+        this.currentScore = this.score();
+        int diff = this.currentScore - previousScore;
         return this.name + ": " +
-            this.score() + " points, " +
+            this.currentScore + " points " +
+            "(" + ((diff >= 0) ? "+" + diff : diff) + "), " +
             this.units.size() + " Un, " +
             this.goldStock + " Go, " +
             this.stoneStock + " St, " +
