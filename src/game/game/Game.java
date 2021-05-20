@@ -21,7 +21,7 @@ public abstract class Game {
      * of players
      * @param width Width of the board to use
      * @param height Height of the board to use
-     * @throws IllegalArgumentException @see {@link RandomBoard#RandomBoard(int, int)}
+     * @throws IllegalArgumentException iff width is less than 2 or height is less than 1
      */
     public Game(int width, int height) throws IllegalArgumentException {
     	this.board = new RandomBoard(width, height);
