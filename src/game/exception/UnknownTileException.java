@@ -6,10 +6,17 @@ package game.exception;
  * exist.
  */
 public class UnknownTileException extends GameException {
+    /**
+     * Construct an UnknownTileException.
+     */
     public UnknownTileException() {
         super();
     }
 
+    /**
+     * Construct an UnknownTileException with the give message.
+     * @param message the detail message.
+     */
     public UnknownTileException(String message) {
         super(message);
     }
