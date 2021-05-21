@@ -495,11 +495,71 @@ malgré de fortes similitudes).
 
 
 ## Semaine 9
+- Implémentation de `Player`: classe abstraite qui est la classe mère de tout
+les joueurs dans le jeu.
+
+- Implémentation de `AgricolPlayer`: classe du joueur dans le jeu agricol.
+
+- Dans `Tile`, ajout des informations qui permet à une tuile de connaître à quelle 
+position dans le plateau elle est placée.
+
+- Changement du prototype de `Player::chooseAction` en ajoutant un paramètre de
+type `Board`. Ce paramètre représente le plateau du jeu, ce qui permet à un 
+joueur de choisir une action légale dans `chooseAction`.  
+Implémentation de `Board::freeTiles()` qui facilitera au joueur le choix d'une
+tuile libre pour une action de déploiement.
+
+- Ajout de constructeur plus "simple" dans `Unit` et ses sous-classes, par exemple, le constructeur qui ne prend pas de joueur et de tuile en paramètre, car
+on peut construire une unité sans forcément savoir a quel joueur ou à quelle tuile
+elle appartient.
+
 
 ## Semaine 10
+* nous avons ajouter les classes tests de `AgricolDoNothingActionTest`, `BoardTest`et`DoNothingAction`.
+
+* Modification concernant les classes `Player` , `AgricolPlayer`:
+  - Implémentation le javadoc de la class et le codage sur le classe `Player`.
+  
+* Modification concernant la classe `Unit`, `Army` and `Worker`:
+  - ajoutent des construire de les classe `Unit`, `Army` et `Worker`. 
+
+* Modification concernant la classe `Board` :
+  - implémentation de la classe `Board`  ajouter un method `freeTiles`.
+
+* Modification concernant la classe `Game`: 
+  - Implémentation de `Game`, ajouter un throws IllegalArgumentException au constructeur de Game
 
 ## Semaine 11
 
+- Modélisation : 
+	* Ajout d'un nouvel UML représentant l'ensemble des classes et des classes Test.
+	
+- Tests pour les classes : 
+	* `AgricolDoNothingAction`.
+	* `Board`.
+	* `DoNothingAction`.
+	* Filles de `Action`.
+	
+- implémentation :
+	* Méthodes goldCoinWhenPlayerDoesNothing() et cost() dépendants de Tile#getAddCost de la classe 'Worker'.
+	* Méthodes militaryStrength(), points(), cost() dépendants de Tile#getCostFactor de la classe 'Army'.
+	* Méthodes hasUnit() de la classe 'Unit'.
+	* Suppresion de getCost() pour 'Tile' et ses filles.
+	* Ajout de méthodes costAdd() et costFactor() pour 'Tile' et ses filles.
+	* Ajout de variables statiques pour 'Tile' et ses filles.
+	* Ajout de abstract getter pour les variables statiques de 'Tile' et ses filles.
+	* Ajout de méthodes abstraites liées au bon fonctionnement du jeu de guerre dans 'Tile' et ses filles.
+	* Taille maximale d'une armée en fonction de la tuile.
+	* Implémentation des classes filles de 'Action'.
+	* Classe 'AgricolGame', 'WarGame' et l'énumération 'Ressources'.
+
+- Corrections mineures :
+	* Bugs pour 'Player' et 'AgricolPlayer'.
+	* Decrement warrior stock et remove unit from the list.
+	* AgricolGame::play. et ajout d'une méthode findWinner() pour 'AgricolGame'.
+	* Play throws et isGameOver() abstraite.
+	* Ajout d'un compteur de tour pour 'AgricolGame'.
+	
 ## Semaine 12
 
 - Création de packages pour organiser les classes du projet.
