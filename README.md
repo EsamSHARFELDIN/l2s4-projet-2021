@@ -494,7 +494,6 @@ malgré de fortes similitudes).
 	* Play throws et isGameOver() abstraite.
 	* Ajout d'un compteur de tour pour 'AgricolGame'.
 	
-	
 ## Semaine 12
 
 - Création de packages pour organiser les classes du projet.
