@@ -5,8 +5,8 @@ package game.exception;
  * Something like trying to perform an action that does not follow the game's rules.
  */
 public class IllegalGameActionException extends GameException {
-	
-	/**
+
+    /**
      * Construct an IllegalGameActionException.
      */
     public IllegalGameActionException() {
@@ -15,7 +15,7 @@ public class IllegalGameActionException extends GameException {
 
     /**
      * Construct an IllegalGameActionException with the given message.
-     * 
+     *
      * @param message the detail message.
      */
     public IllegalGameActionException(String message) {
