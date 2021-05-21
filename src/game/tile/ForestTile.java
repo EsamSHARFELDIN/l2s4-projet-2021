@@ -54,23 +54,28 @@ public class ForestTile extends Tile {
 
     /**
      * create a forest type tile.
+     * @param x Horizontal position on the board
+     * @param y Vertical position on the board
      */
     public ForestTile(int x, int y) {
         super(x, y);
     }
 
     /**
-     * @see Tile#getResource()
      * Return the type of resource this area gives.
      * Forest area gives woods.
      *
      * @return the resource given by this tile which is
      * wood.
+     * @see Tile#getResource()
      */
     public Resource getResource() throws IllegalGameActionException {
         return Resource.Wood;
     }
 
+    /**
+     * Print the tile to stdout, as part of the board representation
+     */
     public void print() {
         System.out.print("F/");
         super.print();
@@ -125,6 +130,9 @@ public class ForestTile extends Tile {
         return COST_FACTOR;
     }
 
+    /**
+     * Return a string representation of the tile
+     */
     public String toString() {
         return "Forest" + super.toString();
     }

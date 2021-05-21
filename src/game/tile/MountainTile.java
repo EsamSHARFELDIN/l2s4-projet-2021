@@ -54,23 +54,28 @@ public class MountainTile extends Tile {
 
     /**
      * create a mountain type tile.
+     * @param x Horizontal position on the board
+     * @param y Vertical position on the board
      */
     public MountainTile(int x, int y) {
         super(x, y);
     }
 
     /**
-     * @see Tile#getResource()
      * Return the type of resource this area gives.
      * Mountain area gives rocks (stone).
      *
      * @return the resource given by this tile which is
      * rock (stone).
+     * @see Tile#getResource()
      */
     public Resource getResource() throws IllegalGameActionException {
         return Resource.Stone;
     }
 
+    /**
+     * Print the tile to stdout, as part of the board representation
+     */
     public void print() {
         System.out.print("M/");
         super.print();
@@ -126,6 +131,9 @@ public class MountainTile extends Tile {
         return COST_FACTOR;
     }
 
+    /**
+     * Return a string representation of the tile
+     */
     public String toString() {
         return "Mountain" + super.toString();
     }

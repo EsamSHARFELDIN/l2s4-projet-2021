@@ -52,22 +52,30 @@ public class PlainTile extends Tile {
      */
     public static int COST_FACTOR;
 
+    /**
+     * Create a plain type tile
+     * @param x Horizontal position on the board
+     * @param y Vertical position on the board
+     */
     public PlainTile(int x, int y) {
         super(x, y);
     }
 
     /**
-     * @see Tile#getResource()
      * Return the type of resource this area gives.
      * Plain area gives wheat.
      *
      * @return the resource given by this tile which is
      * wheat.
+     * @see Tile#getResource()
      */
     public Resource getResource() throws IllegalGameActionException {
         return Resource.Wheat;
     }
 
+    /**
+     * Print the tile to stdout, as part of the board representation
+     */
     public void print() {
         System.out.print("P/");
         super.print();
@@ -122,6 +130,9 @@ public class PlainTile extends Tile {
         return COST_FACTOR;
     }
 
+    /**
+     * Return a string representation of the tile
+     */
     public String toString() {
         return "Plain" + super.toString();
     }

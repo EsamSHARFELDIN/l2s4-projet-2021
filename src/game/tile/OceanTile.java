@@ -14,19 +14,21 @@ public class OceanTile extends Tile {
 
     /**
      * Create an ocean type tile.
+     * @param x Horizontal position on the board
+     * @param y Vertical position on the board
      */
     public OceanTile(int x, int y) {
         super(x, y);
     }
 
     /**
-     * @see Tile#getResource()
      * Exceptionally, this area does not give any resource.
      * @return it's supposed to return nothing but only
      * throws an exception.
      * @throws IllegalGameActionException this method always
      * throws this exception because it's supposed to not give
      * any resources.
+     * @see Tile#getResource()
      */
     public Resource getResource() throws IllegalGameActionException {
         throw new IllegalGameActionException("Trying to get resources from "
@@ -34,16 +36,15 @@ public class OceanTile extends Tile {
     }
 
     /**
-     * @see Tile#isBusy()
      * Since no unit can be placed in this tile, it's always busy.
      * @return always <code>true</code>.
+     * @see Tile#isBusy()
      */
     public boolean isBusy() {
         return true;
     }
 
     /**
-     * @see Tile#setUnit(Unit)
      * Since unit can't be placed on ocean tile, this
      * method always throws an exception
      *
@@ -51,12 +52,16 @@ public class OceanTile extends Tile {
      * @throws IllegalGameActionException Since unit
      * can't be placed on ocean tile, this method always
      * throws an exception.
+     * @see Tile#setUnit(Unit)
      */
     public void setUnit(Unit u) throws IllegalGameActionException {
         throw new IllegalGameActionException("Trying to set an unit on an"
                                              + "ocean tile");
     }
 
+    /**
+     * Print the tile to stdout, as part of the board representation
+     */
     public void print() {
         System.out.print("O/");
         super.print();
@@ -114,6 +119,9 @@ public class OceanTile extends Tile {
         return 0;
     }
 
+    /**
+     * Return a string representation of the tile
+     */
     public String toString() {
         return "Ocean" + super.toString();
     }

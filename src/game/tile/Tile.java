@@ -18,7 +18,9 @@ public abstract class Tile {
     protected int y;
 
     /**
-     * Creates a new tile.
+     * Create a new tile
+     * @param x Horizontal position on the board
+     * @param y Vertical position on the board
      */
     public Tile(int x, int y) {
         this.unit = null;
@@ -55,6 +57,9 @@ public abstract class Tile {
 
     /**
      * Gives the ressource given by the tile.
+     * @return Resource provided by the terrain of the tile
+     * @throws IllegalGameActionException iff the tile does not produce a
+     * resource
      */
     public abstract Resource getResource() throws IllegalGameActionException;
 
@@ -68,7 +73,9 @@ public abstract class Tile {
     }
 
     /**
-     * This allows to change the unit post on the tile.
+     * This allows to change the unit post on the tile. It does not imply that
+     * the tile is also bound to the unit. You should call Unit::setTile for a
+     * two way association
      *
      * @param u the unit that we want to post on the tile
      * @throws IllegalArgumentException when null is given as an argument.
@@ -83,7 +90,7 @@ public abstract class Tile {
 
     /**
      * Make sure that there is no unit placed in this tile after the call of this
-     * method.
+     * method. Does not imply that the tile is unbound from the unit
      */
     public void unsetUnit() {
         this.unit = null;
@@ -145,6 +152,9 @@ public abstract class Tile {
      */
     public abstract int getCostFactor();
 
+    /**
+     * Print the tile to stdout, as part of the board representation
+     */
     public void print() {
         if (this.unit != null) {
             this.unit.print();
@@ -154,6 +164,9 @@ public abstract class Tile {
         }
     }
 
+    /**
+     * Return a string representation of the tile
+     */
     public String toString() {
         return "(" + this.x + ", " + this.y + ")";
     }
