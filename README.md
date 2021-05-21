@@ -11,7 +11,7 @@
 
 [Le sujet 2021](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents)
 
-# Instructions
+# Usage
 
 ## Makefile
 
@@ -64,6 +64,41 @@ dans le répertoire contenant les classes de test `tests`.
 
 La cible `all` (choisie par défaut en exécutant `make` sans argument à la racine
 du projet) permet de générer les jar exécutables des deux jeux.
+
+## Affichage sur la sortie standard
+
+Les classes exécutables produisent une trace d'exécution des jeux sur la sortie
+standard. Pour chaque tour de chaque joueur, la trace prend la forme suivante :
+- un compte-rendu de ses actions, et de leurs effets sur les unités en jeu
+- une trace de l'opération de rémunération des unités
+- un affichage du plateau de jeu après l'étape de rémunération
+- un sommaine concernant la situation de chaque joueur
+
+Dans le jeu agricole, les unités sont dénotées de la manière suivante :
+`Worker(%d)` où `%d` correspond à la quantité d'or possédée par l'unité. Dans le
+jeu de guerre, on dénote les armées par `Army(%d)` où `%d` représente la taille
+d'une armée.
+
+Les tuiles sont dénotées de la façon suivante dans les deux jeux : `%s(%d, %d)`
+où `%s` est un type de terrain, et `(%d, %d)` sont les coordonnées de la tuile
+sur le terrain (à partir de 0, l'origine se trouvant dans le coin supérieur
+gauche).
+
+Dans l'affichage du plateau, les tuiles sont représentées ainsi :
+- dans le jeu agricole, `[P/C/   6]` représente une tuile de type plaine,
+  occupée par le joueur dont l'initiale du nom est 'C' par l'intermédiaire d'une
+  unité possédant 6 unités d'or.
+- dans le jeu militaire, `[F/E/0/ 1]` représente une tuile de type forêt,
+  occupée par le joueur dont l'initiale du nom est 'E' par l'intermédiaire d'une
+  armée de taille 1 possédant 0 unité d'or.
+
+Dans l'affichage de l'état dans lequel se trouve chaque joueur, les
+abbréviations `Un`, `Go`, `St`, `Sa`, `Wh`, `Wo`, `Wa`, `Fo` représentent
+respectivement le nombre d'unités possédées, la quantité d'or, les ressources en
+roche, sable, blé et bois, le nombre de guerriers et d'unités de nourriture
+disponibles. Le nombre de points du joueur est indiqué en début de ligne suivi
+entre parenthèses du différentiel de points entre le début et la fin du tour
+d'un joueur.
 
 # Livrables
 
