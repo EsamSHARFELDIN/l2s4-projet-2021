@@ -83,6 +83,20 @@ public class ArmyTest {
     }
 
     @Test
+    public void canSetSizeWithSet() {
+        Tile t = new MountainTile(0, 0);
+        Player p = new WarPlayer("Samson");
+        Army a = new Army(t, p, 1);
+        assertEquals(1, a.getSize());
+        a.setSize(2);
+        assertEquals(2, a.getSize());
+        a.setSize(0);
+        assertEquals(1, a.getSize());
+        a.setSize(5);
+        assertEquals(3, a.getSize());
+    }
+
+    @Test
     public void testMilitaryStrength() {
         Tile t = new MountainTile(0, 0);
         Player p = new WarPlayer("Samson");
