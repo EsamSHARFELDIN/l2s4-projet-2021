@@ -466,3 +466,32 @@ malgré de fortes similitudes).
 ## Semaine 11
 
 ## Semaine 12
+
+- Création de packages pour organiser les classes du projet.
+
+- `Board` devient une classe abstraite, qui contient les méthodes utiles pour
+  manipuler les tuiles d'un plateau, mais qui n'impose pas de règles sur le
+  contenu du plateau (notamment sur la répartition des tuiles). Cette classe
+  est étendue par `ExampleBoard` (dont le contenu fixe correspond à l'exemple
+  de l'énoncé) et `RandomBoard` qui correspond à un plateau aléatoire suivant
+  les règles des jeux de guerre et agricole.
+
+- Implémentation de `WarGame` et réécriture des boucles de la logique des jeux
+  dans les méthodes `AgricolGame::play` et `WarGame::play`.
+
+- Achèvement et correction de la documentation. Notamment, rédaction de
+  documentation pour les méthodes privées ou protégées.
+
+- Correction des classes de test (notamment dans les packages `player`, `game`,
+  `action` et `board`).
+
+- Correction de bugs divers.
+
+- Implémentation de mécanismes pour l'affichage d'une trace du jeu sur la sortie
+  standard (dont un affichage rudimentaire du plateau sous forme de texte).
+
+- Ajout de classes exécutables correspondant aux deux jeux demandés.
+
+- Ecriture du Makefile et ajout d'instructions de compilation dans le README.
+
+- Organisation du dépôt selon les consignes de rendu.
