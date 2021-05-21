@@ -465,6 +465,35 @@ malgré de fortes similitudes).
 
 ## Semaine 11
 
+- Modélisation : 
+	* Ajout d'un nouvel UML représentant l'ensemble des classes et des classes Test.
+	
+- Tests pour les classes : 
+	* 'AgricolDoNothingAction'.
+	* 'Board'.
+	* 'DoNothingAction'.
+	* Filles de 'Action'.
+	
+- implémentation :
+	* Méthodes goldCoinWhenPlayerDoesNothing() et cost() dépendants de Tile#getAddCost de la classe 'Worker'.
+	* Méthodes militaryStrength(), points(), cost() dépendants de Tile#getCostFactor de la classe 'Army'.
+	* Méthodes hasUnit() de la classe 'Unit'.
+	* Suppresion de getCost() pour 'Tile' et ses filles.
+	* Ajout de méthodes costAdd() et costFactor() pour 'Tile' et ses filles.
+	* Ajout de variables statiques pour 'Tile' et ses filles.
+	* Ajout de abstract getter pour les variables statiques de 'Tile' et ses filles.
+	* Ajout de méthodes abstraites liées au bon fonctionnement du jeu de guerre dans 'Tile' et ses filles.
+	* Taille maximale d'une armée en fonction de la tuile.
+	* Implémentation des classes filles de 'Action'.
+	* Classe 'AgricolGame', 'WarGame' et l'énumération 'Ressources'.
+
+- Corrections mineures :
+	* Bugs pour 'Player' et 'AgricolPlayer'.
+	* Decrement warrior stock et remove unit from the list.
+	* AgricolGame::play. et ajout d'une méthode findWinner() pour 'AgricolGame'.
+	* Play throws et isGameOver() abstraite.
+	* Ajout d'un compteur de tour pour 'AgricolGame'.
+	
 ## Semaine 12
 
 - Création de packages pour organiser les classes du projet.
