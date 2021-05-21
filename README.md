@@ -460,6 +460,24 @@ malgré de fortes similitudes).
 
 
 ## Semaine 9
+- Implémentation de `Player`: classe abstraite qui est la classe mère de tout
+les joueurs dans le jeu.
+
+- Implémentation de `AgricolPlayer`: classe du joueur dans le jeu agricol.
+
+- Dans `Tile`, ajout des informations qui permet à une tuile de connaître à quelle 
+position dans le plateau elle est placée.
+
+- Changement du prototype de `Player::chooseAction` en ajoutant un paramètre de
+type `Board`. Ce paramètre représente le plateau du jeu, ce qui permet à un 
+joueur de choisir une action légale dans `chooseAction`.  
+Implémentation de `Board::freeTiles()` qui facilitera au joueur le choix d'une
+tuile libre pour une action de déploiement.
+
+- Ajout de constructeur plus "simple" dans `Unit` et ses sous-classes, par exemple, le constructeur qui ne prend pas de joueur et de tuile en paramètre, car
+on peut construire une unité sans forcément savoir a quel joueur ou à quelle tuile
+elle appartient.
+
 
 ## Semaine 10
 
