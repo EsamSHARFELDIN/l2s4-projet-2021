@@ -480,6 +480,19 @@ elle appartient.
 
 
 ## Semaine 10
+* nous avons ajouter les classes tests de `AgricolDoNothingActionTest`, `BoardTest`et`DoNothingAction`.
+
+* Modification concernant les classes `Player` , `AgricolPlayer`:
+  - Implémentation le javadoc de la class et le codage sur le classe `Player`.
+  
+* Modification concernant la classe `Unit`, `Army` and `Worker`:
+  - ajoutent des construire de les classe `Unit`, `Army` et `Worker`. 
+
+* Modification concernant la classe `Board` :
+  - implémentation de la classe `Board`  ajouter un method `freeTiles`.
+
+* Modification concernant la classe `Game`: 
+  - Implémentation de `Game`, ajouter un throws IllegalArgumentException au constructeur de Game
 
 ## Semaine 11
 
@@ -487,10 +500,10 @@ elle appartient.
 	* Ajout d'un nouvel UML représentant l'ensemble des classes et des classes Test.
 	
 - Tests pour les classes : 
-	* 'AgricolDoNothingAction'.
-	* 'Board'.
-	* 'DoNothingAction'.
-	* Filles de 'Action'.
+	* `AgricolDoNothingAction`.
+	* `Board`.
+	* `DoNothingAction`.
+	* Filles de `Action`.
 	
 - implémentation :
 	* Méthodes goldCoinWhenPlayerDoesNothing() et cost() dépendants de Tile#getAddCost de la classe 'Worker'.
