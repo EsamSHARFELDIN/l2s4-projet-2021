@@ -20,14 +20,18 @@ public class Army extends Unit {
      * The maximum size an army can have.
      */
     public static final int MAX_SIZE = 5;
+
     /**
      * The minimum size an army can have.
      */
     public static final int MIN_SIZE = 1;
+
     /**
-     * @param size the size of this army(from 1 to 5, included)
+     * The size of this army (from 1 to 5, included, but depending on the
+     * context)
      */
     protected int size;
+
     /**
      * create an army unit with given size, place and player.
      * @param place the place where to put this army. Can be null iff this army unit is placed nowhere.
@@ -72,6 +76,10 @@ public class Army extends Unit {
         return this.size;
     }
 
+    /**
+     * Set the size of the army, bounded by getMinArmySize() and getMaxArmySize
+     * @param val New size of the army
+     */
     public void setSize(int val) {
         if (val > this.getMaxArmySize()) {
             this.size = this.getMaxArmySize();
@@ -146,11 +154,17 @@ public class Army extends Unit {
         return Army.MIN_SIZE;
     }
 
+    /**
+     * Print the unit to stdout, as part of the board representation
+     */
     public void print() {
         super.print();
         System.out.printf("%d/%2d", this.goldQuantity, this.size);
     }
 
+    /**
+     * Return a string representation of the tile
+     */
     public String toString() {
         return "Army(" + this.size + ")";
     }

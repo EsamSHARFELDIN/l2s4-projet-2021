@@ -22,26 +22,27 @@ public abstract class Unit {
         this.player = player;
         this.goldQuantity = 0;
     }
-    
+
     /**
-     * Construct a unit which does not belong to any tile 
+     * Construct a unit which does not belong to any tile
      * nor any player
      */
     public Unit() {
-    	this(null, null);
+        this(null, null);
     }
-    
+
     /**
-     * Construct a unit defined by a tile but does not 
+     * Construct a unit defined by a tile but does not
      * belong (yet) to any player.
      * @param tile The tile occupied by the unit
      */
     public Unit(Tile tile) {
-    	this(tile, null);
+        this(tile, null);
     }
-    
+
     /**
-     * Set the tile occupied by the unit
+     * Set the tile occupied by the unit. Does not imply that the unit is also
+     * bound to the tile
      * @param tile New tile occupied by the unit
      */
     public void setTile(Tile tile) {
@@ -120,19 +121,25 @@ public abstract class Unit {
     public int points() {
         return this.goldQuantity;
     }
-    
+
     /**
      * tell if this unit is bound to a tile.
      * @return true iff this unit is bound to a tile.
      */
     protected boolean hasTile() {
-    	return this.tile != null;
+        return this.tile != null;
     }
 
+    /**
+     * Print the unit to stdout, as part of the board representation
+     */
     public void print() {
         System.out.print(this.player.getName().charAt(0) + "/");
     }
 
+    /**
+     * Return a string representation of the tile
+     */
     public String toString() {
         return "Unit(" + this.goldQuantity + ")";
     }

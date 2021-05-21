@@ -51,6 +51,7 @@ public abstract class Game {
     /**
      * Start the game and give the course of the game.
      * @return Player the winner of the game.
+     * @throws GameException if any illegal behaviour is detected
      */
     public abstract Player play() throws GameException;
 
